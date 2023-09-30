@@ -1,28 +1,33 @@
-# Welcome to Semecter Project repository
+# Computer Science 508 Fall Semester Project: Restaurant Database
+| Member Names | VCU Email Address |
+| :---: | :---: |
+| Edwin Constancia | constanciaes@vcu.edu |
+| Alex Welk | welka@vcu.edu |
 
-Use this project scaffold for all your deliverables for the semester long project including deliverables 4 through 7.
-Prior deliverables (1-3) did not require written documentation, and thus no repo.
 
-DO NOT USE THE *./docs* FOLDER unless you're comfy with what you're doing!  This folder name is reserved for use by Quarto. Quarto will create and manage a public, static website in this folder once we set it up in a later assignment. You should
-not store source files in the *./docs* folder unless you explicitly want them shared publically.
+## Reports
+The *reports* folder contains the deliverable statements required for the first phase of the CMSC 508 project. 
 
-I created a few folders that you can use or not:
+deliverable4 includes:
 
-- *./src* - to hold your python/flask source code
-- *./reports* - to hold your deliverable reports. Within this folder I recommend a consistent naming convention for file like *deliver4.qmd*, *deliver5.qmd*, etc.
+1. **Project Overview and Key Deliverables Section:**  
+   - Overview of the project and domain area.
+   - Links to key deliverables:
+     - [Link to Pitch Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_z86s0xo9/embed/dynamic)
+     - [Link to Design Video](insert_link_here)
+     - [Link to GitHub Repository](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21#welcome-to-semecter-project-repository)
 
-YOU own this project so you can set up the folder structure as you will. I provided a simple structure to help you get started only.
+2. **Problem Description Section:**  
+   - Detailed explanation of the problem domain, including context and scope.
+   - Justification for the need for a database.
+   - User roles, use cases, and security/privacy considerations.
 
-PLEASE MODIFY THIS README FILE per instructions in [project deliverable 4](https://virginiacommonwealth.instructure.com/courses/85746/assignments/725440?module_item_id=3019749).
-You'll need to be adding links to your previous *pitch* video for deliverable 3.  You'll also want to include team member info in the readme.
+3. **Database Design Report Section:**  
+   - Entity-Relationship Diagram (ERD) using appropriate notation.
+   - Relational schemas, attributes, types, domains, and constraints.
+   - Functional dependencies and normalization (BCNF/4NF).
+   - Specific queries and sample data.
 
-To learn more about writing good README.md files, see:
-
-<https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/>
-
-This is a scaffold project. I’ll be providing scaffolds throughout the
-semester to get you working faster, and to make grading much easier for
-the TA team.
-
-Good luck!
+## src 
+The *src* folder will contain the python/flask source code for phase 2 of the VCU Computer Science 508 fall semester project. 
 
