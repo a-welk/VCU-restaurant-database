@@ -10,10 +10,10 @@ The *reports* folder holds all the  deliverable reports required for the first p
 
 The deliverable 4 report includes:
 
-1. ** A Project Overview and Key Deliverables Section:**
-2. ** A Problem Description Section:**  
-3. ** A Database Design Report Section:**
-4. ** A Problem Management Section **
+1. **A Project Overview and Key Deliverables Section:**
+2. **A Problem Description Section:**  
+3. **A Database Design Report Section:**
+4. **A Problem Management Section**
 
 ## src 
 The *src* folder will contain the python/flask source code for the CMSC 508 fall semester project. 
