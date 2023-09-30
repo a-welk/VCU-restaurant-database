@@ -1,6 +1,6 @@
-# Computer Science 508 Fall Semester Project: Restaurant Database
+# Computer Science 508 Fall Semester Project Reports
 
-Our database project revolves around addressing the dining challenges that VCU students often encounter. We've created a platform that compiles a wealth of information about local restaurants, including their menus, prices, special dishes, dietary options, student discounts, user reviews, and proximity to campus. The idea is to empower VCU students to make well-informed dining choices that cater to their specific cravings, financial constraints, and the convenience of being close to campus. Our project is motivated by the desire to alleviate the dining dilemmas that many students face during their college years, not just at VCU but potentially at other universities as well.
+These reports serve as the foundation of our CMSC 508 Fall Semester Project, which focuses on designing a database solution to address dining challenges faced by VCU students. In this first phase, our reports encompass all aspects of our project, from understanding the problem domain and justifying the need for a database to the intricacies of database design and project management. 
 
 | Member Names | VCU Email Address |
 | :---: | :---: |
@@ -12,23 +12,23 @@ This folder contains the deliverable reports required for the first phase of the
 
 ## Deliverable 4 Report includes:
 
-1. **Project Overview and Key Deliverables Report:**  
+1. **Project Overview and Key Deliverables Section:**  
    - Overview of the project and domain area.
    - Links to key deliverables:
      - [Link to Pitch Video](insert_link_here)
      - [Link to Design Video](insert_link_here)
      - [Link to GitHub Repository](insert_link_here)
 
-2. **Problem Description Report:**  
+2. **Problem Description Section:**  
    - Detailed explanation of the problem domain, including context and scope.
    - Justification for the need for a database.
    - User roles, use cases, and security/privacy considerations.
 
-3. **Database Design Report:**  
+3. **Database Design Section:**  
    - Entity-Relationship Diagram (ERD) using appropriate notation.
    - Relational schemas, attributes, types, domains, and constraints.
    - Functional dependencies and normalization (BCNF/4NF).
    - Specific queries and sample data.
 
-4. **Project Management Report:**  
+4. **Project Management Section:**  
    - Gantt chart outlining project milestones and tasks.
