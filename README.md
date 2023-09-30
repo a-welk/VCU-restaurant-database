@@ -14,16 +14,16 @@ The *reports* folder contains the deliverable reports required for the first pha
 deliverable4 html report includes:
   - [Link to html document in Github](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21#welcome-to-semecter-project-repository)
 
-1. **Project Overview and Key Deliverables Section:**  
+1. **Project Overview and Key Deliverables Section**  
    - Overview of the project and domain area.
    - Links to key deliverables:
      - [Link to Pitch Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_z86s0xo9/embed/dynamic)
      - [Link to Design Video](insert_link_here)
      - [Link to GitHub Repository](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21#welcome-to-semecter-project-repository)
 
-2. **Problem Description Section:**  
-3. **Database Design Report Section:**  
-4. **Project Management Section:**
+2. **Problem Description Section**  
+3. **Database Design Report Section**  
+4. **Project Management Section**
 
 ## src 
 The *src* folder will contain python/flask sourcecode for phase 2 of the VCU Computer Science 508 fall semester project. 
