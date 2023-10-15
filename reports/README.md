@@ -32,3 +32,5 @@ This folder contains the deliverable reports required for the first phase of the
 
 4. **Project Management Section:**  
    - Gantt chart outlining project milestones and tasks.
+
+To open deliver4.html use "open deliver4.html" in terminal 
