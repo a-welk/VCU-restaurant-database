@@ -18,8 +18,9 @@ deliverable4 html report includes:
    - Overview of the project and domain area.
    - Links to key deliverables:
      - [Link to Pitch Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_z86s0xo9/embed/dynamic)
-     - [Link to Design Video](insert_link_here)
+     - [Link to Design Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic)
      - [Link to GitHub Repository](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21#welcome-to-semecter-project-repository)
+     - [Link to deliver4.html Location in Repo]()
 
 2. **Problem Description Section**  
 3. **Database Design Report Section**  
