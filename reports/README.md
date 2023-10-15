@@ -18,7 +18,7 @@ This folder contains the deliverable reports required for the first phase of the
      - [Link to Pitch Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_z86s0xo9/embed/dynamic)
      - [Link to Design Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic)
      - [Link to GitHub Repository](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/tree/main)
-     - [Link to deliver4.html location]()
+     - [Link to deliver4.html Location in Repo](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/reports/deliver4.html)
 
 2. **Problem Description Section:**  
    - Detailed explanation of the problem domain, including context and scope.
