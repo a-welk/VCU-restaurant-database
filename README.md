@@ -12,7 +12,6 @@ Our database project revolves around addressing the dining challenges that VCU s
 The *reports* folder contains the deliverable reports required for the first phase of the CMSC 508 project. 
 
 deliverable4 html report includes:
-  - [Link to html document in Github](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21#welcome-to-semecter-project-repository)
 
 1. **Project Overview and Key Deliverables Section**  
    - Overview of the project and domain area.
