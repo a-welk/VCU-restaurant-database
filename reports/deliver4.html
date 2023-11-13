@@ -3542,9 +3542,7 @@ text-align: center;
 
     RESTAURANT ||--o{ MENU : Has_Menu
     RESTAURANT ||--o{ DISCOUNT : Offers_Discount
-    RESTAURANT ||--o{ VISIT : Has_Visits
     RESTAURANT ||--o{ ACCESSIBILITY : Has_Accessibility_Features
-    RESTAURANT ||--o{ DISTANCE : Is_Located_At
     RESTAURANT ||--o{ REVIEW : Has_Reviews
     RESTAURANT ||--o{ LOCATION : Is_Located_In
     MENU ||--|{ ITEM : Contains_Items
@@ -3564,6 +3562,7 @@ text-align: center;
         string address
         string neighborhood
         string cardinalDirectionFromVCU
+        int milesFromVCU
     }
 
     MENU {
@@ -3588,25 +3587,12 @@ text-align: center;
         string conditions
     }
 
-    VISIT {
-        primary_key visitID
-        foreign_key restaurantID
-        date date
-        string comment
-    }
-
     ACCESSIBILITY {
         primary_key accessibilityID
         foreign_key restaurantID
         string nearbyBusStops
         string sidewalkAvailability
         string otherAccessibilityFeatures
-    }
-
-    DISTANCE {
-        primary_key distanceID
-        foreign_key restaurantID
-        float miles
     }
 
     REVIEW {
