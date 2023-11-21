@@ -161,6 +161,7 @@ erDiagram
         foreign_key restaurantID
         float rating
         string reviewText
+        date reviewDate
     }
 
     DIETARY_PREFERENCE {
