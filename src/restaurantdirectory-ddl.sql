@@ -5,7 +5,7 @@ CREATE TABLE restaurants (
     restaurant_id int not null auto_increment,
     restaurant_name varchar(256) not null,
     restaurant_formality_level varchar(256),
-    restaurant_avg_total float,
+    restaurant_avg_total varchar(64),
     restaurant_location_id int,
     restaurant_type varchar(256),
     PRIMARY KEY (restaurant_id)
@@ -16,17 +16,16 @@ CREATE TABLE review (
     review_id int not null auto_increment,
     review_restaurant_id not null,
     review_rating float not null,
-    review_text varchar (512),
+    review_text varchar (1026),
     review_date date,
     PRIMARY KEY (review_id)
 )
 
-drop table if exists location;
-CREATE TABLE location (
+drop table if exists locations;
+CREATE TABLE locations (
     location_id int not null auto_increment,
     location_address varchar(256) not null,
-    location_direction_from_VCU char,
-    location_distance_from_VCU float not null,
+    location_direction_from_VCU varchar(32),
     location_neighborhood varchar(256),
     PRIMARY KEY (location_id)
 )
@@ -44,6 +43,7 @@ drop table if exists accessibility;
 CREATE TABLE accessibility (
     accessibility_id int not null auto_increment,
     accessibility_restaurant_id int not null,
+    accessibility_miles_to_VCU float,
     accessibility_nearby_bus_stops varchar(256),
     accessibility_notes varchar(256),
     PRIMARY KEY (accessibility_id)
