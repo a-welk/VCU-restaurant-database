@@ -48,7 +48,7 @@ CREATE TABLE accessibility (
 
 DROP TABLE IF EXISTS menu;
 CREATE TABLE menu (
-    menu_id int not null auto_increment,
+    menu_id int not null,
     restaurant_id int not null,
     PRIMARY KEY (menu_id),
     FOREIGN KEY (restaurant_id) REFERENCES restaurants(restaurant_id)
@@ -56,7 +56,7 @@ CREATE TABLE menu (
 
 DROP TABLE IF EXISTS item;
 CREATE TABLE item (
-    item_id int not null auto_increment,
+    item_id int not null,
     item_dietary_preference_id int,
     item_name varchar(256) not null,
     item_description varchar(512),
