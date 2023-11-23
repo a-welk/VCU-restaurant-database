@@ -22,7 +22,8 @@ CREATE TABLE restaurants (
     restaurant_avg_total varchar(64),
     restaurant_location_id int,
     restaurant_type varchar(256),
-    PRIMARY KEY (restaurant_id)
+    PRIMARY KEY (restaurant_id),
+    FOREIGN KEY (restaurant_location_id) REFERENCES locations(location_id)
 );
 
 DROP TABLE IF EXISTS review;
@@ -43,8 +44,10 @@ CREATE TABLE accessibility (
     accessibility_miles_to_VCU float,
     accessibility_nearby_bus_stops varchar(256),
     accessibility_notes varchar(256),
-    PRIMARY KEY (accessibility_id)
+    PRIMARY KEY (accessibility_id),
+    FOREIGN KEY (accessibility_restaurant_id) REFERENCES restaurants(restaurant_id)
 );
+
 
 DROP TABLE IF EXISTS menu;
 CREATE TABLE menu (
