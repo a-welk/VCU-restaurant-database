@@ -1,13 +1,13 @@
 DROP TABLE IF EXISTS dietary_preference;
 CREATE TABLE dietary_preference (
-    dietary_preference_id int not null auto_increment,
+    dietary_preference_id int not null,
     dietary_preference_name varchar(256) not null,
     PRIMARY KEY (dietary_preference_id)
 );
 
 DROP TABLE IF EXISTS locations;
 CREATE TABLE locations (
-    location_id int not null auto_increment,
+    location_id int not null,
     location_address varchar(256) not null,
     location_direction_from_VCU varchar(32),
     location_neighborhood varchar(256),
@@ -16,7 +16,7 @@ CREATE TABLE locations (
 
 DROP TABLE IF EXISTS restaurants;
 CREATE TABLE restaurants (
-    restaurant_id int not null auto_increment,
+    restaurant_id int not null,
     restaurant_name varchar(256) not null,
     restaurant_formality_level varchar(256),
     restaurant_avg_total varchar(64),
@@ -28,7 +28,7 @@ CREATE TABLE restaurants (
 
 DROP TABLE IF EXISTS review;
 CREATE TABLE review (
-    review_id int not null auto_increment,
+    review_id int not null,
     review_restaurant_id int not null,
     review_rating float not null,
     review_text varchar(1026),
@@ -39,7 +39,7 @@ CREATE TABLE review (
 
 DROP TABLE IF EXISTS accessibility;
 CREATE TABLE accessibility (
-    accessibility_id int not null auto_increment,
+    accessibility_id int not null,
     accessibility_restaurant_id int not null,
     accessibility_miles_to_VCU float,
     accessibility_nearby_bus_stops varchar(256),
