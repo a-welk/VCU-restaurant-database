@@ -1,3 +1,5 @@
+--i need to add vegan only/halal restuarants to make database realistic 
+-- i need to fix the data here not matching with parameters , fixed reference points in ddl so no longer have to change parameters name 
 insert into restuarants (restaurant_id, restaurant_name, restaurant_formality_level, restaurant_avg_total, restaurant_location_id, restaurant_type) values
 (1, "Picolla Italy Pizza & Subs", "Casual", "$15-20", 1, "Italian"),
 (2, "Village Cafe", "Casual", "$15-20", 2, "American"),
@@ -64,14 +66,129 @@ insert into locations (location_id, location_address, location_direction_from_VC
 
 
 insert into accessibility (accessibility_id, accessibility_restaurant_id, accessibility_distance_to_VCU, accessibility_nearby_bus_stops, accessibility_notes) values
+
 (1, 1, .2, "Several within a quarter of a mile", "Basically on campus"),
 (2, 2, .3, "Several within quarter mile", "Basically on campus"),
 (3, 3, .4, "None within quart mile", "Just into the fan"),
+
 (4, 4, .3, "Two within walking distance down going West on Cary", "Basically on campus"),
 (5, 5, .3, "Several within a half mile", "Basically on campus"),
 (6, 6, .3, "Several close", "Basically on campus"),
+
 (7, 7, .3, "Several Close", "Basically on campus"),
 (8, 8, .3, "Several Close", "Basically on campus"),
+
 (9, 9, .3, "Several Close", "Basically on campus"),
 (10, 10, .1, "Several Close", "Literally on campus")
 ;
+
+
+INSERT INTO menu(restaurant_id,menu_id) values 
+    (1,1),
+    (2,2),
+    (3,3),
+    (4,4),
+    (5,5),
+    (6,6),
+    (7,7),
+    (8,8),
+    (9,9),
+    (10,10)
+;
+
+
+    INSERT INTO item (item_id, item_dietary_preference_id, item_name, item_description, item_price)
+VALUES
+--Piccola Subs
+    (1001, 10, 'Margherita Pizza', 'Classic pizza with tomato, mozzarella, and basil', 9.99),
+    (1002, 20, 'Pepperoni Pizza', 'Pizza topped with pepperoni and mozzarella cheese', 10.99),
+    (1003, 40, 'Cheese Pizza', 'Pizza with a blend of different cheeses', 8.99),
+    (1004, 10, 'Spaghetti Carbonara', 'Pasta with eggs, cheese, bacon, and black pepper', 12.49),
+    (1005, 20, 'Chicken Alfredo', 'Fettuccine pasta with creamy Alfredo sauce and grilled chicken', 13.99),
+    (1006, 40, 'Caprese Salad', 'Tomatoes, mozzarella, basil, and olive oil', 7.99),
+    (1007, 10, 'Lasagna', 'Layers of pasta, meat, and cheese baked to perfection', 11.49),
+    (1008, 20, 'Garlic Breadsticks', 'Freshly baked breadsticks with garlic seasoning', 5.99),
+    (1009, 40, 'Tiramisu', 'Classic Italian dessert with coffee flavor', 6.99),
+    (1010, 10, 'Ravioli', 'Stuffed pasta with various fillings', 10.99),
+    (1011, 20, 'Calzone', 'Folded pizza filled with meats, cheese, and vegetables', 11.99),
+    (1012, 40, 'Minestrone Soup', 'Traditional Italian vegetable soup', 8.49),
+    (1013, 10, 'Bruschetta', 'Toasted bread topped with tomatoes, basil, and olive oil', 7.49),
+    (1014, 20, 'Cannoli', 'Italian pastry with sweet ricotta filling', 9.99),
+    (1015, 40, 'Penne alla Vodka', 'Penne pasta in a creamy tomato vodka sauce', 12.99),
+    (1016, 10, 'Meatballs Marinara', 'Italian-style meatballs in marinara sauce', 14.99),
+    (1017, 20, 'Vegetarian Pizza', 'Pizza topped with assorted vegetables and cheese', 11.99),
+    (1018, 40, 'Gelato', 'Italian-style ice cream', 5.49),
+    (1019, 10, 'Eggplant Parmesan', 'Breaded and baked eggplant with marinara sauce and cheese', 13.49),
+    (1020, 20, 'Shrimp Scampi', 'Shrimp sautéed with garlic, butter, and white wine sauce', 15.99)
+--Village
+    (2001, 50, 'Corned Beef Hash', '2 eggs, a side choice, and bread choice', 8.95),
+    (2002, 50, 'Steak & Eggs', '6 oz Ribeye or a country fried steak, 2 eggs, a side choice, and bread choice', 10.95),
+    (2003, 50, 'Village Breakfast Special', '2 eggs any style, bacon, ham or sausage, a bread choice, and side choice', 6.95),
+    (2004, 50, 'French Toast', 'Sliced French bread dipped in homemade batter and dusted with powdered sugar, served with a side choice', 8.95),
+    (2005, 50, 'PANCAKES - Three Large Buttermilk Pancakes', '', 5.95),
+    (2006, 50, 'Fruit Pancakes', 'Blueberry, banana, granola, chocolate chip, pecan, apple', 6.95),
+    (2007, 10, 'Cheese Omelette', 'Two cheese choices, a bread choice, and a side choice', 7.95),
+    (2008, 10, 'Veggie Omelette', 'Green & red peppers, black olives, mushrooms, and onions with cheddar', 7.95),
+    (2009, 10, 'Western Omelette', 'Green peppers, diced tomatoes, onions, ham, and cheddar', 7.95),
+    (2010, 50, 'California Omelette', 'Diced chicken, broccoli, and cheddar with a dollop of sour cream', 8.50),
+    (2011, 10, 'Broccoli & Cheddar Omelette', 'Broccoli and cheddar cheese', 7.95),
+    (2012, 10, 'Spinach & Feta Omelette', 'Spinach, feta, and mozzarella cheese', 7.95),
+    (2013, 50, 'Lorraine Omelette', 'Spinach, bacon, tomatoes, and Swiss', 7.95),
+    (2014, 50, 'Meat Lovers Omelette', 'Sausage, bacon, ham, and cheddar', 8.50),
+    (2015, 50, 'Chicken Quesadilla', 'With cheddar cheese, tomato and onion. Served with salsa, lettuce, sour cream, and guacamole', 8.95),
+    (2016, 10, 'Black Beans and Rice', 'Homemade black beans over rice with salsa and sour cream, served with tortilla chips', 7.95),
+    (2017, 50, 'Wings', 'Choose fried, hot, dragon or honey BBQ', 7.95),
+    (2018, 10, 'Cheese Fries', 'Large village fries with a choice of cheese', 5.95),
+    (2019, 20,'Fried Mushrooms', 'Hand breaded and deep fried. Served with horseradish sauce', 6.50),
+    (2020, 20,'Beer-Battered Onion Rings', 'Double-coated & deep fried with a house-made beer batter', 6.95),
+
+
+
+
+;
+
+
+
+
+--made the parameter restauraunt id 
+INSERT INTO menu_items(menu_id, item_id) values
+    -- Picolla Italy Pizza & Subs
+    (1, 1001), (1, 1002), (1, 1003), (1, 1004), (1, 1005), (1, 1006), (1, 1007), (1, 1008), (1, 1009), (1, 1010),
+    (1, 1011), (1, 1012), (1, 1013), (1, 1014), (1, 1015), (1, 1016), (1, 1017), (1, 1018), (1, 1019), (1, 1020),
+    -- Village Cafe
+    (2, 2001), (2, 2002), (2, 2003), (2, 2004), (2, 2005), (2, 2006), (2, 2007), (2, 2008), (2, 2009), (2, 2010),
+    (2, 2011), (2, 2012), (2, 2013), (2, 2014), (2, 2015), (2, 2016), (2, 2017), (2, 2018), (2, 2019), (2, 2020),
+    -- Kuba Kuba
+    (3, 3001), (3, 3002), (3, 3003), (3, 3004), (3, 3005), (3, 3006), (3, 3007), (3, 3008), (3, 3009), (3, 3010),
+    (3, 3011), (3, 3012), (3, 3013), (3, 3014), (3, 3015), (3, 3016), (3, 3017), (3, 3018), (3, 3019), (3, 3020),
+    -- Dinamo
+    (4, 4001), (4, 4002), (4, 4003), (4, 4004), (4, 4005), (4, 4006), (4, 4007), (4, 4008), (4, 4009), (4, 4010),
+    (4, 4011), (4, 4012), (4, 4013), (4, 4014), (4, 4015), (4, 4016), (4, 4017), (4, 4018), (4, 4019), (4, 4020),
+    -- 821 Cafe
+    (5, 5001), (5, 5002), (5, 5003), (5, 5004), (5, 5005), (5, 5006), (5, 5007), (5, 5008), (5, 5009), (5, 5010), 
+    (5, 5011), (5, 5012), (5, 5013), (5, 5014), (5, 5015), (5, 5016), (5, 5017), (5, 5018), (5, 5019), (5, 5020),
+    -- Crazy Thai Restaurant
+    (6, 6001), (6, 6002), (6, 6003), (6, 6004), (6, 6005), (6, 6006), (6, 6007), (6, 6008), (6, 6009), (6, 6010), 
+    (6, 6011), (6, 6012), (6, 6013), (6, 6014), (6, 6015), (6, 6016), (6, 6017), (6, 6018), (6, 6019), (6, 6020),
+    -- Pardon My Cheesesteak
+    (7, 7001), (7, 7002), (7, 7003), (7, 7004), (7, 7005), (7, 7006), (7, 7007), (7, 7008), (7, 7009), (7, 7010), 
+    (7, 7011), (7, 7012), (7, 7013), (7, 7014), (7, 7015), (7, 7016), (7, 7017), (7, 7018), (7, 7019), (7, 7020),
+    -- Sonic Drive-In
+    (8, 8001), (8, 8002), (8, 8003), (8, 8004), (8, 8005), (8, 8006), (8, 8007), (8, 8008), (8, 8009), (8, 8010), 
+    (8, 8011), (8, 8012), (8, 8013), (8, 8014), (8, 8015), (8, 8016), (8, 8017), (8, 8018), (8, 8019), (8, 8020),
+    -- Paisano's Pizza
+    (9, 9001), (9, 9002), (9, 9003), (9, 9004), (9, 9005), (9, 9006), (9, 9007), (9, 9008), (9, 9009), (9, 9010), 
+    (9, 9011), (9, 9012), (9, 9013), (9, 9014), (9, 9015), (9, 9016), (9, 9017), (9, 9018), (9, 9019), (9, 9020),
+    -- Subway
+    (10, 10001), (10, 10002), (10, 10003), (10, 10004), (10, 10005), (10, 10006), (10, 10007), (10, 10008), (10, 10009),
+    (10, 10010), (10, 10011), (10, 10012), (10, 10013), (10, 10014), (10, 10015), (10, 10016), (10, 10017), (10, 10018), (10, 10019),
+    (10, 10020),
+    ;
+
+--to fix might just connect dietary preferences to restaurants or
+INSERT INTO dietary_preference (dietary_preference_id, dietary_preference_name) 
+VALUES 
+    (10, 'Vegetarian'), 
+    (20, 'Vegan'), 
+    (30, 'Halal'),
+    (40, 'No Specified Preference');
