@@ -6,11 +6,24 @@ insert into restuarants (restaurant_id, restaurant_name, restaurant_formality_le
 (3, "Kuba Kuba", "Casual", "$25-30", 3, "Cuban"),
 (4, "Dinamo", "Casual", "$25-30", 4, "Italian"),
 (5, "821 Cafe", "Casual", "$15-20", 5, "American Cafe"),
-(6, "Crazy Thai Restaurant", "Casual", "$25-30", "Thai"),
-(7, "Pardon My Cheesesteak", "Casual", "$15-20", "Cheesesteak"),
-(8, "Sonic Drive-In", "Fast Food", "$15-20", "American Fast Food"),
-(9, "Paisano's Pizza", "Casual", "$15-20", "Italian"),
-(10, "Subway", "Sub-Sandwich Fast Food", "Fast Food", "Sandwich"),
+(6, "Crazy Thai Restaurant", "Casual", "$25-30", 6, "Thai"),
+(7, "Pardon My Cheesesteak", "Casual", "$15-20", 7, "Cheesesteak"),
+(8, "Sonic Drive-In", "Fast Food", "$15-20", 8, "American Fast Food"),
+(9, "Paisano's Pizza", "Casual", "$15-20", 9, "Italian"),
+(10, "Subway", "Sub-Sandwich Fast Food", "$15-20" 10, "Sandwich"),
+(11, "Chipotle Mexican Grill", "Casual", "$15-20", 11, "Mexican"),
+(12, "CAVA", "Casual", "$15-20", 12, "Meditarranean" ),
+(13, "Panera Bread", "Casual", "15-20", 13, "Cafe"),
+(14, "&pizza", "Casual", "$25-30", 14, "Pizza"),
+(15, "Got Dumplings & TSAoCAA Tea", "Casual", "$25-30", 15, "Asian"),
+(16, "Alladin Express", "Casual", "$25-30", 16, "Meditarranean"),
+(17, "Domino's Pizza", "Takeout", "$15-20", 17, "Pizza"),
+(18, "Bento Sushi", "Takeout", "$15-20", 18, "Sushi"),
+(19, "Freshii", "Casual", "$25-30", "Health Food"),
+(20, "Chick-fil-A", "Takeout", "$15-20", "Fast Food Chicken"),
+(21, "Steak 'n Shake", "Takeout", "$15-20", "American Fast Food"),
+(22, "Oh Mochi Richmond", "Casual", "$15-20", "Donuts"),
+
 
 ;
 
@@ -47,6 +60,35 @@ insert into review (review_id, review_restaurant_id, review_rating, review_text,
 (30, 9, 2, "Ordered take out from here, was dissatisfied with what I received. Pizza was satisfactory, however, garlic knots were comically small. Like, as if they gave us the crumb left overs. I would have called for a refund but I did not want to wait a long time to go through the process. I recommend staying away from here. There are better places in the area to go to.", '02-17-2023'),
 (31, 9, 5, "Great lunch or dinner on campus! We love walking over to Paisano's for lunch breaks at work. Their food is consistently solid and the staff are always friendly. Their prices are also reasonable and they have regular coupon codes that you can add.", '09-14-2023'),
 (32, 10, 1, "The subway workers disgust me. They are so bothered when they take an order and they don't have any professional way of speaking what so ever. They mumble everything you say and when they're even bothered to repeat what they said. They are very rude, very rude. Not going back to that subway ever again being it was my second time experiencing the same problem.", '11-22-2019'),
+(33, 11, 1, "I ordered 2 chicken burrito bowls and a burrito with beef. Just received rice and lettuce. Worst customer service also workers standing around and not even greeting patrons or giving guidance on where to pick up online orders. Absolutely the worst Dining experience ever! Oh I added pics since this was so unbelievable.", '10-22-2022'),
+(34, 11, 2, "I would not recommend this chipotle to a friend but unfortunately it’s the closet one to my house. Bowls are tiny, rice is usually crunchy, and they be skimping. You’re better off going to Cava next door", '09-28-2023'),
+(35, 11, 4, "Chipotle at Richmond downtown, the only reason I took a star off is they meat savings portions. I usually get a scoop and half for an order but they gave me 1 scoop and 2 pieces of cut steak. Overall very clean store and clean bathrooms.", '09-13-2021'),
+(36, 12, 5, "Such good food with so many options to customize your meal! The Mediterranean sauces and dips with all of the fresh ingredients was very enjoyable. The food was priced well while the fountain drinks were a little on the expensive side but being right there campus, it wasn’t shocking.", "06-20-2023"),
+(37, 12, 4, "Great food...not as yummy as their 'M' competition, but several convenient locations. I don't give 5 star reviews to fast-casual places so this is about as good as it gets.", '10-15-2023'),
+(38, 13, 3, "Food and coffee are great. Some of the employees are wonderful. Now, management is a different story. If you look remotely different, then the typical customer they will watch you the entire time. He will go as far as to follow you in the restroom. I was a paying customer. I don't recommend going unless you look a certain way. What I mean by that is don't look homeless if you can help it.", '09-30-2023'),
+(39, 13, 3, "The staff are either really nice oooooor assume you aren't a paying customer right off the bat (regardless of what you are doing) and treat you rudely based on that. It's kind of messy, especially around the drink area. Prices feel high for the quality, and the charged lemonade - not just a fault of this location, an issue with Panera as a whole that customers should be mindful of - contains your /entire/ daily value of caffeine, which can make you feel things like heart palpitations after drinking it. It is tasty though.", '05-08-2023'),
+(40, 13, 5, "No soup at 7 am… soup starts at 9 am. Drinks were delicious. The green tea was the best one. Bagel was delicious and got a free wrap!", '11-27-2022'),
+(41, 14, 5, "The young lady who took our order and made the puzzas was very friendly and helpful with giving information and suggestions on the best sauces and toppings to pair up with. The pizza came out perfect!! My only regret is that I forgot to take a picture!", '11-20-2023'),
+(42, 14, 4, "I want to give five stars, but I can't! They are always out of vegan knots. I love that they have vegan options but isn't beneficial if you are always out of item. Also, when preparing for online delivery orders, please put my food in a bag!!! I love this place and I love the vegan knots and pizza but if I can't ever order them because they are out of them it doesn't do much good.", '08-21-2023'),
+(43, 14, 5, "I went in here on a whim, and I am totally happy I did! The pizza is excellent! The staff is very helpful and pleasant. The time spent from ordering to leaving is only about five to six minutes. So in and out quickly. Again the pizza is excellent! I will certainly return! Enjoy!", '03-25-2022'),
+(44, 15, 2, "The dumplings here were okay and the ones we got were deep fried. The cold sesame noodles were a bit too sweet for my taste, could definitely use some garlic/salt. We got the ramen as well but the broth was very disappointing. Also if you’re dining in they serve food in plastic containers (including the ramen, which came in 2 separate containers that you had to combine). Big portions though!", '03-19-2023'),
+(45, 15, 5, "This place has delicious dumplings and fried rice! Their dumpling soup is also amazing. And the brown sugar milk tea with bubble is amazing and so well made! ", '11-12-2023'),
+(46, 16, 5, "Looking for your next love in food? Try  these authentic tasting dishes, and you'll see the care and quality which goes into each. I know many people who love the food here too! I had mine delivered with Uber Eats, it arrived yummy and delicious.", '06-19-2023'),
+(47, 16, 3, "Good food but pay for water. I loved the philly in the gyro on request instead of the regular bread. Pizzas are good too. That is a go to thing here for me. The quantity is okay. We went for the food not the hookah so no comments on the hookah.", '10-26-2019'),
+(48, 17, 4, "The staff are super friendly and the service was quick. I asked for a few napkins, and they offered plates too. That was super helpful. The only down side is the pizzas were a lot more oily (buttery?) than we are used to. Pizza was still Delicious though. We jaunted over to Monroe Park to picnic out.", '09-20-2023'),
+(49, 17, 1, "Ordered a pizza over 2 hours ago, was told it was ready about 40 minutes after ordering it and the driver was on his way. That was 50 minutes ago and I still haven't received my food. Waiting over 2 1/2 hours for a pizza is ridiculous.", '11-20-2023'),
+(50, 18, 5, "N/A", '10-18-2022'),
+(51, 19, 1, "Smoothie machine is always 'broken' since VCU gave out coupons for the smoothies.  Food is terribly proportioned, don't pay 7 dollars for a pound of rice and several pieces of chicken.  Pretty much a lower quality chipotle.", '09-25-2018'),
+(52, 19, 2, "I got a free meal coupon on the grad opening day and decided to get the Teriyaki Twist bowl. I personally found the vegetable to rice ratio to be very low. I was hoping for about equal amount of veggies and rice. Another disappointment was that they put WAY too much teriyaki sauce in my bowl. So much that it ruined the taste over everything was too overwhelming and salty. I would like to try some of their other items, but I definitely will not be getting the Teriyaki bowl again.", '07-18-2017'),
+(53, 19, 1, "Way overpriced for what it is. Expect to wait 20+ minutes for a small item. Employees are all deaf so speak up or they won't get your order right or your name either. Food is OK though", '08-22-2019'),
+(54, 20, 1, "Literally the worst location in the tri cities How does one make someone wait 30 minutes for a cool wrap …. Every time I come it’s a half hour for an already prepared item This place is a mess", '01-25-2023'),
+(55, 20, 1, "Food isn't that great compared to other fast food options plus their staff is not exactly friendly or helpful. And Chick-fil-A supports/contributes to anti-LGBT groups. Not worth going anymore in my opinion.", '09-03-2021'),
+(56, 20, 2, "I went to make an order and decided I wanted an extra fry close to payment, a lady with a heart tattoo on her neck asks me 'You were in line for 5 minutes and didn't know your order?.' This was never a problem at any other chick-fil-a, employees should be trained better than that.", '05-07-2020'),
+(57, 21, 3, "N/A", '11/27/2023'),
+(58, 22, 5, "These donuts are so delicious! Creme brûlée is my all time fav. They sell potato hot dogs too and I am totally trying those next time. Smoothies and Boba Tea are on the menu as well. Yum!", '10-14-2023'),
+(59, 22, 5, "The donuts are so good and atmosphere is awesome!! They play kpop music. Lots of table to sit at. They have bottle drinks in the fridge that are from Korea like banana milk!! The donuts are never the same. Yes, they have a few they keep on the counter all the time, but they do make new flavors almost very week! Definitely worth coming with kpop loving friends, foodies, or wanting to try something new!", '10-15-2023'),
+(60, 22, 5, "Cant complain about a thing! In a great location with great hours, food and vibes are unmatched. I feel like they keep updating things to the decor and menu, awesome place to be.", '11-20-2023'),
+(61, 22, 4, "What a cute place! I’ve been wanting to try a Korean corndog for years and will have to come back often to try them all. I got the potato with all beef hot dog, I said no to the sweet finish but kind of wish I had gotten it because the potatoes were a little bland. The donuts are O M G! So billowy and light, love that it’s a rotating menu. The staff was lovely and worked hard to keep the line moving that picked up as my party was leaving. I’m not sure if there is an entrance in the back that would make ADA compliment but plenty of room once inside", '08-10-2023'),
 
 ;
 
@@ -61,10 +103,23 @@ insert into locations (location_id, location_address, location_direction_from_VC
 (8, "813 W Cary St, Richmond, VA 23220", "South", "VCU"),
 (9, "801 W Cary St, Richmond, VA 23220", "South", "VCU"),
 (10, "Higgs Bldg, 907 Floyd Ave, Richmond, VA 23284", "South", "VCU"),
+(11, "810 W Grace St, Richmond, VA 23220", "North", "VCU"),
+(12, "810 W Grace St, Richmond, VA 23220", "North", "VCU"),
+(13, "810 W Grace St, Richmond, VA 23220", "North", "VCU"),
+(14, "308 N Laurel St, Richmond, VA 23220", "North", "VCU")
+(15, "309 N Laurel St, Richmond, VA 23220", "North", "VCU"),
+(16, "801 W Broad St, Richmond, VA 23220", "North", "VCU"),
+(17, "111 N Belvidere St, Richmond, VA 23220", "East", "VCU"),
+(18, "810 Cathedral Pl, Richmond, VA 23284", "East", "VCU"),
+(19, "907 Floyd Ave, Richmond, VA 23284", "South", "VCU"),
+(20, "907 Floyd Ave, Richmond, VA 23284", "South", "VCU"),
+(21, "907 Floyd Ave, Richmond, VA 23284", "South", "VCU"),
+(22, "900 W Franklin St, Richmond, VA 23220", "Northwest", "VCU"),
 
 ;
 
 
+--distance to VCU is measured from VCU compass
 insert into accessibility (accessibility_id, accessibility_restaurant_id, accessibility_distance_to_VCU, accessibility_nearby_bus_stops, accessibility_notes) values
 
 (1, 1, .2, "Several within a quarter of a mile", "Basically on campus"),
@@ -79,7 +134,20 @@ insert into accessibility (accessibility_id, accessibility_restaurant_id, access
 (8, 8, .3, "Several Close", "Basically on campus"),
 
 (9, 9, .3, "Several Close", "Basically on campus"),
-(10, 10, .1, "Several Close", "Literally on campus")
+(10, 10, .1, "Several close on Harrison", "Literally on campus"),
+(11, 11, .2, "Several Close", "Literally on campus"),
+(12, 12, .2, "Several Close", "Literally on campus"),
+(13, 13, .2, "Several Close", "Literally on campus"),
+(14, 14, .3, "Several Close", "Basically on campus"),
+(15, 15, .3, "Several Close", "Basically on campus"),
+(16, 16, .3, "Several Close", "Basically on campus"),
+(17, 17, .3, "None for .25 miles", "Basically on capus"),
+(18, 18, .1, "Several on Harrison", "Literally on campus"),
+(19, 19, .1, "Several on Main and on Harrison", "Literally on campus"),
+(20, 20, .1, "Several on Main and on Harrison", "Literally on campus"),
+(21, 21, .1, "Several on Main and on Harrison", "Literally on campus"),
+(22, 22, .1, "One at Harrison and Franklin", "Basically on campus"),
+
 ;
 
 
