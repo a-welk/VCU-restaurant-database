@@ -171,7 +171,15 @@ INSERT INTO menu(restaurant_id,menu_id) values
     (19,19),
     (20,20),
     (21,21),
-    (22,22)
+    (22,22),
+    (23,23),
+    (24,24),
+    (25,25),
+    (26,26),
+    (27,27),
+    (28,28),
+    (29,29),
+    (30,30)
 ;
 
 
@@ -248,7 +256,7 @@ VALUES
     (405, 20, 'Beet & Fennel Salad', 'Fresh salad featuring beets, sliced fennel, mixed greens, and a tangy vinaigrette.', 13.00),
     (406, 40, 'Roasted Red Peppers W/ Mozzarella & Anchovy', 'Roasted red peppers served with fresh mozzarella and anchovies.', 17.00),
     (407, 10, 'Mussels Marinara', 'Fresh mussels cooked in a flavorful marinara sauce.', 14.00),
-    (408, 20, 'Rigatoni W/ Cauliflower & Kale', 'Rigatoni pasta tossed with roasted cauliflower, kale, and Parmesan cheese.', 18.00),
+    (408, 10, 'Rigatoni W/ Cauliflower & Kale', 'Rigatoni pasta tossed with roasted cauliflower, kale, and Parmesan cheese.', 18.00),
     (409, 30, 'Squid Ink Fettuccine W/ Calamari Napoletana', 'Black squid ink fettuccine served with a classic Neapolitan-style calamari sauce.', 24.00),
     (410, 10, 'Turkey Sandwich', 'Classic sandwich featuring sliced turkey, lettuce, tomato, and mayonnaise on whole grain bread.', 12.00),
     (411, 20, 'Rosemary + Sage Sausage W/ Polenta & Beans', 'Savory sausage seasoned with rosemary and sage, served with creamy polenta and beans.', 24.00),
@@ -259,7 +267,7 @@ VALUES
     (416, 10, 'Beet & Fennel Salad W/ Feta', 'A variation of the beet and fennel salad, now featuring crumbled feta cheese.', 15.00),
     (417, 20, 'Baked Cabbage', 'Cabbage slow-baked with savory seasonings until tender and flavorful.', 10.00),
     (418, 40, 'Calamari W/ Chard', 'Tender calamari cooked with Swiss chard and served with a zesty sauce.', 15.00),
-    (419, 10, 'Rigatoni W/ Bolognese', 'Rigatoni pasta served with a rich and meaty Bolognese sauce.', 20.00),
+    (419, 40, 'Rigatoni W/ Bolognese', 'Rigatoni pasta served with a rich and meaty Bolognese sauce.', 20.00),
     (420, 20, 'Squid Ink Fettuccine W/ Mussels Red Or White', 'Fettuccine pasta cooked in squid ink, served with mussels in a choice of red or white sauce.', 24.00),
 --821 Cafe 
     (501, 10, 'Marks Breakfast', 'Scrambled eggs with smoked salmon and capers. Served with 2 sides.', 10.00),
@@ -404,7 +412,7 @@ VALUES
     (1117, 40, 'Carnitas Burrito Bowl', 'Slow-cooked pork carnitas, brown rice, black beans, sour cream, and roasted chili-corn salsa in a bowl.', 9.99),
     (1118, 10, 'Vegetarian Tacos', 'Black beans, fajita veggies, brown rice, salsa, cheese, and lettuce in soft flour tortillas.', 7.49),
     (1119, 40, 'Gluten-Free Salad Bowl', 'Choice of protein, romaine lettuce, brown rice, black beans, salsa, and sour cream in a bowl.', 8.79),
-    (1120, 40, 'Double Chicken Burrito', 'Double portion of grilled chicken, cilantro-lime rice, pinto beans, salsa, and cheese in a flour tortilla.', 10.49)
+    (1120, 40, 'Double Chicken Burrito', 'Double portion of grilled chicken, cilantro-lime rice, pinto beans, salsa, and cheese in a flour tortilla.', 10.49),
 -- CAVA(Sample Data)
     (1201, 10, 'Grilled Chicken Grain Bowl', 'Grilled chicken, brown rice, black beans, tomato, cucumber, and feta cheese.', 9.99),
     (1202, 20, 'Vegan Falafel Pita', 'Crispy falafel, hummus, tomato, cucumber, red onion, and tzatziki in a warm pita.', 8.49),
@@ -425,7 +433,7 @@ VALUES
     (1217, 30, 'Lamb Gyro Bowl', 'Tender lamb gyro meat, rice pilaf, Greek salad, and tzatziki sauce.', 12.79),
     (1218, 40, 'Mushroom & Spinach Flatbread', 'Sautéed mushrooms, spinach, mozzarella cheese, and garlic herb spread on flatbread.', 10.49),
     (1219, 10, 'Mediterranean Tuna Salad', 'Tuna salad, mixed greens, olives, red onions, and lemon-dill vinaigrette.', 9.99),
-    (1220, 20, 'Vegan Buddha Bowl', 'Roasted sweet potatoes, quinoa, kale, chickpeas, and tahini-lemon dressing.', 8.99)
+    (1220, 20, 'Vegan Buddha Bowl', 'Roasted sweet potatoes, quinoa, kale, chickpeas, and tahini-lemon dressing.', 8.99),
 --Panera Bread 
     (1301, 40, 'Turkey Club Sandwich', 'Roasted turkey raised without antibiotics, Applewood-smoked bacon, lettuce, tomato, and mayo on whole wheat bread.', 11.99),
     (1302, 20, 'Vegan Southwest Salad', 'Mixed greens, black beans, corn, avocado, and crispy tortilla strips with a zesty vinaigrette dressing.', 9.49),
@@ -446,7 +454,7 @@ VALUES
     (1317, 40, 'Classic Tomato Soup', 'Vine-ripened pear tomatoes pureed with fresh cream for a velvety smooth flavor accented by hints of red pepper and oregano and topped with croutons.', 6.49),
     (1318, 30, 'Halal Beef Stew Bread Bowl', 'Hearty beef stew served in a sourdough bread bowl.', 12.99),
     (1319, 40, 'Classic Greek Salad', 'Romaine lettuce, grape tomatoes, cucumbers, red onions, Kalamata olives, pepperoncini, feta cheese, and Greek dressing.', 9.99),
-    (1320, 20, 'Vegan Black Bean Soup', 'A classic soup made with black beans, vegetables, and spices.', 8.29)
+    (1320, 20, 'Vegan Black Bean Soup', 'A classic soup made with black beans, vegetables, and spices.', 8.29),
 --&pizza
      (1401, 40, 'CHEESE PIE', 'A rich base of classic tomato sauce acts as the perfect canvas for a generous layer of shredded mozzarella. This minimalist masterpiece honors the age-old simplicity of the pizza world, offering a timeless, comforting experience with every cheese-laden bite.', 9.99),
     (1402, 40, 'WHITE PIE', 'An exquisite blend of creamy parm-romano sauce and our unique "T" sauce, beneath a canvas of fresh mozzarella. The sumptuous drizzle of truffle ranch takes it to new heights, with a finishing touch of cracked black pepper for a subtle kick. This pie is a sophisticated symphony of subtle flavors – pure indulgence in every bite.', 9.99),
@@ -467,7 +475,7 @@ VALUES
     (1417, 40, 'HALF & HALF', 'The perfect harmony of two classic pizza combinations in one pie. Customize your pizza with any two of our signature pies, creating a delightful experience of flavors.', 13.99),
     (1418, 40, 'GREAT GATSBY', 'An ode to classic tomato and mozzarella. Savory bacon, bold pepperoni, and tangy banana peppers atop a mozzarella canvas. Finished with a sprinkle of Parmesan for a delightful kick.', 13.99),
     (1419, 40, 'WHITE GUY', 'An elegant blend of creamy parm-romano sauce and our unique "T" sauce beneath a canvas of fresh mozzarella. The sumptuous drizzle of truffle ranch takes it to new heights with a finishing touch of cracked black pepper for a subtle kick.', 13.99),
-    (1420, 40, 'LAMBORGHINI™', 'A deluxe mix of classic tomato and mozzarella. Spicy Calabrian chilis, tangy pepperoni, savory bacon, and sweet red onion atop a mozzarella canvas. Finished with a sprinkle of Parmesan for a flavor-packed bite.', 13.99)
+    (1420, 40, 'LAMBORGHINI™', 'A deluxe mix of classic tomato and mozzarella. Spicy Calabrian chilis, tangy pepperoni, savory bacon, and sweet red onion atop a mozzarella canvas. Finished with a sprinkle of Parmesan for a flavor-packed bite.', 13.99),
 -- Got Dumplings & TSAoCAA Tea
     (1501, 40, 'Sample(6) With 2 Sides', 'Six pieces. Two pieces of chicken, two pieces of pork, and two pieces of shrimp.', 14.35),
     (1502, 40, 'Sample(6) With 1 Side', 'Six pieces. Two pieces of chicken, two pieces of pork, and two pieces of shrimp.', 11.15),
@@ -488,7 +496,7 @@ VALUES
     (1517, 40, 'Sakura Milk Oolong Tea', 'Sakura Milk Oolong Tea.', 5.85),
     (1518, 40, 'Osmanthus Milk Oolong Tea', 'Osmanthus Milk Oolong Tea.', 5.85),
     (1519, 40, 'Cloud-Mist Milk Green Tea', 'Cloud-Mist Milk Green Tea.', 5.85),
-    (1520, 40, 'Jasmine Milk Green Tea', 'Jasmine Milk Green Tea.', 5.85)
+    (1520, 40, 'Jasmine Milk Green Tea', 'Jasmine Milk Green Tea.', 5.85), 
 -- Alladin Express
     (1601, 20, 'Falafel Pita', 'Falafel Pita', 7.99),
     (1602, 20, 'Falafel Plate', '5 balls of a fried chickpea mixture on a salad base topped with tahini.', 13.99),
@@ -509,7 +517,7 @@ VALUES
     (1617, 20, 'Falafel Wrap', 'Falafel Wrap', 10.99),
     (1618, 20, 'Fried Eggplant Wrap', 'Fried Eggplant Wrap', 10.99),
     (1619, 20, 'Baba Ghannouj Wrap', 'Baba Ghannouj Wrap', 10.99),
-    (1620, 30, 'Chicken Kabob Plate', 'Grilled seasoned chicken over your choice of our seasoned rice or Aladdin salad.', 16.99)
+    (1620, 30, 'Chicken Kabob Plate', 'Grilled seasoned chicken over your choice of our seasoned rice or Aladdin salad.', 16.99),
 -- Domino's Pizza
     (1701, 20, 'BBQ Chicken Pizza', 'Loaded with flavorful BBQ Chicken. Two layers of pepperoni topped with an extra layer of cheese.', 18.99),
     (1702, 20, 'Pepperoni Feast Pizza', 'Succulent pineapple and slices of ham, topped with an extra layer of cheese.', 19.99),
@@ -530,7 +538,7 @@ VALUES
     (1717, 40, 'Coca-Cola No Sugar', 'Zero-sugar Coke.', 2.99),
     (1718, 40, 'Fuze Tea', 'A refreshing blend of tea.', 3.99),
     (1719, 40, 'Water', 'Bottled water.', 1.99),
-    (1720, 40, 'Specialty Chicken', 'Classic Hot Buffalo, Sweet BBQ Bacon, Spicy Jalapeño-Pineapple, and Crispy Bacon & Tomato flavors.', 14.99)
+    (1720, 40, 'Specialty Chicken', 'Classic Hot Buffalo, Sweet BBQ Bacon, Spicy Jalapeño-Pineapple, and Crispy Bacon & Tomato flavors.', 14.99),
 -- Bento Sushi
     (1801, 40, 'Karaage Noodle', 'Breaded chicken.', 9.99),
     (1802, 20, 'Kitsune Noodle', 'Inari tofu.', 8.99),
@@ -551,7 +559,7 @@ VALUES
     (1817, 10, 'Veggie Spring Sushi Roll', 'Mango, cucumber, avocado, carrot, and lettuce wrapped in rice paper with sweet chili sauce.', 6.99),
     (1818, 40, 'Tuna Salmon Sushi Roll', 'Raw.', 10.99),
     (1819, 40, 'California Crunch Sushi Roll', 'California roll topped with fried onion, spicy sauce, and teriyaki sauce.', 9.99),
-    (1820, 40, 'Shrimp Tempura Sushi Roll', 'Shrimp tempura, cucumber, and avocado with teriyaki sauce.', 8.99);
+    (1820, 40, 'Shrimp Tempura Sushi Roll', 'Shrimp tempura, cucumber, and avocado with teriyaki sauce.', 8.99),
 -- Freshii
     (1901, 10, 'Create Your Own Bowl', 'Create your perfect meal.', 19.19),
     (1902, 20, 'Tiikka Bowl', 'Quinoa, brown rice, kale, carrots, red onions, sweet potatoes, cabbage, crispy chickpeas, tiikka sauce.', 14.59),
@@ -572,7 +580,7 @@ VALUES
     (1917, 40, 'Spiicy Buffalo with Chicken', 'Whole wheat tortilla, brown rice, chicken, romaine, aged cheddar, jalapenos, tomatoes, carrots, hot sauce, Greek yogurt ranch.', 17.69),
     (1918, 40, 'Texas Smokehouse with Steak', 'Whole wheat tortilla, steak, brown rice, hot black beans, salsa fresca, avocado, aged cheddar, corn, Greek yogurt ranch, fiery BBQ.', 17.69),
     (1919, 40, 'Zestii Zaatar', 'Whole wheat tortilla, field greens, chicken, tomatoes, sweet potatoes, green onions, zaatar garlic sauce.', 17.69),
-    (1920, 20, 'Creamy Roasted Tomato', 'Tomatoes, Roasted Red Peppers, Onions', 10.39)
+    (1920, 20, 'Creamy Roasted Tomato', 'Tomatoes, Roasted Red Peppers, Onions', 10.39),
 -- Chic
     (2001, 40, 'Chick-fil-A® Chicken Sandwich', 'A boneless breast of chicken seasoned to perfection, freshly breaded, pressure cooked in 100% refined peanut oil and served on a toasted, buttered bun with dill pickle chips.', 6.59),
     (2002, 40, 'Chick-fil-A® Deluxe Sandwich', 'A boneless breast of chicken seasoned to perfection, freshly breaded, pressure cooked in 100% refined peanut oil and served on a toasted, buttered bun with dill pickle chips, Green Leaf lettuce, tomato and American cheese.', 7.49),
@@ -593,7 +601,7 @@ VALUES
     (2017, 10, 'Mac & Cheese', 'A classic macaroni and cheese recipe featuring a special blend of cheeses including Parmesan, Cheddar, and Romano. Baked in-restaurant to form a crispy top layer of baked cheese.', 5.39),
     (2018, 40, 'Chicken Noodle Soup', 'Shredded Chick-fil-A® chicken breast, chopped carrots and celery with egg noodles in a hearty broth. Served with Saltine crackers.', 5.19),
     (2019, 40, 'Chicken Tortilla Soup', 'Shredded chicken breast with navy and black beans in a white creamy soup base with a perfect blend of vegetables and spicy heat. Topped off with seasoned corn tortilla strips. Seasonal item only.', 7.19),
-    (2020, 10, 'Kale Crunch Side', 'A blend of Curly Kale and Green Cabbage tossed with an Apple Cider and Dijon Mustard vinaigrette, all topped off with salted, crunchy Roasted Almonds', 5.39)
+    (2020, 10, 'Kale Crunch Side', 'A blend of Curly Kale and Green Cabbage tossed with an Apple Cider and Dijon Mustard vinaigrette, all topped off with salted, crunchy Roasted Almonds', 5.39),
 -- Steak N Shake
     (2101, 40, 'Bacon Cheese Single Steakburger Combo', 'A single Steakburger topped with crispy bacon, American cheese and choice of toppings. Served with fries and a drink.', 11.00),
     (2102, 40, 'Bacon Cheese Double Steakburger Combo', 'Two Steakburgers topped with crispy bacon, American cheese and choice of toppings. Served with fries and a drink.', 12.99),
@@ -614,7 +622,7 @@ VALUES
     (2117, 40, 'Milkshake - Chocolate Chip Cookie Dough', 'Real vanilla ice cream blended with delicious chunks of chocolate chip cookie dough topped with whipped cream, more chunks of cookie dough, and a cherry.', 4.49),
     (2118, 40, 'Milkshake - OREO® Mint', 'Real vanilla ice cream blended with OREO® cookie pieces and cool mint syrup topped with whipped cream, more OREO® cookie pieces, and a cherry.', 4.49),
     (2119, 40, 'Milkshake - OREO® Cookies n Cream', 'Real vanilla ice cream blended with OREO® cookie pieces topped with whipped cream, more OREO® cookie pieces, and a cherry.', 4.49),
-    (2120, 40, 'Milkshake - Banana', 'Real ice cream blended with banana syrup topped with whipped cream, and a cherry.', 3.99)
+    (2120, 40, 'Milkshake - Banana', 'Real ice cream blended with banana syrup topped with whipped cream, and a cherry.', 3.99),
 -- Oh Mochi Richmond
     (2201, 10, 'Donuts (3 pcs)', 'We change flavors every day.', 10.50),
     (2202, 10, 'Donuts (6 pcs)', 'We change flavors every day.', 19.00),
@@ -708,10 +716,35 @@ INSERT INTO menu_items(menu_id, item_id) values
     (21, 2111), (21, 2112), (21, 2113), (21, 2114), (21, 2115), (21, 2116), (21, 2117), (21, 2118), (21, 2119), (21, 2120),
     -- Oh Mochi Richmond
     (22, 2201), (22, 2202), (22, 2203), (22, 2204), (22, 2205), (22, 2206), (22, 2207), (22, 2208), (22, 2209), (22, 2210), 
-    (22, 2211), (22, 2212), (22, 2213), (22, 2214), (22, 2215), (22, 2216), (22, 2217), (22, 2218), (22, 2219), (22, 2220)
+    (22, 2211), (22, 2212), (22, 2213), (22, 2214), (22, 2215), (22, 2216), (22, 2217), (22, 2218), (22, 2219), (22, 2220),
+
+    (23, 2301), (23, 2302), (23, 2303), (23, 2304), (23, 2305), (23, 2306), (23, 2307), (23, 2308), (23, 2309), (23, 2310), 
+    (23, 2311), (23, 2312), (23, 2313), (23, 2314), (23, 2315), (23, 2316), (23, 2317), (23, 2318), (23, 2319), (23, 2320),
+
+    (24, 2401), (24, 2402), (24, 2403), (24, 2404), (24, 2405), (24, 2406), (24, 2407), (24, 2408), (24, 2409), (24, 2410), 
+    (24, 2411), (24, 2412), (24, 2413), (24, 2414), (24, 2415), (24, 2416), (24, 2417), (24, 2418), (24, 2419), (24, 2420),
+
+    (25, 2501), (25, 2502), (25, 2503), (25, 2504), (25, 2505), (25, 2506), (25, 2507), (25, 2508), (25, 2509), (25, 2510), 
+    (25, 2511), (25, 2512), (25, 2513), (25, 2514), (25, 2515), (25, 2516), (25, 2517), (25, 2518), (25, 2519), (25, 2520),
+
+    (26, 2601), (26, 2602), (26, 2603), (26, 2604), (26, 2605), (26, 2606), (26, 2607), (26, 2608), (26, 2609), (26, 2610), 
+    (26, 2611), (26, 2612), (26, 2613), (26, 2614), (26, 2615), (26, 2616), (26, 2617), (26, 2618), (26, 2619), (26, 2620),
+
+    (27, 2701), (27, 2702), (27, 2703), (27, 2704), (27, 2705), (27, 2706), (27, 2707), (27, 2708), (27, 2709), (27, 2710), 
+    (27, 2711), (27, 2712), (27, 2713), (27, 2714), (27, 2715), (27, 2716), (27, 2717), (27, 2718), (27, 2719), (27, 2720),
+
+    (28, 2801), (28, 2802), (28, 2803), (28, 2804), (28, 2805), (28, 2806), (28, 2807), (28, 2808), (28, 2809), (28, 2810), 
+    (28, 2811), (28, 2812), (28, 2813), (28, 2814), (28, 2815), (28, 2816), (28, 2817), (28, 2818), (28, 2819), (28, 2820),
+
+    (29, 2901), (29, 2902), (29, 2903), (29, 2904), (29, 2905), (29, 2906), (29, 2907), (29, 2908), (29, 2909), (29, 2910), 
+    (29, 2911), (29, 2912), (29, 2913), (29, 2914), (29, 2915), (29, 2916), (29, 2917), (29, 2918), (29, 2919), (29, 2920),
+
+    (30, 3001), (30, 3002), (30, 3003), (30, 3004), (30, 3005), (30, 3006), (30, 3007), (30, 3008), (30, 3009), (30, 3010), 
+    (30, 3011), (30, 3012), (30, 3013), (30, 3014), (30, 3015), (30, 3016), (30, 3017), (30, 3018), (30, 3019), (30, 3020)
+
     ;
 
---to fix might just connect dietary preferences to restaurants or items
+--to fix might just connect dietary preferences to restaurants or
 INSERT INTO dietary_preference (dietary_preference_id, dietary_preference_name) 
 VALUES 
     (10, 'Vegetarian'), 
