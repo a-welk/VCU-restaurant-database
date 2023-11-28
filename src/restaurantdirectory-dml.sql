@@ -1,4 +1,4 @@
-INSERT INTO restaurants (restaurant_id, restaurant_name, restaurant_formality_level, restaurant_avg_total, restaurant_location_id, restaurant_type) 
+INSERT INTO restaurants (restaurant_id, restaurant_name, restaurant_formality_level, restaurant_avg_total_per_person, restaurant_location_id, restaurant_type) 
 VALUES 
 (1, "Picolla Italy Pizza & Subs", "Casual", "$15-20", 1, "Italian"),
 (2, "Village Cafe", "Casual", "$15-20", 2, "American"),
@@ -21,10 +21,15 @@ VALUES
 (19, "Freshii", "Casual", "$25-30", 19, "Health Food"),
 (20, "Chick-fil-A", "Takeout", "$15-20", 20, "Fast Food Chicken"),
 (21, "Steak 'n Shake", "Takeout", "$15-20", 21, "American Fast Food"),
-(22, "Oh Mochi Richmond", "Casual", "$15-20", 22, "Donuts");
-(23, "Jimmy John's", "Sub-Sandwich Fast Food", "$15-20", 22, "Sandwiches")
-
-;
+(22, "Oh Mochi Richmond", "Casual", "$15-20", 22, "Donuts"),
+(23, "Jimmy John's", "Sub-Sandwich Fast Food", "$15-20", 23, "Sandwiches")
+(24, "Mamusa's African Restaurant", "Casual", "$25-30", 24, "African"),
+(25, "Domoishi", "Casual", "$15-20", 25, "Asian Fusion"),
+(26, "Pupatella", "Casual dine in", "$25-30", 26, "Pizza"),
+(27, "Spoon", "Casual", "$25-30", 27, "Asian"),
+(28, "Good Taste", "Takeout", "$15-20", 28, "Chinese Takeout"),
+(29, "Ipanema Café", "Casual", "$25-30", 29, "Vegan"),
+(30, "Hibachi Box", "Casual Takeout", "$15-20", 30, "Japanese");
 
 
 insert into review (review_id, review_restaurant_id, review_rating, review_text, review_date) values
@@ -92,8 +97,24 @@ insert into review (review_id, review_restaurant_id, review_rating, review_text,
 (62, 23, 1, "wanted to let others know, this place is marked as wheelchair accessible but it is not. the Jimmy John's itself may be accessible but you have to get up onto like a patio in order to get in, and there's no ramp. well, technically there IS, but it's not a wheelchair ramp. it's not even wide enough for the smallest wheelchairs out there, it's very clearly designed for bikes. I am able to do wheelies in my chair and STILL can't get onto the patio. other wheelchair users please don't waste your time and energy", '09-24-2022'),
 (63, 23, 3, "I would say this is more of a $$ than a $ place, as they are more expensive than other chain sandwich joints. The food tastes cleaner, almost, like the ingredients are a higher quality, though the menu itself is intimidating. Usually something is slightly wrong with my order, but they're willing to fix it.", '05-16-2023'),
 (64, 23, 5, "I don't know a lot about Jimmy John's but I will tell you that the state of Virginia needs to have a serious road pavement construction on I-95", '08-23-2023'),
-
-;
+(65, 24, 5, "In the area for a show at the theater. Saw this restaurant and been wanting to try. The food is amazing and so flavorful. You can do the buffet, which I did so I  can try a bit of everything. Or order from the menu. The staff is so friendly. Guided meditation through buffet and what goes together. It has veggies and vegan dishes so meets all needs. Love the ginger teas. I got ginger and pineapple. Definitely, check it out your taste buds and tummy will thank you.", '10-28-2023'),
+(66, 24, 5, "If you want delicious authentic West African food in Richmond, this is the place. The vibe is friendly. No frills, just genuine. Groove to Afrobeats playing in the background as you dine in or wait for your take-out.", '06-05-2023'),
+(67, 25, 4, "Laid back build your own ramen and boba spot. The interior is decorated with cheeky signs but overall has a no fuss vibe, food is served on cute little red cafeteria trays. I was impressed with both the ramen and boba I ordered and with the price as well!", '06-03-2023'),
+(68, 26, 2, "Im sorry but theres no reason why a pizzeria is placed at such a great location and the food is not worth the price at all. Like, 5 small cheese balls the size smaller than a ping pong ball.. 5 dollars? Flavorless to say the least. 14 dollar pizza for a personal sized whole? Thin, flimsy, flavorless as well. wth? Staff was great though", '09-27-2023'),
+(69, 26, 3, "Pizza = good. Brussels sprouts with apples = maybe a little too heavy on the apples but good. Mozzarella balls = $6 for 5 tiny balls?!?! Not good.", '11-11-2023'),
+(70, 26, 5, "Had an excellent meal here. Super friendly staff when I arrived and ordered. Food came out quick. Lots of parking and seating. The have self serve water and olive oil. Pizzas and starters were excellent. Crust was top tier.", '05-09-2023'),
+(71, 27, 5, "Very excited I've found this place.  Cute little patio with some nice flower boxes.  Food was amazing!  Curry Puffs were very tasty..wish they were a little warmer, would still get them again. Nice and crispy in the curry concoction it was stuffed with this delicious. I also got the Unagi Don. The eel was absolutely tender with enough warmth to melt in your mouth. Everything was seasoned just enough that it didn't need any very tasty. Highly recommend!", '11-25-2020'),
+(72, 27, 4, "I enjoyed the meal. I had the shrimp tempura ramen. Noodles were a bit thin for my tastes but didn't take from my experience. My only issue is I requested no beansprouts but they were still added. If I'm in the area though I'd try them again.", '10-20-2022'),
+(73, 27, 1, "Pricey for mediocre quality. $28 for a rice bowl with really mushy rice, some chicken and egg; and an order of fried tofu. Would not recommend and likely will not be a repeat patron here.", '11-24-2023'),
+(74, 28, 1, "Worst general Tso's tofu I've ever had.  Practically no flavor.  The white rice tastes like Uncle Ben's.  Again, no flavor whatsoever.  The spring rolls were... fine, I guess.  As good as you can get at the frozen food section.  This place would have been out of business anywhere else without a captive audience of car-less college students.", '04-12-2023'),
+(75, 28, 1, "Beef and Broccoli I ordered tonight was DISGUSTING. It's almost as if it were sitting for a while or something was not clean etc. Idk but my food is gross and when I tried to call and let them know I did not like the taste she tried to argue with me. I'm no liar. I have no reason to. The food was trash period", '09-26-2023'),
+(76, 28, 3, "I got crab rangoon and beef lo mein, both had very little flavor and the sweet and sour sauce just tasted sour. I added soy sauce and some msg to the lo mein and that helped some but it still wasn't great and the noodles were an odd texture. Fair price and good sized portions but I won't order here again.", '07-17-2023'),
+(77, 29, 4, "Really cute vegan restaurant! I really enjoyed the avacado toast, it's super creamy! They also have a good hummus platter to share with the table. The folks that got sandwiches seemed to enjoy them. I tried some of the Mac n cheese and it was really good! Definitely recommend if you're looking for a vegan restaurant in Richmond.", '06-09-2023'),
+(78, 29, 5, "This restaurant is an absolute gem. The entire menu is vegan. The cozy atmosphere and excellent wait staff made eating this amazing food even better. The lasagna, 'chicken' and waffles, fried tofu, cauliflower wings, and 'cheese' cake were some of the best restaurant food I've had in a long time!", '01-29-2023'),
+(79, 29, 5, "We went here on vacation from lots of recommendations.  We sat outside in thier cute shaded patio.  The food truly blew us away!  Great portion size, amazing flavors & every dish was so beautiful.  The service was perfect.   Even tried a craft cocktail and loved it.  I've visited many plant based spots and this was one of the best.  We are going back tonight to try more.", '10-24-2022'),
+(80, 30, 4, "Food tasted amazing and the salad and noodles was my favorite part! The portion was very inconsistent, I had the steak and another person in the group got chicken and got almost double amount of food. Overall pretty good.", '11-14-2023'),
+(81, 30, 5, "The food was pretty good. Taste was fine. The portions were what got me excited I was able to get two meals out of one purchase for lunch. Yum yum sauce was good. Wasn't a fan of the ginger sauce though. All in all. Good option for a quick lunch or dinner.", '04-26-2023'),
+(82, 30, 4, "One of my fav go to spots to grab something quick and cooked. Its mainly carryout and the parking in the area can be a little scarce at times. The food is tasty & portion size reasonable. Only complaint is the salmon size, as its sliced very thin.", '09-11-2023');
 
 
 insert into locations (location_id, location_address, location_direction_from_VCU, location_neighborhood) values
@@ -120,8 +141,13 @@ insert into locations (location_id, location_address, location_direction_from_VC
 (21, "907 Floyd Ave, Richmond, VA 23284", "South", "VCU"),
 (22, "900 W Franklin St, Richmond, VA 23220", "Northwest", "VCU"),
 (23, "520 W Franklin St, Richmond, VA 23220", "East", "Monroe Ward"),
-
-;
+(24, "1102 W Main St, Richmond, VA 23220", "West", "The Fan"),
+(25, "1106 W Main St, Richmond, VA 23220", "West", "The Fan"),
+(26, "1 N Morris St, Richmond, VA 23220", "West", "The Fan")
+(27, "903 W Grace St, Richmond, VA 23220", "Northwest", "VCU"),
+(28, "913 W Grace St, Richmond, VA 23220", "Northwest", "VCU"),
+(29, "917 W Grace St, Richmond, VA 23220", "Northwest", "VCU"),
+(30, "411 N Harrison St #1, Richmond, VA 23220", "West", "VCU");
 
 
 --distance to VCU is measured from VCU compass
@@ -130,14 +156,11 @@ insert into accessibility (accessibility_id, accessibility_restaurant_id, access
 (1, 1, .2, "Several within a quarter of a mile", "Basically on campus"),
 (2, 2, .3, "Several within quarter mile", "Basically on campus"),
 (3, 3, .4, "None within quart mile", "Just into the fan"),
-
 (4, 4, .3, "Two within walking distance down going West on Cary", "Basically on campus"),
 (5, 5, .3, "Several within a half mile", "Basically on campus"),
 (6, 6, .3, "Several close", "Basically on campus"),
-
 (7, 7, .3, "Several Close", "Basically on campus"),
 (8, 8, .3, "Several Close", "Basically on campus"),
-
 (9, 9, .3, "Several Close", "Basically on campus"),
 (10, 10, .1, "Several close on Harrison", "Literally on campus"),
 (11, 11, .2, "Several Close", "Literally on campus"),
@@ -153,9 +176,13 @@ insert into accessibility (accessibility_id, accessibility_restaurant_id, access
 (21, 21, .1, "Several on Main and on Harrison", "Literally on campus"),
 (22, 22, .1, "One at Harrison and Franklin", "Basically on campus"),
 (23, 23, .3, "One right at Franklin and Belvidere", "Basically on campus"),
-
-
-;
+(24, 24, .2, "One right there are Main and Harrison", "Very close to campus"),
+(25, 25, .2, "One right on Main and Harrison", "Very close to campus"),
+(26, 26, .2, "One right on Main and Harrison", "Very close to campus"),
+(27, 27, .2, "Several on Harrison", "Basically on campus"),
+(28, 28, .3, "Several on Harrison", "Basically on campus"),
+(29, 29, .3, "Several on Harrison", "Basically on campus"),
+(30, 30, .2, "Right next to it on Harrison", "Basically on campus");
 
 
 INSERT INTO menu(restaurant_id,menu_id) values 
