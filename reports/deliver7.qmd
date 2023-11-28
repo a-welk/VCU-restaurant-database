@@ -1,5 +1,5 @@
 ---
-title: Project Deliverable 7: Final Submission
+title: Project Deliverable 7 Final Submission 
 author: Edwin Constancia and Alex Welk
 date: 11/28/23
 format:
@@ -161,7 +161,6 @@ erDiagram
         foreign_key restaurantID
         float rating
         string reviewText
-        date reviewDate
     }
 
     DIETARY_PREFERENCE {
@@ -407,17 +406,6 @@ Provide sample data for each relation in your design, including 5-10 tuples to d
 
 : Discounts Table {#tbl-fifth}
 
-| Visit ID | Restaurant ID | Date       | Comment        |
-|--------- |-------------- |----------- |---------------- |
-| 1        | 1            | 2023-10-05 | Great pizza!    |
-| 2        | 2            | 2023-10-10 | Amazing lasagna!|
-| 3        | 3            | 2023-10-15 | Tasty tacos!    |
-| 4        | 2            | 2023-10-20 | Lovely lasagna! |
-| 5        | 3            | 2023-10-25 | Delicious tacos!|
-| 6        | 1            | 2023-10-30 | Awesome pizza!  |
-
-: Visits Table {#tbl-visits}
-
 | Accessibility ID | Restaurant ID | Nearby Bus Stops | Sidewalk Availability | Other Accessibility Features    |
 |----------------- |-------------- |----------------- |----------------------- |------------------------------ |
 | 1                | 1            | Yes              | Yes                   |                               |
@@ -453,11 +441,10 @@ Provide sample data for each relation in your design, including 5-10 tuples to d
 
 | Dietary Preference ID | Preference Name |
 |----------------------- |----------------- |
-| 1                     | Vegetarian      |
-| 2                     | Vegan           |
-| 3                     | Gluten-Free     |
-| 4                     | Nut-Free        |
-| 5                     | None            |
+| 10                    | Vegetarian      |
+| 20                    | Vegan           |
+| 30                     | Halal |
+| 40                   | No Dietary Preference       |
 
 : Dietary Preference Table {#tbl-dietary-preference}
 
@@ -507,10 +494,6 @@ Milestone 3 Purpose Idea: crit, 2023-10-04, Milestone 3: Video Proposal Complete
 Milestone 4 Project Design: crit, 2023-10-15, Milestone 4: Project Design Complete
 Milestone 5 Database pt 1 : crit, 2023-11-01, Milestone 5: Work on Database 1 Complete
 Milestone 6 Database pt 2: crit, 2023-11-20, Milestone 6: Work on Database 2 Complete
-Milestone 7 Final : crit, 2023-12-12, Milestone 7: Final Submission
-
-
-
-    
-    
+Milestone 7 Final : crit, 2023-12-12, Milestone 7: Final Submission    
 ```
+
