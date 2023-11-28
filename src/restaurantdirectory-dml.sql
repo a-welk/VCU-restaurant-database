@@ -22,6 +22,9 @@ VALUES
 (20, "Chick-fil-A", "Takeout", "$15-20", 20, "Fast Food Chicken"),
 (21, "Steak 'n Shake", "Takeout", "$15-20", 21, "American Fast Food"),
 (22, "Oh Mochi Richmond", "Casual", "$15-20", 22, "Donuts");
+(23, "Jimmy John's", "Sub-Sandwich Fast Food", "$15-20", 22, "Sandwiches")
+
+;
 
 
 insert into review (review_id, review_restaurant_id, review_rating, review_text, review_date) values
@@ -86,6 +89,9 @@ insert into review (review_id, review_restaurant_id, review_rating, review_text,
 (59, 22, 5, "The donuts are so good and atmosphere is awesome!! They play kpop music. Lots of table to sit at. They have bottle drinks in the fridge that are from Korea like banana milk!! The donuts are never the same. Yes, they have a few they keep on the counter all the time, but they do make new flavors almost very week! Definitely worth coming with kpop loving friends, foodies, or wanting to try something new!", '10-15-2023'),
 (60, 22, 5, "Cant complain about a thing! In a great location with great hours, food and vibes are unmatched. I feel like they keep updating things to the decor and menu, awesome place to be.", '11-20-2023'),
 (61, 22, 4, "What a cute place! Ive been wanting to try a Korean corndog for years and will have to come back often to try them all. I got the potato with all beef hot dog, I said no to the sweet finish but kind of wish I had gotten it because the potatoes were a little bland. The donuts are O M G! So billowy and light, love that it’s a rotating menu. The staff was lovely and worked hard to keep the line moving that picked up as my party was leaving. Im not sure if there is an entrance in the back that would make ADA compliment but plenty of room once inside", '08-10-2023'),
+(62, 23, 1, "wanted to let others know, this place is marked as wheelchair accessible but it is not. the Jimmy John's itself may be accessible but you have to get up onto like a patio in order to get in, and there's no ramp. well, technically there IS, but it's not a wheelchair ramp. it's not even wide enough for the smallest wheelchairs out there, it's very clearly designed for bikes. I am able to do wheelies in my chair and STILL can't get onto the patio. other wheelchair users please don't waste your time and energy", '09-24-2022'),
+(63, 23, 3, "I would say this is more of a $$ than a $ place, as they are more expensive than other chain sandwich joints. The food tastes cleaner, almost, like the ingredients are a higher quality, though the menu itself is intimidating. Usually something is slightly wrong with my order, but they're willing to fix it.", '05-16-2023'),
+(64, 23, 5, "I don't know a lot about Jimmy John's but I will tell you that the state of Virginia needs to have a serious road pavement construction on I-95", '08-23-2023'),
 
 ;
 
@@ -113,6 +119,7 @@ insert into locations (location_id, location_address, location_direction_from_VC
 (20, "907 Floyd Ave, Richmond, VA 23284", "South", "VCU"),
 (21, "907 Floyd Ave, Richmond, VA 23284", "South", "VCU"),
 (22, "900 W Franklin St, Richmond, VA 23220", "Northwest", "VCU"),
+(23, "520 W Franklin St, Richmond, VA 23220", "East", "Monroe Ward"),
 
 ;
 
@@ -144,7 +151,9 @@ insert into accessibility (accessibility_id, accessibility_restaurant_id, access
 (19, 19, .1, "Several on Main and on Harrison", "Literally on campus"),
 (20, 20, .1, "Several on Main and on Harrison", "Literally on campus"),
 (21, 21, .1, "Several on Main and on Harrison", "Literally on campus"),
-(22, 22, .1, "One at Harrison and Franklin", "Basically on campus");
+(22, 22, .1, "One at Harrison and Franklin", "Basically on campus"),
+(23, 23, .3, "One right at Franklin and Belvidere", "Basically on campus"),
+
 
 ;
 
