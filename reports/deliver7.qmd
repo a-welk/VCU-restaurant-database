@@ -1,0 +1,499 @@
+---
+title: Project Deliverable 7 Final Submission 
+author: Edwin Constancia and Alex Welk
+date: 11/28/23
+format:
+  html:
+    theme: cosmo
+    toc: true
+    embed-resources: true
+---
+
+<style>
+body {
+  background-color: #92a8d1 !important; /* Slightly lighter background color */
+  color: #333333; /* Complementary text color */
+  font-family: 'Roboto', sans-serif; /* Custom font (Roboto) */
+  margin: 20px; /* Adjust margin for the entire page */
+  line-height: 1.6; /* Adjust line height for readability */
+}
+
+h1 {
+  margin: 20px 0; /* Adjust margin for h1 (main headers) */
+  color: #002240; /* Header color (dark blue) */
+}
+
+h2 {
+  margin: 15px 0; /* Adjust margin for h2 (sub-headers) */
+  color: #002240; /* Header color (dark blue) */
+}
+
+p {
+  margin: 10px 0; /* Adjust margin for paragraphs */
+}
+
+a {
+  color: #black; /* Link color (orange) */
+}
+
+table {
+  font-family: Roboto, sans-serif;
+
+  border-collapse: collapse; /* Merge table borders for a solid line */
+  border: 2px solid black; /* Add a 2px black border around the table */
+}
+
+th {
+  background-color: #4CAF50;
+  color: black;
+  border: 2px solid white; /* Add a 2px black border around headers */
+}
+
+table caption {
+  text-align: center;
+}
+
+</style>
+
+
+
+# Project Overview
+
+This database project focuses on addressing the dining challenges faced by Virginia Commonwealth University (VCU) students in Richmond. It aims to provide VCU students with a comprehensive resource that simplifies the process of finding nearby restaurants, exploring their menus, evaluating pricing, dietary preferences, and special discounts, and reading user reviews. By offering real-time, customizable dining options and proximity-based recommendations, the database enhances the overall dining experience for students, facilitating informed decision-making that caters to their culinary cravings, budgets, and location preferences.
+
+- **Pitch Video**: [Link to Pitch Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_z86s0xo9/embed/dynamic)
+- **Design Video**: [Link to Design Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic)
+- **GitHub Repository**: [Link to GitHub Repository](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/tree/main)
+
+# Problem Description
+
+## Problem Domain
+
+The problem domain we're addressing involves VCU students' dining choices, specifically those who struggle to find affordable dining options that match their cravings while staying within their budget. Many students face the challenge of balancing their culinary preferences with limited financial resources. This issue is common on the campus of Virginia Commonwealth University (VCU) in Richmond, and it can be a hassle to locate nearby dining options.
+
+## Need 
+
+The database is needed to address the dining challenges faced by VCU students. It will serve as a centralized resource that compiles information on nearby restaurants, links to their menus, pricing, signature dishes, satisfying dietary preferences,  student discounts, user reviews, and distances from campus. This database will help students make informed dining decisions that cater to their specific cravings, budget constraints, and proximity preferences. By providing real-time updates, customization options, and proximity-based recommendations, the database aims to enhance the overall dining experience for VCU students, making it easier for them to find satisfying meals without overspending and without having to travel too far from their current location.
+
+
+## Context, Scope, and Perspective
+
+The database is primarily designed for VCU students. Its perspective represents the student population at VCU who encounter challenges in finding suitable dining options on and around campus. It aims to empower students by offering a user-friendly platform tailored to their preferences and needs, including the convenience of locating nearby restaurants. 
+
+## User roles and use cases
+
+The database caters to various user roles, including VCU students, local restaurant owners, and administrators. VCU students primarily use the database to discover nearby restaurants, explore menu offerings, and find dietary preferences, helping them make informed dining choices. Restaurant owners input and manage information about their establishments, ensuring accurate representation. Administrators oversee the database's functionality and data quality. The database serves as a standalone platform, but it can be integrated with VCU's existing systems to enhance the student experience by providing location-based dining information.
+
+
+## Security and Privacy
+
+In our database design, we're planning to take robust measures to protect our restaurant's proprietary information, which includes critical data like restaurant locations, pricing, and our unique menu offerings. We understand that this information is not only a valuable asset but also essential to our competitive advantage. To secure it, we intend to establish stringent access controls. Our approach will involve implementing role-based access control, ensuring that only authorized individual can access or modify this vital data. By taking these steps, we aim to maintain the integrity of our business model and data, making sure it remains confidential and protected from unauthorized access.
+
+
+
+# Database Design
+
+## Entity-Relationship Diagram (ERD)
+
+The following is an entity-relationship diagram (ERD) depicting the database's logical architecture:
+
+```{mermaid}
+
+erDiagram
+
+    RESTAURANT ||--o{ MENU : Has_Menu
+    RESTAURANT ||--o{ DISCOUNT : Offers_Discount
+    RESTAURANT ||--o{ ACCESSIBILITY : Has_Accessibility_Features
+    RESTAURANT ||--o{ REVIEW : Has_Reviews
+    RESTAURANT ||--o{ LOCATION : Is_Located_In
+    MENU ||--|{ ITEM : Contains_Items
+    ITEM }|..|{ DIETARY_PREFERENCE : Follows_Dietary_Preferences
+
+    RESTAURANT {
+        primary_key restaurantID
+        string name 
+        string formalityLevel
+        float averageTotalPrice
+        foreign_key locationID
+        string type
+    }
+
+    LOCATION {
+        primary_key locationID
+        string address
+        string neighborhood
+        string cardinalDirectionFromVCU
+        int milesFromVCU
+    }
+
+    MENU {
+        primary_key menuID
+        foreign_key restaurantID
+        foreign_key itemID
+        float price
+    }
+
+    ITEM {
+        primary_key itemID
+        string itemName
+        string description
+        float price
+        foreign_key dietaryPreferenceID
+    }
+
+    DISCOUNT {
+        primary_key discountID
+        foreign_key restaurantID
+        string description
+        string conditions
+    }
+
+    ACCESSIBILITY {
+        primary_key accessibilityID
+        foreign_key restaurantID
+        string nearbyBusStops
+        string sidewalkAvailability
+        string otherAccessibilityFeatures
+    }
+
+    REVIEW {
+        primary_key reviewID
+        foreign_key restaurantID
+        float rating
+        string reviewText
+    }
+
+    DIETARY_PREFERENCE {
+        primary_key dietaryPreferenceID
+        string preferenceName
+    }
+
+    
+``` 
+
+
+## Relational Schemas
+
+### Restaurants
+- **Attributes**: Restaurant ID (PK), Name, Formality Level, Average Total Price, Location (FK), Type
+- **Types**: Integer, String, String, Numeric, Integer, String
+- **Primary Key**: Restaurant ID
+- **Foreign Keys**: Location (Location)
+
+### Location
+- **Attributes**: Location ID (PK), Address, Neighborhood, Cardinal Direction from VCU
+- **Types**: Integer, String, String, String
+- **Primary Key**: Location ID
+
+### Menu
+- **Attributes**: Menu ID (PK), Restaurant ID (FK), Item ID (FK), Price
+- **Types**: Integer, Integer, Integer, Numeric
+- **Primary Key**: Menu ID
+- **Foreign Keys**: Restaurant ID (Restaurants), Item ID (Items)
+
+### Items
+- **Attributes**: Item ID (PK), Item Name, Description, Price, Dietary Preference ID (FK)
+- **Types**: Integer, String, String, Numeric, Integer
+- **Primary Key**: Item ID
+- **Foreign Key**: Dietary Preference ID (Dietary Preference)
+
+### Discounts
+- **Attributes**: Discount ID (PK), Restaurant ID (FK), Description, Conditions
+- **Types**: Integer, Integer, String, String
+- **Primary Key**: Discount ID
+- **Foreign Key**: Restaurant ID (Restaurants)
+
+### Visits
+- **Attributes**: Visit ID (PK), Restaurant ID (FK), Date, Comment
+- **Types**: Integer, Integer, Date, String
+- **Primary Key**: Visit ID
+- **Foreign Key**: Restaurant ID (Restaurants)
+
+### Accessibility
+- **Attributes**: Accessibility ID (PK), Restaurant ID (FK), Nearby Bus Stops, Sidewalk Availability, Other Accessibility Features
+- **Types**: Integer, Integer, String, String, String
+- **Primary Key**: Accessibility ID
+- **Foreign Key**: Restaurant ID (Restaurants)
+
+### Distance
+- **Attributes**: Distance ID (PK), Restaurant ID (FK), Miles
+- **Types**: Integer, Integer, Numeric
+- **Primary Key**: Distance ID
+- **Foreign Key**: Restaurant ID (Restaurants)
+
+### Reviews
+- **Attributes**: Review ID (PK), Restaurant ID (FK), Rating, Review Text
+- **Types**: Integer, Integer, Numeric, String
+- **Primary Key**: Review ID
+- **Foreign Key**: Restaurant ID (Restaurants)
+
+### Dietary Preference
+- **Attributes**: Dietary Preference ID (PK), Preference Name
+- **Types**: Integer, String
+- **Primary Key**: Dietary Preference ID
+
+**Constraints**
+
+- Primary keys enforce uniqueness and identify each record.
+- Foreign keys establish relationships between tables.
+- Attribute domains define the data types for each attribute.
+
+## Functional Dependencies and Normalization
+
+Discuss functional dependencies in the schema and demonstrate the normalization of relations to BCNF/4NF. Ensure that the decomposition is lossless.
+
+#### BCNF Decomposition of the Database Schema
+
+#### Functional Dependencies and Normalization
+
+In this section, we will analyze the functional dependencies (FDs) in the proposed database schema and demonstrate the normalization of the relations to BCNF (Boyce-Codd Normal Form).
+
+#### Functional Dependencies
+
+Functional dependencies within the schema can be summarized as follows:
+
+1. In the **Restaurants** relation:
+   - `RestaurantID` $\rightarrow$ `Name`
+
+2. In the **Location** relation:
+   - `LocationID` $\rightarrow$ `Address`
+
+3. In the **Menu** relation:
+   - `ItemID` $\rightarrow$ `ItemName`
+
+4. In the **Discounts** relation:
+   - `DiscountID` $\rightarrow$ `Description`
+
+5. In the **Visits** relation:
+   - `VisitID` $\rightarrow$ `Date`
+
+6. In the **Items** relation:
+   - `DietaryPreferenceID` $\rightarrow$ `PreferenceName`
+
+#### Normalization to BCNF
+
+To achieve BCNF, we ensure that for any non-trivial FD, the left-hand side (LHS) is a superkey. The decomposition of the schema into BCNF is as follows:
+
+- **Restaurants**, **Location**, **Menu**, **Discounts**, **Visits**, **Items**, and **Reviews** remain as is, as their FDs hold for their primary keys.
+
+- The **Accessibility** relation is decomposed into a new relation **Accessibility(AccessibilityID, NearbyBusStops, SidewalkAvailability, OtherAccessibilityFeatures)**. The primary key is `AccessibilityID`.
+
+- The **Distance** relation is also decomposed into **Distance(DistanceID, Miles)**, with `DistanceID` as the primary key.
+
+#### Decomposition 
+
+- $R_{0}(\text{Restaurant ID}, \text{Name}, \text{Location ID})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$ and $\text{Location ID} \rightarrow \text{Address, Neighborhood, Cardinal Direction from VCU}$
+
+- $R_{1}(\text{Location ID}, \text{Address}, \text{Neighborhood}, \text{Cardinal Direction from VCU})$ having FD(s): No additional functional dependencies
+
+- $R_{2}(\text{Menu ID}, \text{Restaurant ID}, \text{Type})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Type}$
+
+- $R_{3}(\text{Menu ID}, \text{Item ID})$ having FD(s): $\text{Menu ID} \rightarrow \text{Item ID}$
+
+- $R_{4}(\text{Item ID}, \text{Item Name}, \text{Description}, \text{Price}, \text{Dietary Preference ID})$ having FD(s): $\text{Dietary Preference ID} \rightarrow \text{Preference Name}$
+
+- $R_{5}(\text{Discount ID}, \text{Restaurant ID}, \text{Description})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$
+
+- $R_{6}(\text{Visit ID}, \text{Restaurant ID}, \text{Date}, \text{Comment})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$
+
+- $R_{7}(\text{Accessibility ID}, \text{Restaurant ID}, \text{Nearby Bus Stops}, \text{Sidewalk Availability})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$
+
+- $R_{8}(\text{Distance ID}, \text{Restaurant ID}, \text{Miles})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$
+
+- $R_{9}(\text{Review ID}, \text{Restaurant ID}, \text{Rating}, \text{Review Text})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$
+
+
+
+The decomposition ensures each relation is in BCNF, free from anomalies, and maintains a lossless structure.
+
+## Specific Queries
+
+Pose 20 distinct questions that the database can help answer, written in precise words using relational algebra. Leverage Quarto to write the formulas.
+
+---
+column-style: "align: left;"
+---
+### Questions
+
+
+
+### Queries (Relational Algebra)
+| Question                                                                                                        | Relational Algebra Expression                      | Answer                                                                   |
+|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| What restaurants have Vegan options?                                                                          | $\pi_{\text{Name}}((\sigma_{\text{Dietary Preference ID} = 2}(\text{Items}) \bowtie (\text{Restaurants}))$ |   Bella Trattoria, Sushi Delight, Veggie Burger                        |
+| What is the average total price of casual restaurants?                                                         | $\text{avg}(\sigma_{\text{Formality Level} = \text{'Casual'}}(\text{Restaurants}))$                                | 11.67                                                                   |
+| What are the items on the menu at "Bella Trattoria?"                                                             | $\pi_{\text{Item Name}}(\sigma_{\text{Restaurant} = 2}(\text{Menu}))$                                           | Margherita, Pepperoni, Tofu Stir-Fry, Sushi Roll                        |
+| Which restaurant offers discounts?                                                      | $\pi_{\text{Name}}(\text{Restaurants} \bowtie \text{Discounts})$ | Pizza Palace, Bella Trattoria, Tacos R Us, Sushi Delight, The Burger Joint, Curry House |
+| What are the dietary preferences of all items on the menu?                                                  | $\pi_{\text{Dietary Preference ID}}(\text{Items})$                                                             | 1, 5, 2, 5, 1, 2 |
+| What is the closest Italian restaurant near VCU?                                                           | $\pi_{\text{Name}}(\sigma_{\text{Type} = \text{'Italian'}}(\text{Restaurants} \bowtie (\text{Distance} \bowtie (\sigma_{\text{Neighborhood} = \text{'VCU'}}(\text{Location}))))$ | Bella Trattoria |
+| What is the highest-rated restaurant?                                                  |  $\text{max}(\text{Rating})(\text{Reviews}) \bowtie (\text{Restaurants}))$ | Bella Trattoria                                                      |
+| What restaurants have ratings above 4.0?                                                                  | $\pi_{\text{Name}}(\sigma_{\text{Rating} > 4.0}(\text{Reviews}) \bowtie (\pi_{\text{Restaurant ID}}(\text{Restaurants}))$| Bella Trattoria, Sushi Delight                                        |
+| What are the items with a price less than 10.00 dollars?                                                                | $\pi_{\text{Item Name}}(\sigma_{\text{Price} < 10.00}(\text{Items}))$ | Margherita, Pepperoni, Tofu Stir-Fry, Greek Salad, Veggie Burger   |
+| What  restaurants  offer vegan items and have nearby bus stops?                              | $\pi_{\text{Name}}((\sigma_{\text{Dietary Preference ID} = 2}(\text{Items}) \bowtie (\text{Restaurants})) \cap (\sigma_{\text{Nearby Bus Stops} = \text{'Yes'}}(\text{Accessibility})))$ | Bella Trattoria, Sushi Delight, Veggie Burger |
+|What are the total number of visits to "Pizza Palace."                                                       | $\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\sigma_{\text{Name} = \text{'Pizza Palace'}}(\text{Restaurants})))$ | 2 |
+| What are  the discounts available for "Sushi Delight?"                                                              | $\pi_{\text{Description}}(\sigma_{\text{Restaurant ID} = 4}(\text{Discounts}))$ | Happy Hour Discount, Taco Tuesday: 2 for 1 Tacos |
+| What restaurants has the lowest average rating?                                                          | $\pi_{\text{Name}}(\sigma_{\text{Rating} = \text{min}(\text{Rating})}(\text{Reviews}) \bowtie (\text{Restaurants}))$ | Tacos R Us, The Burger Joint, Curry House |
+| What is the price of all the menu items?                                                                   | $\gamma_{\text{Sum(Price)}}(\text{Menu})$ | 74.00 |
+| What restaurants offer gluten-free items and have sidewalk availability.                           | $\pi_{\text{Name}}((\sigma_{\text{Dietary Preference ID} = 3}(\text{Items}) \bowtie (\text{Restaurants})) \cap (\sigma_{\text{Sidewalk Availability} = \text{'Yes'}}(\text{Accessibility})))$ | Sushi Delight |
+| What neighborhoods have restaurants offering items with a price less than 10.00?                 | $\pi_{\text{Neighborhood}}(\sigma_{\text{Price} < 10.00}(\text{Items}) \bowtie (\text{Location}))$ | The Fan, Monroe Park, Carver, Jackson Ward, Randolph |
+| What is the average rating for each restaurant?                                                            | $\gamma_{\text{avg(Rating)}}(\text{Reviews}) \bowtie (\text{Restaurants})$ | Pizza Palace: 4.65, Bella Trattoria: 4.25, Tacos R Us: 4.1, Sushi Delight: 4.25, The Burger Joint: 3.5, Curry House: 4.0 |
+| What restaurants offer gluten-free items and have vegan options?                                  | $\pi_{\text{Name}}((\sigma_{\text{Dietary Preference ID} = 3}(\text{Items}) \cap (\sigma_{\text{Dietary Preference ID} = 2}(\text{Items})) \bowtie (\text{Restaurants}))$ | Sushi Delight |
+| What are the restaurants in the neighborhood "The Fan?"                                                    | $\pi_{\text{Name}}(\sigma_{\text{Neighborhood}} = \text{'The Fan'}(\text{Location}) \bowtie (\text{Restaurants}))$ | Pizza Palace, Bella Trattoria |
+| What is the total price of all menu items with dietary preference "Vegetarian."               | $\gamma_{\text{Sum(Price)}}(\sigma_{\text{Dietary Preference ID} = 1}(\text{Items} \bowtie (\text{Menu}))$ | 17.00 |
+
+## Sample Data
+
+Provide sample data for each relation in your design, including 5-10 tuples to demonstrate the attribute domains.
+
+
+</table>
+<center>
+::: {#tbl-panel  layout-ncol=3}
+
+| Restaurant ID | Name            | Formality Level | Average Total Price | Location | Type       |
+|-------------- |-----------------|-----------------|---------------------|----------|------------|
+| 1             | Pizza Palace    | Casual          | 10.00               | 1        | Fast Food  |
+| 2             | Bella Trattoria | Fine Dining     | 40.00               | 2        | Italian    |
+| 3             | Tacos R Us      | Casual          | 8.00                | 3        | Mexican    |
+| 4             | Sushi Delight   | Fine Dining     | 35.00               | 1        | Japanese   |
+| 5             | The Burger Joint|Casual           | 12.00               | 2        | American   |
+| 6             | Curry House     | Casual          | 15.00               | 3        | Indian     |
+
+: Restaurants Table {#tbl-first}
+
+| Location ID   | Address         | Neighborhood         | Cardinal Direction from VCU |
+|------------   |-----------------|----------------------|-----------------------------|
+| 1             | 123 Main St.    | The Fan              | North                       |
+| 2             | 456 Elm St.     | Monroe Park          | South                       |
+| 3             | 789 Oak St.     | Carver               | East                        |
+| 4             | 321 Pine St.    | Oregon Hill          | West                        |
+| 5             | 555 Maple St.   | Jackson Ward         | North                       |
+| 6             | 987 Cedar St.   | Randolph             | South                       |
+
+: Location Table {#tbl-second}
+
+| Menu ID | Restaurant Id | Item ID | Price |
+|---------|------------|---------|-------|
+| 1       | 1          | 1       | 8.00  |
+| 2       | 1          | 2       | 10.00 |
+| 3       | 2          | 3       | 20.00 |
+| 4       | 2          | 4       | 18.00 |
+| 5       | 3          | 5       | 7.00  |
+| 6       | 3          | 6       | 9.00  |
+
+
+: Menu Table {#tbl-third}
+
+| Item ID | Item Name     | Description                             | Price | Dietary Preference ID |
+|---------|--------------|-----------------------------------------|-------|----------------------- |
+| 1       | Margherita    | Tomato, mozzarella, basil               | 8.00  | 1                     |
+| 2       | Pepperoni     | Tomato, mozzarella, pepperoni           | 10.00 | 5                     |
+| 3       | Tofu Stir-Fry | Tofu, vegetables, soy sauce             | 12.00 | 2                     |
+| 4       | Sushi Roll    | Fresh fish and rice wrapped in seaweed | 15.00 | 5                      |
+| 5       | Greek Salad   | Fresh vegetables and feta cheese       | 9.00  | 1                      |
+| 6       | Veggie Burger | Plant-based patty, lettuce, and tomato  | 10.00 | 2                     |
+
+: Item Table {#tbl-fourth}
+
+| Discount ID | Restaurant ID | Description                | Conditions               |
+|------------ |-------------- |--------------------------- |------------------------- |
+| 1           | 1            | Student Meal Deal          | Valid with student ID    |
+| 2           | 2            | Happy Hour Discount        | 4 PM - 6 PM, Mon-Fri     |
+| 3           | 3            | Family Dinner Special      | 2 adult meals required   |
+| 4           | 2            | Taco Tuesday: 2 for 1 Tacos| Tuesdays only            |
+| 5           | 4            | Lunch Combo Discount       | Purchase of an entree   |
+| 6           | 5            | Dessert Special            | With purchase of two main courses |
+
+: Discounts Table {#tbl-fifth}
+
+| Accessibility ID | Restaurant ID | Nearby Bus Stops | Sidewalk Availability | Other Accessibility Features    |
+|----------------- |-------------- |----------------- |----------------------- |------------------------------ |
+| 1                | 1            | Yes              | Yes                   |                               |
+| 2                | 2            | Yes              | Yes                   |                               |
+| 3                | 3            | No               | No                    |                               |
+| 4                | 4            | Yes              | Yes                   | Nearby bus stop               |
+| 5                | 5            | Yes              | Yes                   |                               |
+| 6                | 6            | Yes              | Yes                   |                               |
+
+: Accessibility Table {#tbl-accessibility}
+
+| Distance ID | Restaurant ID | Miles |
+|------------ |-------------- |------- |
+| 1           | 1            | 1.5   |
+| 2           | 2            | 2.2   |
+| 3           | 3            | 0.8   |
+| 4           | 4            | 3.5   |
+| 5           | 5            | 4.0   |
+| 6           | 6            | 2.8   |
+
+: Distance Table {#tbl-distance}
+
+| Review ID | Restaurant ID | Rating | Review Text                     |
+|---------- |-------------- |-------- |--------------------------------- |
+| 1         | 1            | 4.5    | Great place for pizza!           |
+| 2         | 2            | 5.0    | Wonderful Italian food!         |
+| 3         | 3            | 4.0    | Tacos were fantastic!           |
+| 4         | 1            | 4.8    | Excellent pizza!               |
+| 5         | 2            | 3.5    | Decent lasagna.                |
+| 6         | 3            | 4.2    | Tasty and quick tacos.        |
+
+: Reviews Table {#tbl-reviews}
+
+| Dietary Preference ID | Preference Name |
+|----------------------- |----------------- |
+| 10                    | Vegetarian      |
+| 20                    | Vegan           |
+| 30                     | Halal |
+| 40                   | No Dietary Preference       |
+
+: Dietary Preference Table {#tbl-dietary-preference}
+
+Database Schema
+:::
+
+# Project Management
+
+## Project Schedule
+
+Create a Gantt chart with Deliverables and milestones to ensure that the project is completed on time, considering the submission deadline.
+
+
+```{mermaid}
+gantt
+title CMSC 508 Fall Semester Project
+dateFormat YYYY-MM-DD
+axisFormat %m-%d
+
+section Tasks
+Find a Prompt : done, des1, 2023-08-27, 2023-08-29
+Find a Partner : done, des2, 2023-09-18, 2023-09-20
+Video Proposal : done, des3, 2023-10-01, 2023-10-04
+Project Design : active, des4, 2023-10-04, 2023-10-15
+Work on Database Pt1 : des5, 2023-10-15, 2023-11-01
+Work on Database Pt2 : des6, 2023-11-01, 2023-11-20
+Final Submission : des7, 2023-12-01, 2023-12-12
+
+section Edwin Constancia
+Discuss Idea for Database : done,des8, 2023-09-18, 2023-09-20
+Define Database Scheme/Queries/Design : done,des9, 2023-10-01, 2023-10-14
+Build Database Tables based on Design : des10, 2023-10-15, 2023-10-25
+Populate Database with Sample Data : des11, 2023-10-26, 2023-11-15
+Test Database operations : des12, 2023-11-16, 2023-12-09
+
+section Alex Welk
+Discuss Idea for Dtabase : done,des13, 2023-09-18, 2023-09-20
+Define Create ER Digram/Project Overview/Design : done,des14, 2023-10-01, 2023-10-14
+Define the Data relationships in Database : des15, 2023-10-15, 2023-10-25
+Define Data Constraints : des14, 2023-10-26, 2023-11-15
+Implement Security measures user access contol : des15, 2023-11-15, 2023-12-09
+
+section Milestones
+Milestone 1 Find Prompt: crit, 2023-08-29, Milestone 1: Find a Prompt Complete
+Milestone 2 Find Partner: crit, 2023-09-20, Milestone 2: Find a Partner Complete
+Milestone 3 Purpose Idea: crit, 2023-10-04, Milestone 3: Video Proposal Complete
+Milestone 4 Project Design: crit, 2023-10-15, Milestone 4: Project Design Complete
+Milestone 5 Database pt 1 : crit, 2023-11-01, Milestone 5: Work on Database 1 Complete
+Milestone 6 Database pt 2: crit, 2023-11-20, Milestone 6: Work on Database 2 Complete
+Milestone 7 Final : crit, 2023-12-12, Milestone 7: Final Submission    
+```
+
