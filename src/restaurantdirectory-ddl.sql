@@ -19,7 +19,7 @@ CREATE TABLE restaurants (
     restaurant_id int not null,
     restaurant_name varchar(256) not null,
     restaurant_formality_level varchar(256),
-    restaurant_avg_total varchar(64),
+    restaurant_avg_total_per_person varchar(32),
     restaurant_location_id int,
     restaurant_type varchar(256),
     PRIMARY KEY (restaurant_id),

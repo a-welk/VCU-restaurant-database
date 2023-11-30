@@ -97,79 +97,99 @@ In our database design, we're planning to take robust measures to protect our re
 
 The following is an entity-relationship diagram (ERD) depicting the database's logical architecture:
 
+
 ```{mermaid}
-
 erDiagram
-
-    RESTAURANT ||--o{ MENU : Has_Menu
-    RESTAURANT ||--o{ DISCOUNT : Offers_Discount
-    RESTAURANT ||--o{ ACCESSIBILITY : Has_Accessibility_Features
-    RESTAURANT ||--o{ REVIEW : Has_Reviews
-    RESTAURANT ||--o{ LOCATION : Is_Located_In
-    MENU ||--|{ ITEM : Contains_Items
-    ITEM }|..|{ DIETARY_PREFERENCE : Follows_Dietary_Preferences
-
-    RESTAURANT {
-        primary_key restaurantID
-        string name 
-        string formalityLevel
-        float averageTotalPrice
-        foreign_key locationID
-        string type
+    restaurants||--|{ locations : "Located at"
+    restaurants ||--o{ review : "Has"
+    restaurants ||--o{ accessibility : "Has"
+    restaurants ||--|{ menu : "Has"
+    menu }|--o{ menu_items : "Includes"
+    item }|--|| menu_items : "Included in"
+    item ||--o{ dietary_preference : "follows"
+    dietary_preference {
+        int dietary_preference_id
+        varchar(256) dietary_preference_name
+        --
+        PK(dietary_preference_id)
     }
 
-    LOCATION {
-        primary_key locationID
-        string address
-        string neighborhood
-        string cardinalDirectionFromVCU
-        int milesFromVCU
+    locations {
+        int location_id
+        varchar(256) location_address
+        varchar(32) location_direction_from_VCU
+        varchar(256) location_neighborhood
+        --
+        PK(location_id)
     }
 
-    MENU {
-        primary_key menuID
-        foreign_key restaurantID
-        foreign_key itemID
-        float price
+    restaurants {
+        int restaurant_id
+        varchar(256) restaurant_name
+        varchar(256) restaurant_formality_level
+        varchar(32) restaurant_avg_total_per_person
+        int restaurant_location_id
+        varchar(256) restaurant_type
+        --
+        PK(restaurant_id)
+        FK(restaurant_location_id) REFERENCES locations(location_id)
     }
 
-    ITEM {
-        primary_key itemID
-        string itemName
-        string description
-        float price
-        foreign_key dietaryPreferenceID
+    review {
+        int review_id
+        int review_restaurant_id
+        float review_rating
+        varchar(1026) review_text
+        date review_date
+        --
+        PK(review_id)
+        FK(review_restaurant_id) REFERENCES restaurants(restaurant_id)
     }
 
-    DISCOUNT {
-        primary_key discountID
-        foreign_key restaurantID
-        string description
-        string conditions
+    accessibility {
+        int accessibility_id
+        int accessibility_restaurant_id
+        float accessibility_miles_to_VCU
+        varchar(256) accessibility_nearby_bus_stops
+        varchar(256) accessibility_notes
+        --
+        PK(accessibility_id)
+        FK(accessibility_restaurant_id) REFERENCES restaurants(restaurant_id)
     }
 
-    ACCESSIBILITY {
-        primary_key accessibilityID
-        foreign_key restaurantID
-        string nearbyBusStops
-        string sidewalkAvailability
-        string otherAccessibilityFeatures
+    menu {
+        int menu_id
+        int restaurant_id
+        --
+        PK(menu_id)
+        FK(restaurant_id) REFERENCES restaurants(restaurant_id)
     }
 
-    REVIEW {
-        primary_key reviewID
-        foreign_key restaurantID
-        float rating
-        string reviewText
+    item {
+        int item_id
+        int item_dietary_preference_id
+        varchar(256) item_name
+        varchar(512) item_description
+        float item_price
+        --
+        PK(item_id)
+        FK(item_dietary_preference_id) REFERENCES dietary_preference(dietary_preference_id)
     }
 
-    DIETARY_PREFERENCE {
-        primary_key dietaryPreferenceID
-        string preferenceName
+    menu_items {
+        int menu_item_id
+        int menu_id
+        int item_id
+        --
+        PK(menu_item_id)
+        FK(menu_id) REFERENCES menu(menu_id)
+        FK(item_id) REFERENCES item(item_id)
     }
 
-    
-``` 
+
+
+```
+
 
 
 ## Relational Schemas
