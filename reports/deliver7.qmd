@@ -217,28 +217,11 @@ erDiagram
 - **Primary Key**: Item ID
 - **Foreign Key**: Dietary Preference ID (Dietary Preference)
 
-### Discounts
-- **Attributes**: Discount ID (PK), Restaurant ID (FK), Description, Conditions
-- **Types**: Integer, Integer, String, String
-- **Primary Key**: Discount ID
-- **Foreign Key**: Restaurant ID (Restaurants)
-
-### Visits
-- **Attributes**: Visit ID (PK), Restaurant ID (FK), Date, Comment
-- **Types**: Integer, Integer, Date, String
-- **Primary Key**: Visit ID
-- **Foreign Key**: Restaurant ID (Restaurants)
 
 ### Accessibility
 - **Attributes**: Accessibility ID (PK), Restaurant ID (FK), Nearby Bus Stops, Sidewalk Availability, Other Accessibility Features
 - **Types**: Integer, Integer, String, String, String
 - **Primary Key**: Accessibility ID
-- **Foreign Key**: Restaurant ID (Restaurants)
-
-### Distance
-- **Attributes**: Distance ID (PK), Restaurant ID (FK), Miles
-- **Types**: Integer, Integer, Numeric
-- **Primary Key**: Distance ID
 - **Foreign Key**: Restaurant ID (Restaurants)
 
 ### Reviews
@@ -415,16 +398,7 @@ Provide sample data for each relation in your design, including 5-10 tuples to d
 
 : Item Table {#tbl-fourth}
 
-| Discount ID | Restaurant ID | Description                | Conditions               |
-|------------ |-------------- |--------------------------- |------------------------- |
-| 1           | 1            | Student Meal Deal          | Valid with student ID    |
-| 2           | 2            | Happy Hour Discount        | 4 PM - 6 PM, Mon-Fri     |
-| 3           | 3            | Family Dinner Special      | 2 adult meals required   |
-| 4           | 2            | Taco Tuesday: 2 for 1 Tacos| Tuesdays only            |
-| 5           | 4            | Lunch Combo Discount       | Purchase of an entree   |
-| 6           | 5            | Dessert Special            | With purchase of two main courses |
 
-: Discounts Table {#tbl-fifth}
 
 | Accessibility ID | Restaurant ID | Nearby Bus Stops | Sidewalk Availability | Other Accessibility Features    |
 |----------------- |-------------- |----------------- |----------------------- |------------------------------ |
@@ -436,17 +410,6 @@ Provide sample data for each relation in your design, including 5-10 tuples to d
 | 6                | 6            | Yes              | Yes                   |                               |
 
 : Accessibility Table {#tbl-accessibility}
-
-| Distance ID | Restaurant ID | Miles |
-|------------ |-------------- |------- |
-| 1           | 1            | 1.5   |
-| 2           | 2            | 2.2   |
-| 3           | 3            | 0.8   |
-| 4           | 4            | 3.5   |
-| 5           | 5            | 4.0   |
-| 6           | 6            | 2.8   |
-
-: Distance Table {#tbl-distance}
 
 | Review ID | Restaurant ID | Rating | Review Text                     |
 |---------- |-------------- |-------- |--------------------------------- |
@@ -516,4 +479,3 @@ Milestone 5 Database pt 1 : crit, 2023-11-01, Milestone 5: Work on Database 1 Co
 Milestone 6 Database pt 2: crit, 2023-11-20, Milestone 6: Work on Database 2 Complete
 Milestone 7 Final : crit, 2023-12-12, Milestone 7: Final Submission    
 ```
-
