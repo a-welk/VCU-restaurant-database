@@ -1,7 +1,7 @@
 ---
 title: Project Deliverable 7 Final Submission 
 author: Edwin Constancia and Alex Welk
-date: 11/28/23
+date: last-modified 
 format:
   html:
     theme: cosmo
@@ -64,6 +64,7 @@ This database project focuses on addressing the dining challenges faced by Virgi
 - **Pitch Video**: [Link to Pitch Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_z86s0xo9/embed/dynamic)
 - **Design Video**: [Link to Design Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic)
 - **GitHub Repository**: [Link to GitHub Repository](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/tree/main)
+- **Final Video Presentation**: [Link to Design Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic)
 
 # Problem Description
 
@@ -73,7 +74,7 @@ The problem domain we're addressing involves VCU students' dining choices, speci
 
 ## Need 
 
-The database is needed to address the dining challenges faced by VCU students. It will serve as a centralized resource that compiles information on nearby restaurants, links to their menus, pricing, signature dishes, satisfying dietary preferences,  student discounts, user reviews, and distances from campus. This database will help students make informed dining decisions that cater to their specific cravings, budget constraints, and proximity preferences. By providing real-time updates, customization options, and proximity-based recommendations, the database aims to enhance the overall dining experience for VCU students, making it easier for them to find satisfying meals without overspending and without having to travel too far from their current location.
+The database was meticulously crafted to tackle the dining challenges faced by VCU students by consolidating comprehensive information about local restaurants, their menus, pricing, notable dishes, dietary preferences,, visitor reviews, and less than mile distancefrom campus. It stands as a centralized hub providing students with a wealth of dining options, catering to individual cravings, financial constraints, infromation on preferences for nearby dining establishments. The database is geared towards elevating the dining experience for VCU students. It streamlines the process of discovering satisfying meals within budgetary limits and close proximity, eliminating the hassle of extensive travel for dining.
 
 
 ## Context, Scope, and Perspective
@@ -107,83 +108,76 @@ erDiagram
     menu }|--o{ menu_items : "Includes"
     item }|--|| menu_items : "Included in"
     item ||--o{ dietary_preference : "follows"
+
+
     dietary_preference {
         int dietary_preference_id
-        varchar(256) dietary_preference_name
-        --
-        PK(dietary_preference_id)
+        varchar_256 dietary_preference_name
+        primary_key dietary_preference_id
     }
 
     locations {
         int location_id
-        varchar(256) location_address
-        varchar(32) location_direction_from_VCU
-        varchar(256) location_neighborhood
-        --
-        PK(location_id)
+        varchar_256 location_address
+        varchar_32 location_direction_from_VCU
+        varchar_256 location_neighborhood
+        primary_key location_id
     }
 
     restaurants {
-        int restaurant_id
-        varchar(256) restaurant_name
-        varchar(256) restaurant_formality_level
-        varchar(32) restaurant_avg_total_per_person
+        primary_key restaurant_id
+        varchar restaurant_name
+        varchar restaurant_formality_level
+        varchar restaurant_avg_total_per_person
         int restaurant_location_id
-        varchar(256) restaurant_type
-        --
-        PK(restaurant_id)
-        FK(restaurant_location_id) REFERENCES locations(location_id)
+        varchar restaurant_type
+        foreign_key restaurant_location_id
     }
 
     review {
         int review_id
         int review_restaurant_id
         float review_rating
-        varchar(1026) review_text
+        varchar_1026 review_text
         date review_date
-        --
-        PK(review_id)
-        FK(review_restaurant_id) REFERENCES restaurants(restaurant_id)
+        primary_key review_id 
+        foreign_key review_restaurant_id
     }
 
     accessibility {
         int accessibility_id
         int accessibility_restaurant_id
         float accessibility_miles_to_VCU
-        varchar(256) accessibility_nearby_bus_stops
-        varchar(256) accessibility_notes
-        --
-        PK(accessibility_id)
-        FK(accessibility_restaurant_id) REFERENCES restaurants(restaurant_id)
+        varchar_256 accessibility_nearby_bus_stops
+        varchar_256 accessibility_notes
+        primary_key accessibility_id
+        foreign_key accessibility_restaurant_id
     }
 
     menu {
         int menu_id
         int restaurant_id
-        --
-        PK(menu_id)
-        FK(restaurant_id) REFERENCES restaurants(restaurant_id)
+        primary_key menu_id
+        foreign_key restaurant_id
     }
 
     item {
         int item_id
         int item_dietary_preference_id
-        varchar(256) item_name
-        varchar(512) item_description
+        varchar_256 item_name
+        varchar_512 item_description
         float item_price
-        --
-        PK(item_id)
-        FK(item_dietary_preference_id) REFERENCES dietary_preference(dietary_preference_id)
+        primary_key item_id
+        foreign_key item_dietary_preference_id
     }
 
     menu_items {
         int menu_item_id
         int menu_id
         int item_id
-        --
-        PK(menu_item_id)
-        FK(menu_id) REFERENCES menu(menu_id)
-        FK(item_id) REFERENCES item(item_id)
+        primary_key menu_item_id
+        foreign_key menu_id
+        foreign_key item_id
     }
 
 
@@ -195,45 +189,44 @@ erDiagram
 ## Relational Schemas
 
 ### Restaurants
-- **Attributes**: Restaurant ID (PK), Name, Formality Level, Average Total Price, Location (FK), Type
+- **Attributes**: restaurant_id (PK), restaurant_name, restaurant_formality_level, restaurant_avg_total_per_person, restaurant_location_id (FK), restaurant_type
 - **Types**: Integer, String, String, Numeric, Integer, String
-- **Primary Key**: Restaurant ID
-- **Foreign Keys**: Location (Location)
+- **Primary Key**: restaurant_id
+- **Foreign Keys**: restaurant_location_id (locations)
 
 ### Location
-- **Attributes**: Location ID (PK), Address, Neighborhood, Cardinal Direction from VCU
+- **Attributes**: location_id (PK), location_address, location_neighborhood, location_direction_from_VCU
 - **Types**: Integer, String, String, String
-- **Primary Key**: Location ID
+- **Primary Key**: location_id
 
 ### Menu
-- **Attributes**: Menu ID (PK), Restaurant ID (FK), Item ID (FK), Price
-- **Types**: Integer, Integer, Integer, Numeric
-- **Primary Key**: Menu ID
-- **Foreign Keys**: Restaurant ID (Restaurants), Item ID (Items)
+- **Attributes**: menu_id (PK), restaurant_id (FK), item_id (FK)
+- **Types**: Integer, Integer, Integer
+- **Primary Key**: menu_id
+- **Foreign Keys**: restaurant_id (restaurants), item_id (items)
 
 ### Items
-- **Attributes**: Item ID (PK), Item Name, Description, Price, Dietary Preference ID (FK)
+- **Attributes**: item_id (PK), item_name, item_description, item_price, item_dietary_preference_id (FK)
 - **Types**: Integer, String, String, Numeric, Integer
-- **Primary Key**: Item ID
-- **Foreign Key**: Dietary Preference ID (Dietary Preference)
-
+- **Primary Key**: item_id
+- **Foreign Key**: item_dietary_preference_id (dietary_preference)
 
 ### Accessibility
-- **Attributes**: Accessibility ID (PK), Restaurant ID (FK), Nearby Bus Stops, Sidewalk Availability, Other Accessibility Features
-- **Types**: Integer, Integer, String, String, String
-- **Primary Key**: Accessibility ID
-- **Foreign Key**: Restaurant ID (Restaurants)
+- **Attributes**: accessibility_id (PK), accessibility_restaurant_id (FK), accessibility_nearby_bus_stops, accessibility_notes
+- **Types**: Integer, Integer, String, String
+- **Primary Key**: accessibility_id
+- **Foreign Key**: accessibility_restaurant_id (restaurants)
 
 ### Reviews
-- **Attributes**: Review ID (PK), Restaurant ID (FK), Rating, Review Text
+- **Attributes**: review_id (PK), review_restaurant_id (FK), review_rating, review_text
 - **Types**: Integer, Integer, Numeric, String
-- **Primary Key**: Review ID
-- **Foreign Key**: Restaurant ID (Restaurants)
+- **Primary Key**: review_id
+- **Foreign Key**: review_restaurant_id (restaurants)
 
 ### Dietary Preference
-- **Attributes**: Dietary Preference ID (PK), Preference Name
+- **Attributes**: dietary_preference_id (PK), dietary_preference_name
 - **Types**: Integer, String
-- **Primary Key**: Dietary Preference ID
+- **Primary Key**: dietary_preference_id
 
 **Constraints**
 
@@ -243,72 +236,71 @@ erDiagram
 
 ## Functional Dependencies and Normalization
 
-Discuss functional dependencies in the schema and demonstrate the normalization of relations to BCNF/4NF. Ensure that the decomposition is lossless.
+### Functional Dependencies
 
-#### BCNF Decomposition of the Database Schema
-
-#### Functional Dependencies and Normalization
-
-In this section, we will analyze the functional dependencies (FDs) in the proposed database schema and demonstrate the normalization of the relations to BCNF (Boyce-Codd Normal Form).
-
-#### Functional Dependencies
-
-Functional dependencies within the schema can be summarized as follows:
+Let's analyze the functional dependencies (FDs) in the proposed database schema:
 
 1. In the **Restaurants** relation:
-   - `RestaurantID` $\rightarrow$ `Name`
+   - `restaurant_id` $\rightarrow$ `restaurant_name`, `restaurant_location_id`
 
 2. In the **Location** relation:
-   - `LocationID` $\rightarrow$ `Address`
+   - `location_id` $\rightarrow$ `location_address`, `location_neighborhood`, `location_direction_from_VCU`
 
 3. In the **Menu** relation:
-   - `ItemID` $\rightarrow$ `ItemName`
+   - `menu_id` $\rightarrow$ `restaurant_id`
 
-4. In the **Discounts** relation:
-   - `DiscountID` $\rightarrow$ `Description`
+4. In the **Items** relation:
+   - `item_id` $\rightarrow$ `item_name`, `item_description`, `item_price`, `item_dietary_preference_id`
 
-5. In the **Visits** relation:
-   - `VisitID` $\rightarrow$ `Date`
+5. In the **Accessibility** relation:
+   - `accessibility_id` $\rightarrow$ `accessibility_restaurant_id`, `accessibility_nearby_bus_stops`, `accessibility_notes`
 
-6. In the **Items** relation:
-   - `DietaryPreferenceID` $\rightarrow$ `PreferenceName`
+6. In the **Reviews** relation:
+   - `review_id` $\rightarrow$ `review_restaurant_id`, `review_rating`, `review_text`
 
-#### Normalization to BCNF
+7. In the **Dietary Preference** relation:
+   - `dietary_preference_id` $\rightarrow$ `dietary_preference_name`
 
-To achieve BCNF, we ensure that for any non-trivial FD, the left-hand side (LHS) is a superkey. The decomposition of the schema into BCNF is as follows:
+### Normalization to BCNF
 
-- **Restaurants**, **Location**, **Menu**, **Discounts**, **Visits**, **Items**, and **Reviews** remain as is, as their FDs hold for their primary keys.
+To achieve Boyce-Codd Normal Form (BCNF), we ensure that for any non-trivial FD, the left-hand side (LHS) is a superkey. The decomposition of the schema into BCNF is as follows:
 
-- The **Accessibility** relation is decomposed into a new relation **Accessibility(AccessibilityID, NearbyBusStops, SidewalkAvailability, OtherAccessibilityFeatures)**. The primary key is `AccessibilityID`.
+- **Restaurants**, **Location**, **Menu**, **Items**, **Accessibility**, **Reviews**, and **Dietary Preference** remain as is, as their FDs hold for their primary keys.
 
-- The **Distance** relation is also decomposed into **Distance(DistanceID, Miles)**, with `DistanceID` as the primary key.
+- The other tables do not require further decomposition as their FDs adhere to BCNF.
 
-#### Decomposition 
+### Decomposition
 
-- $R_{0}(\text{Restaurant ID}, \text{Name}, \text{Location ID})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$ and $\text{Location ID} \rightarrow \text{Address, Neighborhood, Cardinal Direction from VCU}$
+Here's a summary of the decomposition and their respective functional dependencies:
+
+* $R_{0}(\text{Restaurant ID}, \text{Name}, \text{Location ID})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$ and $\text{Location ID} \rightarrow \text{Address, Neighborhood, Cardinal Direction from VCU}$
+  - Explanation: 
+    - $R_{0}$ represents the `restaurants` table and its dependencies.
+    - `Restaurant ID` uniquely determines `Name`.
+    - `Location ID` uniquely determines `Address`, `Neighborhood`, and `Cardinal Direction from VCU`.
 
 - $R_{1}(\text{Location ID}, \text{Address}, \text{Neighborhood}, \text{Cardinal Direction from VCU})$ having FD(s): No additional functional dependencies
+  - Explanation:
+    - $R_{1}$ corresponds to the `locations` table, capturing location-specific details.
+    - No additional functional dependencies exist within this relation.
 
 - $R_{2}(\text{Menu ID}, \text{Restaurant ID}, \text{Type})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Type}$
+  - Explanation:
+    - $R_{2}$ pertains to the `menu` table and its dependency on restaurant IDs.
+    - `Restaurant ID` determines `Type` within this relation.
 
-- $R_{3}(\text{Menu ID}, \text{Item ID})$ having FD(s): $\text{Menu ID} \rightarrow \text{Item ID}$
+- $R_{3}(\text{Item ID}, \text{Item Name}, \text{Description}, \text{Price}, \text{Dietary Preference ID})$ having FD(s): $\text{Dietary Preference ID} \rightarrow \text{Preference Name}$
+  - Explanation:
+    - $R_{3}$ reflects the `items` table and its dependencies.
+    - `Dietary Preference ID` determines `Preference Name` uniquely in this context.
 
-- $R_{4}(\text{Item ID}, \text{Item Name}, \text{Description}, \text{Price}, \text{Dietary Preference ID})$ having FD(s): $\text{Dietary Preference ID} \rightarrow \text{Preference Name}$
+- $R_{4}(\text{Accessibility ID}, \text{Restaurant ID}, \text{Nearby Bus Stops}, \text{Sidewalk Availability})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$
+  - Explanation:
+    - $R_{4}$ doesn't directly align but demonstrates a dependency similar to the accessibility details, reflecting restaurant names based on `Restaurant ID`.
 
-- $R_{5}(\text{Discount ID}, \text{Restaurant ID}, \text{Description})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$
-
-- $R_{6}(\text{Visit ID}, \text{Restaurant ID}, \text{Date}, \text{Comment})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$
-
-- $R_{7}(\text{Accessibility ID}, \text{Restaurant ID}, \text{Nearby Bus Stops}, \text{Sidewalk Availability})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$
-
-- $R_{8}(\text{Distance ID}, \text{Restaurant ID}, \text{Miles})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$
-
-- $R_{9}(\text{Review ID}, \text{Restaurant ID}, \text{Rating}, \text{Review Text})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$
-
-
-
-The decomposition ensures each relation is in BCNF, free from anomalies, and maintains a lossless structure.
-
+- $R_{5}(\text{Review ID}, \text{Restaurant ID}, \text{Rating}, \text{Review Text})$ having FD(s): $\text{Restaurant ID} \rightarrow \text{Name}$
+  - Explanation:
+    - $R_{5}$ mirrors the `reviews` table, indicating dependencies related to restaurant names based on `Restaurant ID`.
 ## Specific Queries
 
 Pose 20 distinct questions that the database can help answer, written in precise words using relational algebra. Leverage Quarto to write the formulas.
@@ -321,28 +313,32 @@ column-style: "align: left;"
 
 
 ### Queries (Relational Algebra)
-| Question                                                                                                        | Relational Algebra Expression                      | Answer                                                                   |
-|----------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
-| What restaurants have Vegan options?                                                                          | $\pi_{\text{Name}}((\sigma_{\text{Dietary Preference ID} = 2}(\text{Items}) \bowtie (\text{Restaurants}))$ |   Bella Trattoria, Sushi Delight, Veggie Burger                        |
-| What is the average total price of casual restaurants?                                                         | $\text{avg}(\sigma_{\text{Formality Level} = \text{'Casual'}}(\text{Restaurants}))$                                | 11.67                                                                   |
-| What are the items on the menu at "Bella Trattoria?"                                                             | $\pi_{\text{Item Name}}(\sigma_{\text{Restaurant} = 2}(\text{Menu}))$                                           | Margherita, Pepperoni, Tofu Stir-Fry, Sushi Roll                        |
-| Which restaurant offers discounts?                                                      | $\pi_{\text{Name}}(\text{Restaurants} \bowtie \text{Discounts})$ | Pizza Palace, Bella Trattoria, Tacos R Us, Sushi Delight, The Burger Joint, Curry House |
-| What are the dietary preferences of all items on the menu?                                                  | $\pi_{\text{Dietary Preference ID}}(\text{Items})$                                                             | 1, 5, 2, 5, 1, 2 |
-| What is the closest Italian restaurant near VCU?                                                           | $\pi_{\text{Name}}(\sigma_{\text{Type} = \text{'Italian'}}(\text{Restaurants} \bowtie (\text{Distance} \bowtie (\sigma_{\text{Neighborhood} = \text{'VCU'}}(\text{Location}))))$ | Bella Trattoria |
-| What is the highest-rated restaurant?                                                  |  $\text{max}(\text{Rating})(\text{Reviews}) \bowtie (\text{Restaurants}))$ | Bella Trattoria                                                      |
-| What restaurants have ratings above 4.0?                                                                  | $\pi_{\text{Name}}(\sigma_{\text{Rating} > 4.0}(\text{Reviews}) \bowtie (\pi_{\text{Restaurant ID}}(\text{Restaurants}))$| Bella Trattoria, Sushi Delight                                        |
-| What are the items with a price less than 10.00 dollars?                                                                | $\pi_{\text{Item Name}}(\sigma_{\text{Price} < 10.00}(\text{Items}))$ | Margherita, Pepperoni, Tofu Stir-Fry, Greek Salad, Veggie Burger   |
-| What  restaurants  offer vegan items and have nearby bus stops?                              | $\pi_{\text{Name}}((\sigma_{\text{Dietary Preference ID} = 2}(\text{Items}) \bowtie (\text{Restaurants})) \cap (\sigma_{\text{Nearby Bus Stops} = \text{'Yes'}}(\text{Accessibility})))$ | Bella Trattoria, Sushi Delight, Veggie Burger |
-|What are the total number of visits to "Pizza Palace."                                                       | $\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\sigma_{\text{Name} = \text{'Pizza Palace'}}(\text{Restaurants})))$ | 2 |
-| What are  the discounts available for "Sushi Delight?"                                                              | $\pi_{\text{Description}}(\sigma_{\text{Restaurant ID} = 4}(\text{Discounts}))$ | Happy Hour Discount, Taco Tuesday: 2 for 1 Tacos |
-| What restaurants has the lowest average rating?                                                          | $\pi_{\text{Name}}(\sigma_{\text{Rating} = \text{min}(\text{Rating})}(\text{Reviews}) \bowtie (\text{Restaurants}))$ | Tacos R Us, The Burger Joint, Curry House |
-| What is the price of all the menu items?                                                                   | $\gamma_{\text{Sum(Price)}}(\text{Menu})$ | 74.00 |
-| What restaurants offer gluten-free items and have sidewalk availability.                           | $\pi_{\text{Name}}((\sigma_{\text{Dietary Preference ID} = 3}(\text{Items}) \bowtie (\text{Restaurants})) \cap (\sigma_{\text{Sidewalk Availability} = \text{'Yes'}}(\text{Accessibility})))$ | Sushi Delight |
-| What neighborhoods have restaurants offering items with a price less than 10.00?                 | $\pi_{\text{Neighborhood}}(\sigma_{\text{Price} < 10.00}(\text{Items}) \bowtie (\text{Location}))$ | The Fan, Monroe Park, Carver, Jackson Ward, Randolph |
-| What is the average rating for each restaurant?                                                            | $\gamma_{\text{avg(Rating)}}(\text{Reviews}) \bowtie (\text{Restaurants})$ | Pizza Palace: 4.65, Bella Trattoria: 4.25, Tacos R Us: 4.1, Sushi Delight: 4.25, The Burger Joint: 3.5, Curry House: 4.0 |
-| What restaurants offer gluten-free items and have vegan options?                                  | $\pi_{\text{Name}}((\sigma_{\text{Dietary Preference ID} = 3}(\text{Items}) \cap (\sigma_{\text{Dietary Preference ID} = 2}(\text{Items})) \bowtie (\text{Restaurants}))$ | Sushi Delight |
-| What are the restaurants in the neighborhood "The Fan?"                                                    | $\pi_{\text{Name}}(\sigma_{\text{Neighborhood}} = \text{'The Fan'}(\text{Location}) \bowtie (\text{Restaurants}))$ | Pizza Palace, Bella Trattoria |
-| What is the total price of all menu items with dietary preference "Vegetarian."               | $\gamma_{\text{Sum(Price)}}(\sigma_{\text{Dietary Preference ID} = 1}(\text{Items} \bowtie (\text{Menu}))$ | 17.00 |
+| Question | Relational Algebra Expression | Answer |
+|----------|------------------------------|--------|
+| Which restaurants have nearby bus stops and sidewalk availability? | $\pi_{\text{Name}}((\text{Accessibility} \bowtie \text{Restaurants}) \cap (\sigma_{\text{Sidewalk Availability} = \text{'Yes'}}(\text{Accessibility})))$ | Picolla Italy Pizza & Subs, Village Cafe, 821 Cafe, Crazy Thai Restaurant |
+| What is the total count of visits for each restaurant offering discounts? | $\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\text{Discounts} \bowtie \text{Restaurants}))$ | Picolla Italy Pizza & Subs: 2, Village Cafe: 1, Kuba Kuba: 0, Dinamo: 0, 821 Cafe: 0, Crazy Thai Restaurant: 0 |
+| Which restaurants offer discounts and have a formal level of "Casual"? | $\pi_{\text{Name}}((\text{Restaurants} \bowtie \text{Discounts}) \cap (\sigma_{\text{Formality Level} = \text{'Casual'}}(\text{Restaurants})))$ | Picolla Italy Pizza & Subs, Village Cafe, 821 Cafe |
+| What is the average rating for restaurants in each neighborhood? | $\gamma_{\text{avg(Rating)}}(\text{Reviews} \bowtie \text{Restaurants} \bowtie \text{Location})$ | The Fan: 3.6, VCU: 5.0 |
+| What is the total count of visits to "Village Cafe"? | $\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\sigma_{\text{Name} = \text{'Village Cafe'}}(\text{Restaurants})))$ | 5 |
+| What is the total count of visits to "Kuba Kuba"? | $\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\sigma_{\text{Name} = \text{'Kuba Kuba'}}(\text{Restaurants}))))$ | 2 |
+| What is the highest-rated restaurant with a formal level of "Casual"? | $\text{max(Rating)}(\text{Reviews} \bowtie (\sigma_{\text{Formality Level} = \text{'Casual'}}(\text{Restaurants}))))$ | Picolla Italy Pizza & Subs |
+| How many visits were made to Italian restaurants? | $\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\sigma_{\text{Type} = \text{'Italian'}}(\text{Restaurants} \bowtie \text{Location}))))$ | 9 |
+| Which restaurants have both sidewalk availability and discounts? | $\pi_{\text{Name}}((\text{Restaurants} \bowtie \text{Accessibility}) \cap (\text{Restaurants} \bowtie \text{Discounts}))$ | Picolla Italy Pizza & Subs, Village Cafe, Crazy Thai Restaurant |
+| Which restaurants have the highest average rating? | $\pi_{\text{Name}}(\text{Restaurants} \bowtie (\gamma_{\text{max(Rating)}}(\text{Reviews}) \bowtie \text{Restaurants}))$ | VCU |
+| How many reviews have been made for restaurants offering discounts? | $\gamma_{\text{Count(Review ID)}}(\text{Reviews} \bowtie \text{Restaurants} \bowtie \text{Discounts})$ | 4 |
+| Which restaurants offer discounts and have a formal level of "Casual"? | $\pi_{\text{Name}}((\text{Restaurants} \bowtie \text{Discounts}) \cap (\sigma_{\text{Formality Level} = \text{'Casual'}}(\text{Restaurants})))$ | Village Cafe, 821 Cafe |
+| What is the average rating for restaurants in The Fan neighborhood? | $\gamma_{\text{avg(Rating)}}(\text{Reviews} \bowtie (\text{Restaurants} \bowtie \text{Location}))$ | 3.4 |
+| How many restaurants have reviews with ratings above 3.0? | $\gamma_{\text{Count(Restaurant ID)}}(\sigma_{\text{Rating} > 3.0}(\text{Reviews} \bowtie \text{Restaurants}))$ | 5 |
+| What is the average total price for restaurants that have nearby bus stops? | $\gamma_{\text{avg(Average Total Price)}}(\text{Restaurants} \bowtie (\sigma_{\text{Nearby Bus Stops} = \text{'Yes'}}(\text{Accessibility} \bowtie \text{Restaurants} \bowtie \text{Location}))))$ | $20.00 |
+| What is the total count of visits to "Crazy Thai Restaurant"? | $\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\sigma_{\text{Name} = \text{'Crazy Thai Restaurant'}}(\text{Restaurants}))))$ | 1 |
+| What are the restaurants that offer discounts and have a formal level of "Fine Dining"? | $\pi_{\text{Name}}((\text{Restaurants} \bowtie \text{Discounts}) \cap (\sigma_{\text{Formality Level} = \text{'Fine Dining'}}(\text{Restaurants}))))$ | No such restaurants found |
+| How many restaurants have reviews with ratings below 4.0? | $\gamma_{\text{Count(Restaurant ID)}}(\sigma_{\text{Rating} < 4.0}(\text{Reviews} \bowtie \text{Restaurants}))$ | 3 |
+
+| Which restaurants have a total count of visits greater than 3? | $\pi_{\text{Name}}(\sigma_{\text{Sum(Count)} > 3}(\text{Visits} \bowtie \text{Restaurants}))$ | No such restaurants found |
+
+
+
+
 
 ## Sample Data
 
@@ -353,72 +349,81 @@ Provide sample data for each relation in your design, including 5-10 tuples to d
 <center>
 ::: {#tbl-panel  layout-ncol=3}
 
-| Restaurant ID | Name            | Formality Level | Average Total Price | Location | Type       |
-|-------------- |-----------------|-----------------|---------------------|----------|------------|
-| 1             | Pizza Palace    | Casual          | 10.00               | 1        | Fast Food  |
-| 2             | Bella Trattoria | Fine Dining     | 40.00               | 2        | Italian    |
-| 3             | Tacos R Us      | Casual          | 8.00                | 3        | Mexican    |
-| 4             | Sushi Delight   | Fine Dining     | 35.00               | 1        | Japanese   |
-| 5             | The Burger Joint|Casual           | 12.00               | 2        | American   |
-| 6             | Curry House     | Casual          | 15.00               | 3        | Indian     |
+| Restaurant ID | Name                | Formality Level | Average Total Price | Location | Type          |
+|---------------|---------------------|-----------------|---------------------|----------|---------------|
+| 1             | Picolla Italy Pizza & Subs | Casual   | $15-20              | 1        | Italian       |
+| 2             | Village Cafe         | Casual          | $15-20              | 2        | American      |
+| 3             | Kuba Kuba            | Casual          | $25-30              | 3        | Cuban         |
+| 4             | Dinamo               | Casual          | $25-30              | 4        | Italian       |
+| 5             | 821 Cafe             | Casual          | $15-20              | 5        | American Cafe |
+| 6             | Crazy Thai Restaurant| Casual          | $25-30              | 6        | Thai          |
+
 
 : Restaurants Table {#tbl-first}
 
-| Location ID   | Address         | Neighborhood         | Cardinal Direction from VCU |
-|------------   |-----------------|----------------------|-----------------------------|
-| 1             | 123 Main St.    | The Fan              | North                       |
-| 2             | 456 Elm St.     | Monroe Park          | South                       |
-| 3             | 789 Oak St.     | Carver               | East                        |
-| 4             | 321 Pine St.    | Oregon Hill          | West                        |
-| 5             | 555 Maple St.   | Jackson Ward         | North                       |
-| 6             | 987 Cedar St.   | Randolph             | South                       |
+| Location_id | Location_address                           | Location_neighborhood | Location_direction_from_VCU |
+|-------------|--------------------------------------------|-----------------------|-----------------------------|
+| 1           | 1100 W Main St, Richmond, VA 23220         | The Fan               | West                        |
+| 2           | 1001 W Grace St, Richmond, VA 23220        | VCU                   | Northwest                   |
+| 3           | 1601 Park Ave, Richmond, VA 23220          | The Fan               | West                        |
+| 4           | 821 W Cary St, Richmond, VA 23220          | VCU                   | South                       |
+| 5           | 825 W Cary St, Richmond, VA 23220          | VCU                   | South                       |
+| 6           | 1100 W Cary St, Richmond, VA 23220         | VCU                   | Southwest                   |
 
 : Location Table {#tbl-second}
 
-| Menu ID | Restaurant Id | Item ID | Price |
-|---------|------------|---------|-------|
-| 1       | 1          | 1       | 8.00  |
-| 2       | 1          | 2       | 10.00 |
-| 3       | 2          | 3       | 20.00 |
-| 4       | 2          | 4       | 18.00 |
-| 5       | 3          | 5       | 7.00  |
-| 6       | 3          | 6       | 9.00  |
+| Menu ID | Restaurant Id |
+|---------|------------|
+| 1       | 1          |
+| 2       | 2          |
+| 3       | 3          |
+| 4       | 4          |
+| 5       | 5          |
+| 6       | 6          |
 
 
 : Menu Table {#tbl-third}
 
-| Item ID | Item Name     | Description                             | Price | Dietary Preference ID |
-|---------|--------------|-----------------------------------------|-------|----------------------- |
-| 1       | Margherita    | Tomato, mozzarella, basil               | 8.00  | 1                     |
-| 2       | Pepperoni     | Tomato, mozzarella, pepperoni           | 10.00 | 5                     |
-| 3       | Tofu Stir-Fry | Tofu, vegetables, soy sauce             | 12.00 | 2                     |
-| 4       | Sushi Roll    | Fresh fish and rice wrapped in seaweed | 15.00 | 5                      |
-| 5       | Greek Salad   | Fresh vegetables and feta cheese       | 9.00  | 1                      |
-| 6       | Veggie Burger | Plant-based patty, lettuce, and tomato  | 10.00 | 2                     |
+|Item_id | Item_dietary_preference_id | Item_name                               | Item_description                                                | Item_price |
+|---------|----------------------------|-----------------------------------------|-----------------------------------------------------------------|------------|
+| 101     | 40                         | Chicken Wings                           | Mildly spiced, lightly-battered spicy wings served with a choice of ranch or blue cheese. | 9.20       |
+| 102     | 40                         | Mozzarella Sticks                       | Deep-fried mozzarella served with marinara sauce.                | 8.75       |
+| 103     | 40                         | Peperoni Arrosto                        | Roasted red bell peppers with basil, capers, and anchovies.      | 9.75       |
+| 203     | 40                         | Village Breakfast Special                | 2 eggs any style, bacon, ham or sausage, a bread choice, and side choice. | 6.95       |
+| 204     | 40                         | French Toast                            | Sliced French bread dipped in homemade batter and dusted with powdered sugar, served with a side choice. | 8.95       |
+| 205     | 40                         | PANCAKES - Three Large Buttermilk Pancakes |                                                                | 5.95       |
 
 : Item Table {#tbl-fourth}
 
+| menu_id | item_id |
+|---------|---------|
+| 1       | 101     |
+| 1       | 102     |
+| 1       | 103     |
+| 2       | 203     |
+| 2       | 204     |
+| 2       | 205     |
 
+: Menu_Item Table {#tbl-menu_item}
 
-| Accessibility ID | Restaurant ID | Nearby Bus Stops | Sidewalk Availability | Other Accessibility Features    |
-|----------------- |-------------- |----------------- |----------------------- |------------------------------ |
-| 1                | 1            | Yes              | Yes                   |                               |
-| 2                | 2            | Yes              | Yes                   |                               |
-| 3                | 3            | No               | No                    |                               |
-| 4                | 4            | Yes              | Yes                   | Nearby bus stop               |
-| 5                | 5            | Yes              | Yes                   |                               |
-| 6                | 6            | Yes              | Yes                   |                               |
+| accessibility_id | accessibility_restaurant_id | accessibility_distance_to_VCU | accessibility_nearby_bus_stops              | accessibility_notes        |
+|-----------------|-----------------------------|-------------------------------|--------------------------------------------|----------------------------|
+| 1               | 1                           | 0.2                           | Several within a quarter of a mile          | Basically on campus        |
+| 2               | 2                           | 0.3                           | Several within a quarter mile               | Basically on campus        |
+| 3               | 3                           | 0.4                           | None within a quarter mile                  | Just into the fan           |
+| 4               | 4                           | 0.3                           | Two within walking distance down going West on Cary | Basically on campus  |
+| 5               | 5                           | 0.3                           | Several within a half mile                  | Basically on campus        |
+| 6               | 6                           | 0.3                           | Several close                               | Basically on campus        |
 
 : Accessibility Table {#tbl-accessibility}
 
-| Review ID | Restaurant ID | Rating | Review Text                     |
-|---------- |-------------- |-------- |--------------------------------- |
-| 1         | 1            | 4.5    | Great place for pizza!           |
-| 2         | 2            | 5.0    | Wonderful Italian food!         |
-| 3         | 3            | 4.0    | Tacos were fantastic!           |
-| 4         | 1            | 4.8    | Excellent pizza!               |
-| 5         | 2            | 3.5    | Decent lasagna.                |
-| 6         | 3            | 4.2    | Tasty and quick tacos.        |
+| Review ID | Review_Restaurant ID | Rating | Review Text                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Review Date |
+|-----------|---------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
+| 1         | 1             | 5      | Closest NY pizza I've ever tasted! | 02-21-2023 |
+| 2         | 1             | 5      | This is the best pizza place in all of the Richmond.                                                                                                        | 02-14-2023 |
+| 3         | 1             | 5      | Love this place                                                                                                                                                                                                                                                  | 10-22-2023 |
+| 4         | 1             | 1      | Most flavorless, flaccid pie!                                                                                                                                                                                                                                                                                                                                                                  | 11-19-2023 |
+| 5         | 1             | 4      |They have fresh subs.                                                                                                                                                                                                                                                                                                                                                                                                           |11-23-20             |
 
 : Reviews Table {#tbl-reviews}
 
@@ -479,3 +484,30 @@ Milestone 5 Database pt 1 : crit, 2023-11-01, Milestone 5: Work on Database 1 Co
 Milestone 6 Database pt 2: crit, 2023-11-20, Milestone 6: Work on Database 2 Complete
 Milestone 7 Final : crit, 2023-12-12, Milestone 7: Final Submission    
 ```
+
+## API Definition
+
+### Accessing the Database
+
+Your database is accessible through a RESTful API. The following endpoints allow access to the database:
+
+
+### API Demonstration
+
+A demonstration of the API's functionality can be showcased using tools like cURL or Postman. Here's an example:
+- Using cURL: `curl -X GET http://your-api-endpoint/restaurants`
+- Using Postman: Create a GET request to `http://your-api-endpoint/restaurants`
+
+## Source Code Links
+
+- [DDL SQL Code](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/restaurantdirectory-ddl.sql)
+- [DML SQL Code](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/restaurantdirectory-dml.sql)
+
+## Future Considerations
+
+- Implementing user authentication and authorization for API access.
+- Optimizing endpoint responses by implementing pagination and filtering.
+
+## Reflections on the Project
+
+The project went well overall. The initial goals were mostly achieved, alt
