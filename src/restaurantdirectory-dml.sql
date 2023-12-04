@@ -1,5 +1,4 @@
-INSERT INTO restaurants (restaurant_id, restaurant_name, restaurant_formality_level, restaurant_avg_total_per_person, restaurant_location_id, restaurant_type) 
-VALUES 
+INSERT INTO restaurants (restaurant_id, restaurant_name, restaurant_formality_level, restaurant_avg_total_per_person, restaurant_location_id, restaurant_type) VALUES 
 (1, "Picolla Italy Pizza & Subs", "Casual", "$15-20", 1, "Italian"),
 (2, "Village Cafe", "Casual", "$15-20", 2, "American"),
 (3, "Kuba Kuba", "Casual", "$25-30", 3, "Cuban"),
@@ -22,7 +21,7 @@ VALUES
 (20, "Chick-fil-A", "Takeout", "$15-20", 20, "Fast Food Chicken"),
 (21, "Steak 'n Shake", "Takeout", "$15-20", 21, "American Fast Food"),
 (22, "Oh Mochi Richmond", "Casual", "$15-20", 22, "Donuts"),
-(23, "Jimmy John's", "Sub-Sandwich Fast Food", "$15-20", 23, "Sandwiches")
+(23, "Jimmy John's", "Sub-Sandwich Fast Food", "$15-20", 23, "Sandwiches"),
 (24, "Mamusa's African Restaurant", "Casual", "$25-30", 24, "African"),
 (25, "Domoishi", "Casual", "$15-20", 25, "Asian Fusion"),
 (26, "Pupatella", "Casual dine in", "$25-30", 26, "Pizza"),
@@ -42,7 +41,7 @@ insert into review (review_id, review_restaurant_id, review_rating, review_text,
 (7, 2, 5, "First time here. Son just started at VCU so we had heard this was a good place and decided to try. Cute place. Food was good. We got pizza fries, Italian sub, tuna melt, club sandwich and chicken parm sub. All very good", '09-15-2023'),
 (8, 2, 5, "Great food, fast service, decent portion sizes and fair prices. We went on a weekday morning so it wasn’t too busy. Parking was close by as well. We even got mini souvenir pitchers. Nice variety of options for food as well.", '11-16-2023'),
 (9, 2, 4, "One of my favorites. It's been awhile since we had the opportunity to eat here, but the food is as good as it has always been. My wife had a Reuben Sandwich, I opted for something a little different, ordering a Cowboy Burrito from the 'Specials' menu. It was packed with flavor and the portion was definitely more than enough.", "06-19-2023"),
-(10, 2, 5 "Excellent diner downtown near VCU. Breakfast served all day and giant milkshakes served in silver cups for only $5. Plenty of seating and a great menu. The ambiance is amazing with the cozy wood booths and our food came out very fast. Definitely worth a visit. I want to go back to try the pancakes!", '01-08-2023'),
+(10, 2, 5, "Excellent diner downtown near VCU. Breakfast served all day and giant milkshakes served in silver cups for only $5. Plenty of seating and a great menu. The ambiance is amazing with the cozy wood booths and our food came out very fast. Definitely worth a visit. I want to go back to try the pancakes!", '01-08-2023'),
 (11, 3, 5, "Laid back neighborhood atmosphere with seriously delicious and filling Cuban food (with vegetarian options!). I got the paella for dinner and leftovers lasted for two extra meals. The breakfast and lunch/sandwich options also looked delicious - will definitely be back!", '11-08-2023'),
 (12, 3, 5, "Great Cuban food, large portions, fun atmosphere. Understaffed, so service is slow, but pleasant. Be patient, the food is worth the wait. Ate there for dinner and for breakfast. Generous portions, so be prepared to take food home!", '07-22-2023'),
 (13, 3, 5, "A unique, small place with tons of character and AMAZING food. Huge menu with something for everyone. Got the main pork dish and one of the best meals I’ve had.", '08-17-2023'),
@@ -117,7 +116,7 @@ insert into review (review_id, review_restaurant_id, review_rating, review_text,
 (82, 30, 4, "One of my fav go to spots to grab something quick and cooked. Its mainly carryout and the parking in the area can be a little scarce at times. The food is tasty & portion size reasonable. Only complaint is the salmon size, as its sliced very thin.", '09-11-2023');
 
 
-insert into locations (location_id, location_address, location_direction_from_VCU, location_neighborhood) values
+INSERT INTO locations (location_id, location_address, location_direction_from_VCU, location_neighborhood) VALUES
 (1, "1100 W Main St, Richmond, VA 23220", "West", "The Fan"),
 (2, "1001 W Grace St, Richmond, VA 23220", "Northwest", "VCU"),
 (3, "1601 Park Ave, Richmond, VA 23220", "West", "The Fan"),
@@ -143,7 +142,7 @@ insert into locations (location_id, location_address, location_direction_from_VC
 (23, "520 W Franklin St, Richmond, VA 23220", "East", "Monroe Ward"),
 (24, "1102 W Main St, Richmond, VA 23220", "West", "The Fan"),
 (25, "1106 W Main St, Richmond, VA 23220", "West", "The Fan"),
-(26, "1 N Morris St, Richmond, VA 23220", "West", "The Fan")
+(26, "1 N Morris St, Richmond, VA 23220", "West", "The Fan"),
 (27, "903 W Grace St, Richmond, VA 23220", "Northwest", "VCU"),
 (28, "913 W Grace St, Richmond, VA 23220", "Northwest", "VCU"),
 (29, "917 W Grace St, Richmond, VA 23220", "Northwest", "VCU"),
@@ -151,7 +150,7 @@ insert into locations (location_id, location_address, location_direction_from_VC
 
 
 --distance to VCU is measured from VCU compass
-insert into accessibility (accessibility_id, accessibility_restaurant_id, accessibility_distance_to_VCU, accessibility_nearby_bus_stops, accessibility_notes) values
+insert into accessibility (accessibility_id, accessibility_restaurant_id, accessibility_miles_to_VCU, accessibility_nearby_bus_stops, accessibility_notes) values
 
 (1, 1, .2, "Several within a quarter of a mile", "Basically on campus"),
 (2, 2, .3, "Several within quarter mile", "Basically on campus"),
@@ -221,7 +220,7 @@ INSERT INTO menu(restaurant_id,menu_id) values
 
     INSERT INTO item (item_id, item_dietary_preference_id, item_name, item_description, item_price)
 VALUES
---Piccola Subs
+    --Piccola Subs
     (101, 40, 'Chicken Wings', 'Mildly spiced, lightly-battered spicy wings served with a choice of ranch or blue cheese.', 9.20),
     (102, 40, 'Mozzarella Sticks', 'Deep-fried mozzarella served with marinara sauce.', 8.75),
     (103, 40, 'Peperoni Arrosto', 'Roasted red bell peppers with basil, capers, and anchovies.', 9.75),
@@ -438,7 +437,7 @@ VALUES
     (1107, 30, 'Halal Steak Burrito', 'Halal-certified seasoned steak, cilantro-lime rice, pinto beans, sour cream, and salsa in a tortilla.', 9.99),
     (1108, 40, 'Customizable Taco', 'Your choice of protein, veggies, rice, and cheese in a soft or hard shell tortilla.', 8.29),
     (1109, 10, 'Veggie Salad', 'Mixed greens, grilled veggies, black beans, salsa, and guacamole with your choice of dressing.', 8.79),
-    (1110, 20, 'Vegan Burrito Bowl', 'Brown rice, black beans, fajita veggies, guacamole, and salsa in a bowl.', 8.49)
+    (1110, 20, 'Vegan Burrito Bowl', 'Brown rice, black beans, fajita veggies, guacamole, and salsa in a bowl.', 8.49),
     (1111, 40, 'Chicken Burrito', 'Grilled chicken, cilantro-lime rice, black beans, salsa, cheese, and lettuce wrapped in a flour tortilla.', 7.99),
     (1112, 40, 'Steak Burrito Bowl', 'Seasoned steak, brown rice, pinto beans, fajita veggies, sour cream, and guacamole served in a bowl.', 9.49),
     (1113, 20, 'Sofritas Tacos', 'Spicy tofu sofritas, white rice, black beans, roasted chili-corn salsa, and lettuce in soft corn tortillas.', 8.29),
@@ -679,7 +678,7 @@ VALUES
     (2217, 40, 'Matcha', 'Smooth and velvety matcha tea with a vibrant green color.', 6.50),
     (2218, 40, 'Coffee', 'Rich and aromatic coffee brewed to perfection.', 6.50),
     (2219, 40, 'Mango Tea', 'Tropical delight infused with the essence of mangoes.', 6.50),
-    (2220, 40, 'Lychee Tea', 'Sweet and fragrant lychee tea for a delightful sip.', 6.50)
+    (2220, 40, 'Lychee Tea', 'Sweet and fragrant lychee tea for a delightful sip.', 6.50),
 -- Jimmy John's
     (2301, 40, 'Gargantuan Sandwich', 'Five types of deli meats, provolone cheese, lettuce, tomato, onion, mayo, and Italian dressing on freshly baked bread', 14.99),
     (2302, 40, '40 Plain Slims®', 'Plain sandwich with your choice of meats, cheese, and toppings on a slim bun', 8.99),
@@ -721,7 +720,7 @@ VALUES
     (2417, 20, 'Chefs Special (Tofu with Veggies)', 'Tofu cooked with veggies.', 11.99),
     (2418, 20, 'Chefs Special (Vegan Sauce)', 'Vegan sauce.', 11.99),
     (2419, 10, 'Parathas (Fried Veggie Patty)', '1 x Fried veggie patty.', 3.50),
-    (2411, 30, 'Chefs Fresh Steamed Spinach', 'Our way.', 11.99),
+    (2420, 30, 'Chefs Fresh Steamed Spinach', 'Our way.', 11.99),
 -- Domoishi
     (2501, 10, 'Spring Roll (2pc)', 'Classic Chinese cylindrical pastries filled with shredded vegetables and sweet Thai chili sauce.', 4.35),
     (2502, 40, 'Shrimp Shumai', 'Traditional dim-sum style dumplings stuffed with shrimp, vegetables, and sweet soy dumpling sauce.', 6.55),
@@ -848,13 +847,13 @@ INSERT INTO menu_items(menu_id, item_id) values
     (1, 111), (1, 112), (1, 113), (1, 114), (1, 115), (1, 116), (1, 117), (1, 118), (1, 119), (1, 120),
     -- Village Cafe
     (2, 201), (2, 202), (2, 203), (2, 204), (2, 205), (2, 206), (2, 207), (2, 208), (2, 209), (2, 210), 
-    (2, 211), (2, 212), (2, 213), (2, 214), (2, 215), (2, 216), (2, 217), (2, 218), (2, 219), (2, 220)
+    (2, 211), (2, 212), (2, 213), (2, 214), (2, 215), (2, 216), (2, 217), (2, 218), (2, 219), (2, 220),
     -- Kuba Kuba
     (3, 301), (3, 302), (3, 303), (3, 304), (3, 305), (3, 306), (3, 307), (3, 308), (3, 309), (3, 310),
-    (3, 311), (3, 312), (3, 313), (3, 314), (3, 315), (3, 316), (3, 317), (3, 318), (3, 319), (3, 320)
+    (3, 311), (3, 312), (3, 313), (3, 314), (3, 315), (3, 316), (3, 317), (3, 318), (3, 319), (3, 320),
     -- Dinamo
     (4, 401), (4, 402), (4, 403), (4, 404), (4, 405), (4, 406), (4, 407), (4, 408), (4,409), (4, 410),
-    (4, 11), (4, 412), (4, 413), (4, 414), (4, 415), (4, 416), (4, 417), (4, 418), (4, 419), (4, 420),
+    (4, 411), (4, 412), (4, 413), (4, 414), (4, 415), (4, 416), (4, 417), (4, 418), (4, 419), (4, 420),
     -- 821 Cafe
     (5, 501), (5, 502), (5, 503), (5, 504), (5, 505), (5, 506), (5, 507), (5, 508), (5, 509), (5, 510), 
     (5, 511), (5, 512), (5, 513), (5, 514), (5, 515), (5, 516), (5, 517), (5, 518), (5, 519), (5, 520),
