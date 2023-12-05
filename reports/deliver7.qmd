@@ -74,7 +74,7 @@ The problem domain we're addressing involves VCU students' dining choices, speci
 
 ## Need 
 
-The database was meticulously crafted to tackle the dining challenges faced by VCU students by consolidating comprehensive information about local restaurants, their menus, pricing, notable dishes, dietary preferences,, visitor reviews, and less than mile distancefrom campus. It stands as a centralized hub providing students with a wealth of dining options, catering to individual cravings, financial constraints, infromation on preferences for nearby dining establishments. The database is geared towards elevating the dining experience for VCU students. It streamlines the process of discovering satisfying meals within budgetary limits and close proximity, eliminating the hassle of extensive travel for dining.
+The database was meticulously crafted to tackle the dining challenges faced by VCU students by consolidating comprehensive information about local restaurants, their menus, pricing, notable dishes, dietary preferences, visitor reviews, and less than mile distance from campus. It stands as a centralized hub providing students with a wealth of dining options, catering to individual cravings, financial constraints, infromation on preferences for nearby dining establishments. The database is geared towards elevating the dining experience for VCU students. It streamlines the process of discovering satisfying meals within budgetary limits and close proximity, eliminating the hassle of extensive travel for dining.
 
 
 ## Context, Scope, and Perspective
@@ -336,6 +336,11 @@ column-style: "align: left;"
 
 | Which restaurants have a total count of visits greater than 3? | $\pi_{\text{Name}}(\sigma_{\text{Sum(Count)} > 3}(\text{Visits} \bowtie \text{Restaurants}))$ | No such restaurants found |
 
+### SQL Queries
+| Question | SQL Query | Answer |
+|----------|-----------|--------|
+|What are the restaurants that are within .2 miles of the VCU compass? | select * from restaurants join accessability on (restaurant_id = accessibility_restaurant_id) where distance_to_VCU = .2 AND distance_to_VCU = .1 | answer |
+
 
 
 
@@ -502,12 +507,14 @@ A demonstration of the API's functionality can be showcased using tools like cUR
 
 - [DDL SQL Code](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/restaurantdirectory-ddl.sql)
 - [DML SQL Code](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/restaurantdirectory-dml.sql)
+- [API Source Code](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/project-flask.py)
 
 ## Future Considerations
 
 - Implementing user authentication and authorization for API access.
 - Optimizing endpoint responses by implementing pagination and filtering.
+- Already have locations table to account for restaurants that have multiple locations however case was not present in our current dataset.
 
 ## Reflections on the Project
 
-The project went well overall. The initial goals were mostly achieved, alt
+The project went well overall. The initial goals were mostly achieved. If given more time to work on this we could have extended our search to a greater radius however we are happy with the amount that we were able to complete.

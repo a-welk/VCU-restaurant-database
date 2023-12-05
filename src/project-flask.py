@@ -1,7 +1,8 @@
-from flask import Flask, jsonify, requests
+from flask import Flask, jsonify
 import os
 import sys
 import pandas as pd
+import pymysql
 from tabulate import tabulate
 from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
@@ -74,7 +75,32 @@ def api_show_tables():
 
 @app.route('/api/restaurants')
 def api_show_restaurants():
-    df = my_sql_wrapper("select * from restaurants")
+    full_string = ('select * from restaurants')
+    df = my_sql_wrapper(full_string)
+    json_data = df.to_json()
+    return jsonify(json_data)
+
+@app.route('/api/restaurants/<ID>')
+def api_show_specific_restaurants(ID):
+    df = my_sql_wrapper('select * from restaurants where restaurant_id = ' + ID)
+    json_data = df.to_json()
+    return jsonify(json_data)
+
+@app.route('/api/reviews/<name>')
+def api_show_reviews(name):
+    df = my_sql_wrapper('select review_id, review_rating, review_text from review join restaurants on (restaurant_id = review_restaurant_id) where `restaurant_name` = "' + name + '"')
+    json_data = df.to_json()
+    return jsonify(json_data)
+
+@app.route('/api/locations')
+def api_show_locations():
+    df = my_sql_wrapper("select * from locations")
+    json_data = df.to_json()
+    return jsonify(json_data)
+
+@app.route('/api/accessibility')
+def api_show_accessiblity():
+    df = my_sql_wrapper("select * from accessibility")
     json_data = df.to_json()
     return jsonify(json_data)
 

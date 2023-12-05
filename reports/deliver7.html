@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Edwin Constancia and Alex Welk">
-<meta name="dcterms.date" content="2023-11-28">
+<meta name="dcterms.date" content="2023-12-04">
 
 <title>Project Deliverable 7 Final Submission</title>
 <style>
@@ -3407,24 +3407,32 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
   <li><a href="#location" id="toc-location" class="nav-link" data-scroll-target="#location">Location</a></li>
   <li><a href="#menu" id="toc-menu" class="nav-link" data-scroll-target="#menu">Menu</a></li>
   <li><a href="#items" id="toc-items" class="nav-link" data-scroll-target="#items">Items</a></li>
-  <li><a href="#discounts" id="toc-discounts" class="nav-link" data-scroll-target="#discounts">Discounts</a></li>
-  <li><a href="#visits" id="toc-visits" class="nav-link" data-scroll-target="#visits">Visits</a></li>
   <li><a href="#accessibility" id="toc-accessibility" class="nav-link" data-scroll-target="#accessibility">Accessibility</a></li>
-  <li><a href="#distance" id="toc-distance" class="nav-link" data-scroll-target="#distance">Distance</a></li>
   <li><a href="#reviews" id="toc-reviews" class="nav-link" data-scroll-target="#reviews">Reviews</a></li>
   <li><a href="#dietary-preference" id="toc-dietary-preference" class="nav-link" data-scroll-target="#dietary-preference">Dietary Preference</a></li>
   </ul></li>
-  <li><a href="#functional-dependencies-and-normalization" id="toc-functional-dependencies-and-normalization" class="nav-link" data-scroll-target="#functional-dependencies-and-normalization">Functional Dependencies and Normalization</a></li>
-  <li><a href="#specific-queries" id="toc-specific-queries" class="nav-link" data-scroll-target="#specific-queries">Specific Queries</a>
+  <li><a href="#functional-dependencies-and-normalization" id="toc-functional-dependencies-and-normalization" class="nav-link" data-scroll-target="#functional-dependencies-and-normalization">Functional Dependencies and Normalization</a>
   <ul class="collapse">
+  <li><a href="#functional-dependencies" id="toc-functional-dependencies" class="nav-link" data-scroll-target="#functional-dependencies">Functional Dependencies</a></li>
+  <li><a href="#normalization-to-bcnf" id="toc-normalization-to-bcnf" class="nav-link" data-scroll-target="#normalization-to-bcnf">Normalization to BCNF</a></li>
+  <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition">Decomposition</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
   <li><a href="#queries-relational-algebra" id="toc-queries-relational-algebra" class="nav-link" data-scroll-target="#queries-relational-algebra">Queries (Relational Algebra)</a></li>
+  <li><a href="#sql-queries" id="toc-sql-queries" class="nav-link" data-scroll-target="#sql-queries">SQL Queries</a></li>
   </ul></li>
   <li><a href="#sample-data" id="toc-sample-data" class="nav-link" data-scroll-target="#sample-data">Sample Data</a></li>
   </ul></li>
   <li><a href="#project-management" id="toc-project-management" class="nav-link" data-scroll-target="#project-management">Project Management</a>
   <ul class="collapse">
   <li><a href="#project-schedule" id="toc-project-schedule" class="nav-link" data-scroll-target="#project-schedule">Project Schedule</a></li>
+  <li><a href="#api-definition" id="toc-api-definition" class="nav-link" data-scroll-target="#api-definition">API Definition</a>
+  <ul class="collapse">
+  <li><a href="#accessing-the-database" id="toc-accessing-the-database" class="nav-link" data-scroll-target="#accessing-the-database">Accessing the Database</a></li>
+  <li><a href="#api-demonstration" id="toc-api-demonstration" class="nav-link" data-scroll-target="#api-demonstration">API Demonstration</a></li>
+  </ul></li>
+  <li><a href="#source-code-links" id="toc-source-code-links" class="nav-link" data-scroll-target="#source-code-links">Source Code Links</a></li>
+  <li><a href="#future-considerations" id="toc-future-considerations" class="nav-link" data-scroll-target="#future-considerations">Future Considerations</a></li>
+  <li><a href="#reflections-on-the-project" id="toc-reflections-on-the-project" class="nav-link" data-scroll-target="#reflections-on-the-project">Reflections on the Project</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -3450,7 +3458,7 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 28, 2023</p>
+      <p class="date">December 4, 2023</p>
     </div>
   </div>
   
@@ -3504,6 +3512,7 @@ text-align: center;
 <li><strong>Pitch Video</strong>: <a href="https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_z86s0xo9/embed/dynamic">Link to Pitch Video</a></li>
 <li><strong>Design Video</strong>: <a href="https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic">Link to Design Video</a></li>
 <li><strong>GitHub Repository</strong>: <a href="https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/tree/main">Link to GitHub Repository</a></li>
+<li><strong>Final Video Presentation</strong>: <a href="https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic">Link to Design Video</a></li>
 </ul>
 </section>
 <section id="problem-description" class="level1">
@@ -3514,7 +3523,7 @@ text-align: center;
 </section>
 <section id="need" class="level2">
 <h2 class="anchored" data-anchor-id="need">Need</h2>
-<p>The database is needed to address the dining challenges faced by VCU students. It will serve as a centralized resource that compiles information on nearby restaurants, links to their menus, pricing, signature dishes, satisfying dietary preferences, student discounts, user reviews, and distances from campus. This database will help students make informed dining decisions that cater to their specific cravings, budget constraints, and proximity preferences. By providing real-time updates, customization options, and proximity-based recommendations, the database aims to enhance the overall dining experience for VCU students, making it easier for them to find satisfying meals without overspending and without having to travel too far from their current location.</p>
+<p>The database was meticulously crafted to tackle the dining challenges faced by VCU students by consolidating comprehensive information about local restaurants, their menus, pricing, notable dishes, dietary preferences, visitor reviews, and less than mile distance from campus. It stands as a centralized hub providing students with a wealth of dining options, catering to individual cravings, financial constraints, infromation on preferences for nearby dining establishments. The database is geared towards elevating the dining experience for VCU students. It streamlines the process of discovering satisfying meals within budgetary limits and close proximity, eliminating the hassle of extensive travel for dining.</p>
 </section>
 <section id="context-scope-and-perspective" class="level2">
 <h2 class="anchored" data-anchor-id="context-scope-and-perspective">Context, Scope, and Perspective</h2>
@@ -3546,83 +3555,76 @@ text-align: center;
     menu }|--o{ menu_items : &quot;Includes&quot;
     item }|--|| menu_items : &quot;Included in&quot;
     item ||--o{ dietary_preference : &quot;follows&quot;
+
+
     dietary_preference {
         int dietary_preference_id
-        varchar(256) dietary_preference_name
-        --
-        PK(dietary_preference_id)
+        varchar_256 dietary_preference_name
+        primary_key dietary_preference_id
     }
 
     locations {
         int location_id
-        varchar(256) location_address
-        varchar(32) location_direction_from_VCU
-        varchar(256) location_neighborhood
-        --
-        PK(location_id)
+        varchar_256 location_address
+        varchar_32 location_direction_from_VCU
+        varchar_256 location_neighborhood
+        primary_key location_id
     }
 
     restaurants {
-        int restaurant_id
-        varchar(256) restaurant_name
-        varchar(256) restaurant_formality_level
-        varchar(32) restaurant_avg_total_per_person
+        primary_key restaurant_id
+        varchar restaurant_name
+        varchar restaurant_formality_level
+        varchar restaurant_avg_total_per_person
         int restaurant_location_id
-        varchar(256) restaurant_type
-        --
-        PK(restaurant_id)
-        FK(restaurant_location_id) REFERENCES locations(location_id)
+        varchar restaurant_type
+        foreign_key restaurant_location_id
     }
 
     review {
         int review_id
         int review_restaurant_id
         float review_rating
-        varchar(1026) review_text
+        varchar_1026 review_text
         date review_date
-        --
-        PK(review_id)
-        FK(review_restaurant_id) REFERENCES restaurants(restaurant_id)
+        primary_key review_id 
+        foreign_key review_restaurant_id
     }
 
     accessibility {
         int accessibility_id
         int accessibility_restaurant_id
         float accessibility_miles_to_VCU
-        varchar(256) accessibility_nearby_bus_stops
-        varchar(256) accessibility_notes
-        --
-        PK(accessibility_id)
-        FK(accessibility_restaurant_id) REFERENCES restaurants(restaurant_id)
+        varchar_256 accessibility_nearby_bus_stops
+        varchar_256 accessibility_notes
+        primary_key accessibility_id
+        foreign_key accessibility_restaurant_id
     }
 
     menu {
         int menu_id
         int restaurant_id
-        --
-        PK(menu_id)
-        FK(restaurant_id) REFERENCES restaurants(restaurant_id)
+        primary_key menu_id
+        foreign_key restaurant_id
     }
 
     item {
         int item_id
         int item_dietary_preference_id
-        varchar(256) item_name
-        varchar(512) item_description
+        varchar_256 item_name
+        varchar_512 item_description
         float item_price
-        --
-        PK(item_id)
-        FK(item_dietary_preference_id) REFERENCES dietary_preference(dietary_preference_id)
+        primary_key item_id
+        foreign_key item_dietary_preference_id
     }
 
     menu_items {
         int menu_item_id
         int menu_id
         int item_id
-        --
-        PK(menu_item_id)
-        FK(menu_id) REFERENCES menu(menu_id)
-        FK(item_id) REFERENCES item(item_id)
+        primary_key menu_item_id
+        foreign_key menu_id
+        foreign_key item_id
     }
 
 
@@ -3638,89 +3640,62 @@ text-align: center;
 <section id="restaurants" class="level3">
 <h3 class="anchored" data-anchor-id="restaurants">Restaurants</h3>
 <ul>
-<li><strong>Attributes</strong>: Restaurant ID (PK), Name, Formality Level, Average Total Price, Location (FK), Type</li>
+<li><strong>Attributes</strong>: restaurant_id (PK), restaurant_name, restaurant_formality_level, restaurant_avg_total_per_person, restaurant_location_id (FK), restaurant_type</li>
 <li><strong>Types</strong>: Integer, String, String, Numeric, Integer, String</li>
-<li><strong>Primary Key</strong>: Restaurant ID</li>
-<li><strong>Foreign Keys</strong>: Location (Location)</li>
+<li><strong>Primary Key</strong>: restaurant_id</li>
+<li><strong>Foreign Keys</strong>: restaurant_location_id (locations)</li>
 </ul>
 </section>
 <section id="location" class="level3">
 <h3 class="anchored" data-anchor-id="location">Location</h3>
 <ul>
-<li><strong>Attributes</strong>: Location ID (PK), Address, Neighborhood, Cardinal Direction from VCU</li>
+<li><strong>Attributes</strong>: location_id (PK), location_address, location_neighborhood, location_direction_from_VCU</li>
 <li><strong>Types</strong>: Integer, String, String, String</li>
-<li><strong>Primary Key</strong>: Location ID</li>
+<li><strong>Primary Key</strong>: location_id</li>
 </ul>
 </section>
 <section id="menu" class="level3">
 <h3 class="anchored" data-anchor-id="menu">Menu</h3>
 <ul>
-<li><strong>Attributes</strong>: Menu ID (PK), Restaurant ID (FK), Item ID (FK), Price</li>
-<li><strong>Types</strong>: Integer, Integer, Integer, Numeric</li>
-<li><strong>Primary Key</strong>: Menu ID</li>
-<li><strong>Foreign Keys</strong>: Restaurant ID (Restaurants), Item ID (Items)</li>
+<li><strong>Attributes</strong>: menu_id (PK), restaurant_id (FK), item_id (FK)</li>
+<li><strong>Types</strong>: Integer, Integer, Integer</li>
+<li><strong>Primary Key</strong>: menu_id</li>
+<li><strong>Foreign Keys</strong>: restaurant_id (restaurants), item_id (items)</li>
 </ul>
 </section>
 <section id="items" class="level3">
 <h3 class="anchored" data-anchor-id="items">Items</h3>
 <ul>
-<li><strong>Attributes</strong>: Item ID (PK), Item Name, Description, Price, Dietary Preference ID (FK)</li>
+<li><strong>Attributes</strong>: item_id (PK), item_name, item_description, item_price, item_dietary_preference_id (FK)</li>
 <li><strong>Types</strong>: Integer, String, String, Numeric, Integer</li>
-<li><strong>Primary Key</strong>: Item ID</li>
-<li><strong>Foreign Key</strong>: Dietary Preference ID (Dietary Preference)</li>
-</ul>
-</section>
-<section id="discounts" class="level3">
-<h3 class="anchored" data-anchor-id="discounts">Discounts</h3>
-<ul>
-<li><strong>Attributes</strong>: Discount ID (PK), Restaurant ID (FK), Description, Conditions</li>
-<li><strong>Types</strong>: Integer, Integer, String, String</li>
-<li><strong>Primary Key</strong>: Discount ID</li>
-<li><strong>Foreign Key</strong>: Restaurant ID (Restaurants)</li>
-</ul>
-</section>
-<section id="visits" class="level3">
-<h3 class="anchored" data-anchor-id="visits">Visits</h3>
-<ul>
-<li><strong>Attributes</strong>: Visit ID (PK), Restaurant ID (FK), Date, Comment</li>
-<li><strong>Types</strong>: Integer, Integer, Date, String</li>
-<li><strong>Primary Key</strong>: Visit ID</li>
-<li><strong>Foreign Key</strong>: Restaurant ID (Restaurants)</li>
+<li><strong>Primary Key</strong>: item_id</li>
+<li><strong>Foreign Key</strong>: item_dietary_preference_id (dietary_preference)</li>
 </ul>
 </section>
 <section id="accessibility" class="level3">
 <h3 class="anchored" data-anchor-id="accessibility">Accessibility</h3>
 <ul>
-<li><strong>Attributes</strong>: Accessibility ID (PK), Restaurant ID (FK), Nearby Bus Stops, Sidewalk Availability, Other Accessibility Features</li>
-<li><strong>Types</strong>: Integer, Integer, String, String, String</li>
-<li><strong>Primary Key</strong>: Accessibility ID</li>
-<li><strong>Foreign Key</strong>: Restaurant ID (Restaurants)</li>
-</ul>
-</section>
-<section id="distance" class="level3">
-<h3 class="anchored" data-anchor-id="distance">Distance</h3>
-<ul>
-<li><strong>Attributes</strong>: Distance ID (PK), Restaurant ID (FK), Miles</li>
-<li><strong>Types</strong>: Integer, Integer, Numeric</li>
-<li><strong>Primary Key</strong>: Distance ID</li>
-<li><strong>Foreign Key</strong>: Restaurant ID (Restaurants)</li>
+<li><strong>Attributes</strong>: accessibility_id (PK), accessibility_restaurant_id (FK), accessibility_nearby_bus_stops, accessibility_notes</li>
+<li><strong>Types</strong>: Integer, Integer, String, String</li>
+<li><strong>Primary Key</strong>: accessibility_id</li>
+<li><strong>Foreign Key</strong>: accessibility_restaurant_id (restaurants)</li>
 </ul>
 </section>
 <section id="reviews" class="level3">
 <h3 class="anchored" data-anchor-id="reviews">Reviews</h3>
 <ul>
-<li><strong>Attributes</strong>: Review ID (PK), Restaurant ID (FK), Rating, Review Text</li>
+<li><strong>Attributes</strong>: review_id (PK), review_restaurant_id (FK), review_rating, review_text</li>
 <li><strong>Types</strong>: Integer, Integer, Numeric, String</li>
-<li><strong>Primary Key</strong>: Review ID</li>
-<li><strong>Foreign Key</strong>: Restaurant ID (Restaurants)</li>
+<li><strong>Primary Key</strong>: review_id</li>
+<li><strong>Foreign Key</strong>: review_restaurant_id (restaurants)</li>
 </ul>
 </section>
 <section id="dietary-preference" class="level3">
 <h3 class="anchored" data-anchor-id="dietary-preference">Dietary Preference</h3>
 <ul>
-<li><strong>Attributes</strong>: Dietary Preference ID (PK), Preference Name</li>
+<li><strong>Attributes</strong>: dietary_preference_id (PK), dietary_preference_name</li>
 <li><strong>Types</strong>: Integer, String</li>
-<li><strong>Primary Key</strong>: Dietary Preference ID</li>
+<li><strong>Primary Key</strong>: dietary_preference_id</li>
 </ul>
 <p><strong>Constraints</strong></p>
 <ul>
@@ -3732,73 +3707,102 @@ text-align: center;
 </section>
 <section id="functional-dependencies-and-normalization" class="level2">
 <h2 class="anchored" data-anchor-id="functional-dependencies-and-normalization">Functional Dependencies and Normalization</h2>
-<p>Discuss functional dependencies in the schema and demonstrate the normalization of relations to BCNF/4NF. Ensure that the decomposition is lossless.</p>
-<section id="bcnf-decomposition-of-the-database-schema" class="level4">
-<h4 class="anchored" data-anchor-id="bcnf-decomposition-of-the-database-schema">BCNF Decomposition of the Database Schema</h4>
-</section>
-<section id="functional-dependencies-and-normalization-1" class="level4">
-<h4 class="anchored" data-anchor-id="functional-dependencies-and-normalization-1">Functional Dependencies and Normalization</h4>
-<p>In this section, we will analyze the functional dependencies (FDs) in the proposed database schema and demonstrate the normalization of the relations to BCNF (Boyce-Codd Normal Form).</p>
-</section>
-<section id="functional-dependencies" class="level4">
-<h4 class="anchored" data-anchor-id="functional-dependencies">Functional Dependencies</h4>
-<p>Functional dependencies within the schema can be summarized as follows:</p>
+<section id="functional-dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="functional-dependencies">Functional Dependencies</h3>
+<p>Let’s analyze the functional dependencies (FDs) in the proposed database schema:</p>
 <ol type="1">
 <li>In the <strong>Restaurants</strong> relation:
 <ul>
-<li><code>RestaurantID</code> <span class="math inline">\(\rightarrow\)</span> <code>Name</code></li>
+<li><code>restaurant_id</code> <span class="math inline">\(\rightarrow\)</span> <code>restaurant_name</code>, <code>restaurant_location_id</code></li>
 </ul></li>
 <li>In the <strong>Location</strong> relation:
 <ul>
-<li><code>LocationID</code> <span class="math inline">\(\rightarrow\)</span> <code>Address</code></li>
+<li><code>location_id</code> <span class="math inline">\(\rightarrow\)</span> <code>location_address</code>, <code>location_neighborhood</code>, <code>location_direction_from_VCU</code></li>
 </ul></li>
 <li>In the <strong>Menu</strong> relation:
 <ul>
-<li><code>ItemID</code> <span class="math inline">\(\rightarrow\)</span> <code>ItemName</code></li>
-</ul></li>
-<li>In the <strong>Discounts</strong> relation:
-<ul>
-<li><code>DiscountID</code> <span class="math inline">\(\rightarrow\)</span> <code>Description</code></li>
-</ul></li>
-<li>In the <strong>Visits</strong> relation:
-<ul>
-<li><code>VisitID</code> <span class="math inline">\(\rightarrow\)</span> <code>Date</code></li>
+<li><code>menu_id</code> <span class="math inline">\(\rightarrow\)</span> <code>restaurant_id</code></li>
 </ul></li>
 <li>In the <strong>Items</strong> relation:
 <ul>
-<li><code>DietaryPreferenceID</code> <span class="math inline">\(\rightarrow\)</span> <code>PreferenceName</code></li>
+<li><code>item_id</code> <span class="math inline">\(\rightarrow\)</span> <code>item_name</code>, <code>item_description</code>, <code>item_price</code>, <code>item_dietary_preference_id</code></li>
+</ul></li>
+<li>In the <strong>Accessibility</strong> relation:
+<ul>
+<li><code>accessibility_id</code> <span class="math inline">\(\rightarrow\)</span> <code>accessibility_restaurant_id</code>, <code>accessibility_nearby_bus_stops</code>, <code>accessibility_notes</code></li>
+</ul></li>
+<li>In the <strong>Reviews</strong> relation:
+<ul>
+<li><code>review_id</code> <span class="math inline">\(\rightarrow\)</span> <code>review_restaurant_id</code>, <code>review_rating</code>, <code>review_text</code></li>
+</ul></li>
+<li>In the <strong>Dietary Preference</strong> relation:
+<ul>
+<li><code>dietary_preference_id</code> <span class="math inline">\(\rightarrow\)</span> <code>dietary_preference_name</code></li>
 </ul></li>
 </ol>
 </section>
-<section id="normalization-to-bcnf" class="level4">
-<h4 class="anchored" data-anchor-id="normalization-to-bcnf">Normalization to BCNF</h4>
-<p>To achieve BCNF, we ensure that for any non-trivial FD, the left-hand side (LHS) is a superkey. The decomposition of the schema into BCNF is as follows:</p>
+<section id="normalization-to-bcnf" class="level3">
+<h3 class="anchored" data-anchor-id="normalization-to-bcnf">Normalization to BCNF</h3>
+<p>To achieve Boyce-Codd Normal Form (BCNF), we ensure that for any non-trivial FD, the left-hand side (LHS) is a superkey. The decomposition of the schema into BCNF is as follows:</p>
 <ul>
-<li><p><strong>Restaurants</strong>, <strong>Location</strong>, <strong>Menu</strong>, <strong>Discounts</strong>, <strong>Visits</strong>, <strong>Items</strong>, and <strong>Reviews</strong> remain as is, as their FDs hold for their primary keys.</p></li>
-<li><p>The <strong>Accessibility</strong> relation is decomposed into a new relation <strong>Accessibility(AccessibilityID, NearbyBusStops, SidewalkAvailability, OtherAccessibilityFeatures)</strong>. The primary key is <code>AccessibilityID</code>.</p></li>
-<li><p>The <strong>Distance</strong> relation is also decomposed into <strong>Distance(DistanceID, Miles)</strong>, with <code>DistanceID</code> as the primary key.</p></li>
+<li><p><strong>Restaurants</strong>, <strong>Location</strong>, <strong>Menu</strong>, <strong>Items</strong>, <strong>Accessibility</strong>, <strong>Reviews</strong>, and <strong>Dietary Preference</strong> remain as is, as their FDs hold for their primary keys.</p></li>
+<li><p>The other tables do not require further decomposition as their FDs adhere to BCNF.</p></li>
 </ul>
 </section>
-<section id="decomposition" class="level4">
-<h4 class="anchored" data-anchor-id="decomposition">Decomposition</h4>
+<section id="decomposition" class="level3">
+<h3 class="anchored" data-anchor-id="decomposition">Decomposition</h3>
+<p>Here’s a summary of the decomposition and their respective functional dependencies:</p>
 <ul>
-<li><p><span class="math inline">\(R_{0}(\text{Restaurant ID}, \text{Name}, \text{Location ID})\)</span> having FD(s): <span class="math inline">\(\text{Restaurant ID} \rightarrow \text{Name}\)</span> and <span class="math inline">\(\text{Location ID} \rightarrow \text{Address, Neighborhood, Cardinal Direction from VCU}\)</span></p></li>
-<li><p><span class="math inline">\(R_{1}(\text{Location ID}, \text{Address}, \text{Neighborhood}, \text{Cardinal Direction from VCU})\)</span> having FD(s): No additional functional dependencies</p></li>
-<li><p><span class="math inline">\(R_{2}(\text{Menu ID}, \text{Restaurant ID}, \text{Type})\)</span> having FD(s): <span class="math inline">\(\text{Restaurant ID} \rightarrow \text{Type}\)</span></p></li>
-<li><p><span class="math inline">\(R_{3}(\text{Menu ID}, \text{Item ID})\)</span> having FD(s): <span class="math inline">\(\text{Menu ID} \rightarrow \text{Item ID}\)</span></p></li>
-<li><p><span class="math inline">\(R_{4}(\text{Item ID}, \text{Item Name}, \text{Description}, \text{Price}, \text{Dietary Preference ID})\)</span> having FD(s): <span class="math inline">\(\text{Dietary Preference ID} \rightarrow \text{Preference Name}\)</span></p></li>
-<li><p><span class="math inline">\(R_{5}(\text{Discount ID}, \text{Restaurant ID}, \text{Description})\)</span> having FD(s): <span class="math inline">\(\text{Restaurant ID} \rightarrow \text{Name}\)</span></p></li>
-<li><p><span class="math inline">\(R_{6}(\text{Visit ID}, \text{Restaurant ID}, \text{Date}, \text{Comment})\)</span> having FD(s): <span class="math inline">\(\text{Restaurant ID} \rightarrow \text{Name}\)</span></p></li>
-<li><p><span class="math inline">\(R_{7}(\text{Accessibility ID}, \text{Restaurant ID}, \text{Nearby Bus Stops}, \text{Sidewalk Availability})\)</span> having FD(s): <span class="math inline">\(\text{Restaurant ID} \rightarrow \text{Name}\)</span></p></li>
-<li><p><span class="math inline">\(R_{8}(\text{Distance ID}, \text{Restaurant ID}, \text{Miles})\)</span> having FD(s): <span class="math inline">\(\text{Restaurant ID} \rightarrow \text{Name}\)</span></p></li>
-<li><p><span class="math inline">\(R_{9}(\text{Review ID}, \text{Restaurant ID}, \text{Rating}, \text{Review Text})\)</span> having FD(s): <span class="math inline">\(\text{Restaurant ID} \rightarrow \text{Name}\)</span></p></li>
+<li><span class="math inline">\(R_{0}(\text{Restaurant ID}, \text{Name}, \text{Location ID})\)</span> having FD(s): <span class="math inline">\(\text{Restaurant ID} \rightarrow \text{Name}\)</span> and <span class="math inline">\(\text{Location ID} \rightarrow \text{Address, Neighborhood, Cardinal Direction from VCU}\)</span>
+<ul>
+<li>Explanation:
+<ul>
+<li><span class="math inline">\(R_{0}\)</span> represents the <code>restaurants</code> table and its dependencies.</li>
+<li><code>Restaurant ID</code> uniquely determines <code>Name</code>.</li>
+<li><code>Location ID</code> uniquely determines <code>Address</code>, <code>Neighborhood</code>, and <code>Cardinal Direction from VCU</code>.</li>
+</ul></li>
+</ul></li>
+<li><span class="math inline">\(R_{1}(\text{Location ID}, \text{Address}, \text{Neighborhood}, \text{Cardinal Direction from VCU})\)</span> having FD(s): No additional functional dependencies
+<ul>
+<li>Explanation:
+<ul>
+<li><span class="math inline">\(R_{1}\)</span> corresponds to the <code>locations</code> table, capturing location-specific details.</li>
+<li>No additional functional dependencies exist within this relation.</li>
+</ul></li>
+</ul></li>
+<li><span class="math inline">\(R_{2}(\text{Menu ID}, \text{Restaurant ID}, \text{Type})\)</span> having FD(s): <span class="math inline">\(\text{Restaurant ID} \rightarrow \text{Type}\)</span>
+<ul>
+<li>Explanation:
+<ul>
+<li><span class="math inline">\(R_{2}\)</span> pertains to the <code>menu</code> table and its dependency on restaurant IDs.</li>
+<li><code>Restaurant ID</code> determines <code>Type</code> within this relation.</li>
+</ul></li>
+</ul></li>
+<li><span class="math inline">\(R_{3}(\text{Item ID}, \text{Item Name}, \text{Description}, \text{Price}, \text{Dietary Preference ID})\)</span> having FD(s): <span class="math inline">\(\text{Dietary Preference ID} \rightarrow \text{Preference Name}\)</span>
+<ul>
+<li>Explanation:
+<ul>
+<li><span class="math inline">\(R_{3}\)</span> reflects the <code>items</code> table and its dependencies.</li>
+<li><code>Dietary Preference ID</code> determines <code>Preference Name</code> uniquely in this context.</li>
+</ul></li>
+</ul></li>
+<li><span class="math inline">\(R_{4}(\text{Accessibility ID}, \text{Restaurant ID}, \text{Nearby Bus Stops}, \text{Sidewalk Availability})\)</span> having FD(s): <span class="math inline">\(\text{Restaurant ID} \rightarrow \text{Name}\)</span>
+<ul>
+<li>Explanation:
+<ul>
+<li><span class="math inline">\(R_{4}\)</span> doesn’t directly align but demonstrates a dependency similar to the accessibility details, reflecting restaurant names based on <code>Restaurant ID</code>.</li>
+</ul></li>
+</ul></li>
+<li><span class="math inline">\(R_{5}(\text{Review ID}, \text{Restaurant ID}, \text{Rating}, \text{Review Text})\)</span> having FD(s): <span class="math inline">\(\text{Restaurant ID} \rightarrow \text{Name}\)</span>
+<ul>
+<li>Explanation:
+<ul>
+<li><span class="math inline">\(R_{5}\)</span> mirrors the <code>reviews</code> table, indicating dependencies related to restaurant names based on <code>Restaurant ID</code>. ## Specific Queries</li>
+</ul></li>
+</ul></li>
 </ul>
-<p>The decomposition ensures each relation is in BCNF, free from anomalies, and maintains a lossless structure.</p>
-</section>
-</section>
-<section id="specific-queries" class="level2">
-<h2 class="anchored" data-anchor-id="specific-queries">Specific Queries</h2>
 <p>Pose 20 distinct questions that the database can help answer, written in precise words using relational algebra. Leverage Quarto to write the formulas.</p>
+</section>
 <section id="questions" class="level3">
 <h3 class="anchored" data-anchor-id="questions">Questions</h3>
 </section>
@@ -3806,9 +3810,9 @@ text-align: center;
 <h3 class="anchored" data-anchor-id="queries-relational-algebra">Queries (Relational Algebra)</h3>
 <table class="table">
 <colgroup>
-<col style="width: 37%">
-<col style="width: 38%">
-<col style="width: 24%">
+<col style="width: 20%">
+<col style="width: 62%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3819,104 +3823,119 @@ text-align: center;
 </thead>
 <tbody>
 <tr class="odd">
-<td>What restaurants have Vegan options?</td>
-<td><span class="math inline">\(\pi_{\text{Name}}((\sigma_{\text{Dietary Preference ID} = 2}(\text{Items}) \bowtie (\text{Restaurants}))\)</span></td>
-<td>Bella Trattoria, Sushi Delight, Veggie Burger</td>
+<td>Which restaurants have nearby bus stops and sidewalk availability?</td>
+<td><span class="math inline">\(\pi_{\text{Name}}((\text{Accessibility} \bowtie \text{Restaurants}) \cap (\sigma_{\text{Sidewalk Availability} = \text{&#39;Yes&#39;}}(\text{Accessibility})))\)</span></td>
+<td>Picolla Italy Pizza &amp; Subs, Village Cafe, 821 Cafe, Crazy Thai Restaurant</td>
 </tr>
 <tr class="even">
-<td>What is the average total price of casual restaurants?</td>
-<td><span class="math inline">\(\text{avg}(\sigma_{\text{Formality Level} = \text{&#39;Casual&#39;}}(\text{Restaurants}))\)</span></td>
-<td>11.67</td>
+<td>What is the total count of visits for each restaurant offering discounts?</td>
+<td><span class="math inline">\(\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\text{Discounts} \bowtie \text{Restaurants}))\)</span></td>
+<td>Picolla Italy Pizza &amp; Subs: 2, Village Cafe: 1, Kuba Kuba: 0, Dinamo: 0, 821 Cafe: 0, Crazy Thai Restaurant: 0</td>
 </tr>
 <tr class="odd">
-<td>What are the items on the menu at “Bella Trattoria?”</td>
-<td><span class="math inline">\(\pi_{\text{Item Name}}(\sigma_{\text{Restaurant} = 2}(\text{Menu}))\)</span></td>
-<td>Margherita, Pepperoni, Tofu Stir-Fry, Sushi Roll</td>
+<td>Which restaurants offer discounts and have a formal level of “Casual”?</td>
+<td><span class="math inline">\(\pi_{\text{Name}}((\text{Restaurants} \bowtie \text{Discounts}) \cap (\sigma_{\text{Formality Level} = \text{&#39;Casual&#39;}}(\text{Restaurants})))\)</span></td>
+<td>Picolla Italy Pizza &amp; Subs, Village Cafe, 821 Cafe</td>
 </tr>
 <tr class="even">
-<td>Which restaurant offers discounts?</td>
-<td><span class="math inline">\(\pi_{\text{Name}}(\text{Restaurants} \bowtie \text{Discounts})\)</span></td>
-<td>Pizza Palace, Bella Trattoria, Tacos R Us, Sushi Delight, The Burger Joint, Curry House</td>
+<td>What is the average rating for restaurants in each neighborhood?</td>
+<td><span class="math inline">\(\gamma_{\text{avg(Rating)}}(\text{Reviews} \bowtie \text{Restaurants} \bowtie \text{Location})\)</span></td>
+<td>The Fan: 3.6, VCU: 5.0</td>
 </tr>
 <tr class="odd">
-<td>What are the dietary preferences of all items on the menu?</td>
-<td><span class="math inline">\(\pi_{\text{Dietary Preference ID}}(\text{Items})\)</span></td>
-<td>1, 5, 2, 5, 1, 2</td>
+<td>What is the total count of visits to “Village Cafe”?</td>
+<td><span class="math inline">\(\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\sigma_{\text{Name} = \text{&#39;Village Cafe&#39;}}(\text{Restaurants})))\)</span></td>
+<td>5</td>
 </tr>
 <tr class="even">
-<td>What is the closest Italian restaurant near VCU?</td>
-<td><span class="math inline">\(\pi_{\text{Name}}(\sigma_{\text{Type} = \text{&#39;Italian&#39;}}(\text{Restaurants} \bowtie (\text{Distance} \bowtie (\sigma_{\text{Neighborhood} = \text{&#39;VCU&#39;}}(\text{Location}))))\)</span></td>
-<td>Bella Trattoria</td>
-</tr>
-<tr class="odd">
-<td>What is the highest-rated restaurant?</td>
-<td><span class="math inline">\(\text{max}(\text{Rating})(\text{Reviews}) \bowtie (\text{Restaurants}))\)</span></td>
-<td>Bella Trattoria</td>
-</tr>
-<tr class="even">
-<td>What restaurants have ratings above 4.0?</td>
-<td><span class="math inline">\(\pi_{\text{Name}}(\sigma_{\text{Rating} &gt; 4.0}(\text{Reviews}) \bowtie (\pi_{\text{Restaurant ID}}(\text{Restaurants}))\)</span></td>
-<td>Bella Trattoria, Sushi Delight</td>
-</tr>
-<tr class="odd">
-<td>What are the items with a price less than 10.00 dollars?</td>
-<td><span class="math inline">\(\pi_{\text{Item Name}}(\sigma_{\text{Price} &lt; 10.00}(\text{Items}))\)</span></td>
-<td>Margherita, Pepperoni, Tofu Stir-Fry, Greek Salad, Veggie Burger</td>
-</tr>
-<tr class="even">
-<td>What restaurants offer vegan items and have nearby bus stops?</td>
-<td><span class="math inline">\(\pi_{\text{Name}}((\sigma_{\text{Dietary Preference ID} = 2}(\text{Items}) \bowtie (\text{Restaurants})) \cap (\sigma_{\text{Nearby Bus Stops} = \text{&#39;Yes&#39;}}(\text{Accessibility})))\)</span></td>
-<td>Bella Trattoria, Sushi Delight, Veggie Burger</td>
-</tr>
-<tr class="odd">
-<td>What are the total number of visits to “Pizza Palace.”</td>
-<td><span class="math inline">\(\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\sigma_{\text{Name} = \text{&#39;Pizza Palace&#39;}}(\text{Restaurants})))\)</span></td>
+<td>What is the total count of visits to “Kuba Kuba”?</td>
+<td><span class="math inline">\(\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\sigma_{\text{Name} = \text{&#39;Kuba Kuba&#39;}}(\text{Restaurants}))))\)</span></td>
 <td>2</td>
 </tr>
+<tr class="odd">
+<td>What is the highest-rated restaurant with a formal level of “Casual”?</td>
+<td><span class="math inline">\(\text{max(Rating)}(\text{Reviews} \bowtie (\sigma_{\text{Formality Level} = \text{&#39;Casual&#39;}}(\text{Restaurants}))))\)</span></td>
+<td>Picolla Italy Pizza &amp; Subs</td>
+</tr>
 <tr class="even">
-<td>What are the discounts available for “Sushi Delight?”</td>
-<td><span class="math inline">\(\pi_{\text{Description}}(\sigma_{\text{Restaurant ID} = 4}(\text{Discounts}))\)</span></td>
-<td>Happy Hour Discount, Taco Tuesday: 2 for 1 Tacos</td>
+<td>How many visits were made to Italian restaurants?</td>
+<td><span class="math inline">\(\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\sigma_{\text{Type} = \text{&#39;Italian&#39;}}(\text{Restaurants} \bowtie \text{Location}))))\)</span></td>
+<td>9</td>
 </tr>
 <tr class="odd">
-<td>What restaurants has the lowest average rating?</td>
-<td><span class="math inline">\(\pi_{\text{Name}}(\sigma_{\text{Rating} = \text{min}(\text{Rating})}(\text{Reviews}) \bowtie (\text{Restaurants}))\)</span></td>
-<td>Tacos R Us, The Burger Joint, Curry House</td>
+<td>Which restaurants have both sidewalk availability and discounts?</td>
+<td><span class="math inline">\(\pi_{\text{Name}}((\text{Restaurants} \bowtie \text{Accessibility}) \cap (\text{Restaurants} \bowtie \text{Discounts}))\)</span></td>
+<td>Picolla Italy Pizza &amp; Subs, Village Cafe, Crazy Thai Restaurant</td>
 </tr>
 <tr class="even">
-<td>What is the price of all the menu items?</td>
-<td><span class="math inline">\(\gamma_{\text{Sum(Price)}}(\text{Menu})\)</span></td>
-<td>74.00</td>
+<td>Which restaurants have the highest average rating?</td>
+<td><span class="math inline">\(\pi_{\text{Name}}(\text{Restaurants} \bowtie (\gamma_{\text{max(Rating)}}(\text{Reviews}) \bowtie \text{Restaurants}))\)</span></td>
+<td>VCU</td>
 </tr>
 <tr class="odd">
-<td>What restaurants offer gluten-free items and have sidewalk availability.</td>
-<td><span class="math inline">\(\pi_{\text{Name}}((\sigma_{\text{Dietary Preference ID} = 3}(\text{Items}) \bowtie (\text{Restaurants})) \cap (\sigma_{\text{Sidewalk Availability} = \text{&#39;Yes&#39;}}(\text{Accessibility})))\)</span></td>
-<td>Sushi Delight</td>
+<td>How many reviews have been made for restaurants offering discounts?</td>
+<td><span class="math inline">\(\gamma_{\text{Count(Review ID)}}(\text{Reviews} \bowtie \text{Restaurants} \bowtie \text{Discounts})\)</span></td>
+<td>4</td>
 </tr>
 <tr class="even">
-<td>What neighborhoods have restaurants offering items with a price less than 10.00?</td>
-<td><span class="math inline">\(\pi_{\text{Neighborhood}}(\sigma_{\text{Price} &lt; 10.00}(\text{Items}) \bowtie (\text{Location}))\)</span></td>
-<td>The Fan, Monroe Park, Carver, Jackson Ward, Randolph</td>
+<td>Which restaurants offer discounts and have a formal level of “Casual”?</td>
+<td><span class="math inline">\(\pi_{\text{Name}}((\text{Restaurants} \bowtie \text{Discounts}) \cap (\sigma_{\text{Formality Level} = \text{&#39;Casual&#39;}}(\text{Restaurants})))\)</span></td>
+<td>Village Cafe, 821 Cafe</td>
 </tr>
 <tr class="odd">
-<td>What is the average rating for each restaurant?</td>
-<td><span class="math inline">\(\gamma_{\text{avg(Rating)}}(\text{Reviews}) \bowtie (\text{Restaurants})\)</span></td>
-<td>Pizza Palace: 4.65, Bella Trattoria: 4.25, Tacos R Us: 4.1, Sushi Delight: 4.25, The Burger Joint: 3.5, Curry House: 4.0</td>
+<td>What is the average rating for restaurants in The Fan neighborhood?</td>
+<td><span class="math inline">\(\gamma_{\text{avg(Rating)}}(\text{Reviews} \bowtie (\text{Restaurants} \bowtie \text{Location}))\)</span></td>
+<td>3.4</td>
 </tr>
 <tr class="even">
-<td>What restaurants offer gluten-free items and have vegan options?</td>
-<td><span class="math inline">\(\pi_{\text{Name}}((\sigma_{\text{Dietary Preference ID} = 3}(\text{Items}) \cap (\sigma_{\text{Dietary Preference ID} = 2}(\text{Items})) \bowtie (\text{Restaurants}))\)</span></td>
-<td>Sushi Delight</td>
+<td>How many restaurants have reviews with ratings above 3.0?</td>
+<td><span class="math inline">\(\gamma_{\text{Count(Restaurant ID)}}(\sigma_{\text{Rating} &gt; 3.0}(\text{Reviews} \bowtie \text{Restaurants}))\)</span></td>
+<td>5</td>
 </tr>
 <tr class="odd">
-<td>What are the restaurants in the neighborhood “The Fan?”</td>
-<td><span class="math inline">\(\pi_{\text{Name}}(\sigma_{\text{Neighborhood}} = \text{&#39;The Fan&#39;}(\text{Location}) \bowtie (\text{Restaurants}))\)</span></td>
-<td>Pizza Palace, Bella Trattoria</td>
+<td>What is the average total price for restaurants that have nearby bus stops?</td>
+<td><span class="math inline">\(\gamma_{\text{avg(Average Total Price)}}(\text{Restaurants} \bowtie (\sigma_{\text{Nearby Bus Stops} = \text{&#39;Yes&#39;}}(\text{Accessibility} \bowtie \text{Restaurants} \bowtie \text{Location}))))\)</span></td>
+<td>$20.00</td>
 </tr>
 <tr class="even">
-<td>What is the total price of all menu items with dietary preference “Vegetarian.”</td>
-<td><span class="math inline">\(\gamma_{\text{Sum(Price)}}(\sigma_{\text{Dietary Preference ID} = 1}(\text{Items} \bowtie (\text{Menu}))\)</span></td>
-<td>17.00</td>
+<td>What is the total count of visits to “Crazy Thai Restaurant”?</td>
+<td><span class="math inline">\(\gamma_{\text{Sum(Count)}}(\text{Visits} \bowtie (\sigma_{\text{Name} = \text{&#39;Crazy Thai Restaurant&#39;}}(\text{Restaurants}))))\)</span></td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>What are the restaurants that offer discounts and have a formal level of “Fine Dining”?</td>
+<td><span class="math inline">\(\pi_{\text{Name}}((\text{Restaurants} \bowtie \text{Discounts}) \cap (\sigma_{\text{Formality Level} = \text{&#39;Fine Dining&#39;}}(\text{Restaurants}))))\)</span></td>
+<td>No such restaurants found</td>
+</tr>
+<tr class="even">
+<td>How many restaurants have reviews with ratings below 4.0?</td>
+<td><span class="math inline">\(\gamma_{\text{Count(Restaurant ID)}}(\sigma_{\text{Rating} &lt; 4.0}(\text{Reviews} \bowtie \text{Restaurants}))\)</span></td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Which restaurants have a total count of visits greater than 3? | <span class="math inline">\(\pi_{\text{Name}}(\sigma_{\text{Sum(Count)} &gt; 3}(\text{Visits} \bowtie \text{Restaurants}))\)</span> | No such restaurants found |</p>
+</section>
+<section id="sql-queries" class="level3">
+<h3 class="anchored" data-anchor-id="sql-queries">SQL Queries</h3>
+<table class="table">
+<colgroup>
+<col style="width: 34%">
+<col style="width: 37%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>SQL Query</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>What are the restaurants that are within .2 miles of the VCU compass?</td>
+<td>select * from restaurants join accessability on (restaurant_id = accessibility_restaurant_id) where distance_to_VCU = .2 AND distance_to_VCU = .1</td>
+<td>answer</td>
 </tr>
 </tbody>
 </table>
@@ -3938,11 +3957,11 @@ text-align: center;
 <caption>(a) Restaurants Table</caption>
 <colgroup>
 <col style="width: 15%">
-<col style="width: 18%">
-<col style="width: 18%">
-<col style="width: 23%">
+<col style="width: 21%">
+<col style="width: 17%">
+<col style="width: 21%">
 <col style="width: 10%">
-<col style="width: 13%">
+<col style="width: 15%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3957,51 +3976,51 @@ text-align: center;
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: left;">Pizza Palace</td>
+<td style="text-align: left;">Picolla Italy Pizza &amp; Subs</td>
 <td style="text-align: left;">Casual</td>
-<td style="text-align: left;">10.00</td>
+<td style="text-align: left;">$15-20</td>
 <td style="text-align: left;">1</td>
-<td style="text-align: left;">Fast Food</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">Bella Trattoria</td>
-<td style="text-align: left;">Fine Dining</td>
-<td style="text-align: left;">40.00</td>
-<td style="text-align: left;">2</td>
 <td style="text-align: left;">Italian</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">Tacos R Us</td>
-<td style="text-align: left;">Casual</td>
-<td style="text-align: left;">8.00</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">Mexican</td>
-</tr>
 <tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">Sushi Delight</td>
-<td style="text-align: left;">Fine Dining</td>
-<td style="text-align: left;">35.00</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">Japanese</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">The Burger Joint</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Village Cafe</td>
 <td style="text-align: left;">Casual</td>
-<td style="text-align: left;">12.00</td>
+<td style="text-align: left;">$15-20</td>
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">American</td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Kuba Kuba</td>
+<td style="text-align: left;">Casual</td>
+<td style="text-align: left;">$25-30</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Cuban</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Dinamo</td>
+<td style="text-align: left;">Casual</td>
+<td style="text-align: left;">$25-30</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Italian</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">821 Cafe</td>
+<td style="text-align: left;">Casual</td>
+<td style="text-align: left;">$15-20</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">American Cafe</td>
+</tr>
 <tr class="even">
 <td style="text-align: left;">6</td>
-<td style="text-align: left;">Curry House</td>
+<td style="text-align: left;">Crazy Thai Restaurant</td>
 <td style="text-align: left;">Casual</td>
-<td style="text-align: left;">15.00</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">Indian</td>
+<td style="text-align: left;">$25-30</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Thai</td>
 </tr>
 </tbody>
 </table>
@@ -4010,55 +4029,55 @@ text-align: center;
 <table class="table">
 <caption>(b) Location Table</caption>
 <colgroup>
-<col style="width: 15%">
+<col style="width: 11%">
+<col style="width: 40%">
 <col style="width: 21%">
-<col style="width: 27%">
-<col style="width: 36%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Location ID</th>
-<th style="text-align: left;">Address</th>
-<th style="text-align: left;">Neighborhood</th>
-<th style="text-align: left;">Cardinal Direction from VCU</th>
+<th style="text-align: left;">Location_id</th>
+<th style="text-align: left;">Location_address</th>
+<th style="text-align: left;">Location_neighborhood</th>
+<th style="text-align: left;">Location_direction_from_VCU</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: left;">123 Main St.</td>
+<td style="text-align: left;">1100 W Main St, Richmond, VA 23220</td>
 <td style="text-align: left;">The Fan</td>
-<td style="text-align: left;">North</td>
+<td style="text-align: left;">West</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
-<td style="text-align: left;">456 Elm St.</td>
-<td style="text-align: left;">Monroe Park</td>
-<td style="text-align: left;">South</td>
+<td style="text-align: left;">1001 W Grace St, Richmond, VA 23220</td>
+<td style="text-align: left;">VCU</td>
+<td style="text-align: left;">Northwest</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: left;">789 Oak St.</td>
-<td style="text-align: left;">Carver</td>
-<td style="text-align: left;">East</td>
+<td style="text-align: left;">1601 Park Ave, Richmond, VA 23220</td>
+<td style="text-align: left;">The Fan</td>
+<td style="text-align: left;">West</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
-<td style="text-align: left;">321 Pine St.</td>
-<td style="text-align: left;">Oregon Hill</td>
-<td style="text-align: left;">West</td>
+<td style="text-align: left;">821 W Cary St, Richmond, VA 23220</td>
+<td style="text-align: left;">VCU</td>
+<td style="text-align: left;">South</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">5</td>
-<td style="text-align: left;">555 Maple St.</td>
-<td style="text-align: left;">Jackson Ward</td>
-<td style="text-align: left;">North</td>
+<td style="text-align: left;">825 W Cary St, Richmond, VA 23220</td>
+<td style="text-align: left;">VCU</td>
+<td style="text-align: left;">South</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">6</td>
-<td style="text-align: left;">987 Cedar St.</td>
-<td style="text-align: left;">Randolph</td>
-<td style="text-align: left;">South</td>
+<td style="text-align: left;">1100 W Cary St, Richmond, VA 23220</td>
+<td style="text-align: left;">VCU</td>
+<td style="text-align: left;">Southwest</td>
 </tr>
 </tbody>
 </table>
@@ -4070,46 +4089,32 @@ text-align: center;
 <tr class="header">
 <th style="text-align: left;">Menu ID</th>
 <th style="text-align: left;">Restaurant Id</th>
-<th style="text-align: left;">Item ID</th>
-<th style="text-align: left;">Price</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">1</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">8.00</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
-<td style="text-align: left;">1</td>
 <td style="text-align: left;">2</td>
-<td style="text-align: left;">10.00</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: left;">2</td>
 <td style="text-align: left;">3</td>
-<td style="text-align: left;">20.00</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
-<td style="text-align: left;">2</td>
 <td style="text-align: left;">4</td>
-<td style="text-align: left;">18.00</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">5</td>
-<td style="text-align: left;">3</td>
 <td style="text-align: left;">5</td>
-<td style="text-align: left;">7.00</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">6</td>
-<td style="text-align: left;">3</td>
 <td style="text-align: left;">6</td>
-<td style="text-align: left;">9.00</td>
 </tr>
 </tbody>
 </table>
@@ -4120,120 +4125,100 @@ text-align: center;
 <table class="table">
 <caption>(d) Item Table</caption>
 <colgroup>
-<col style="width: 9%">
-<col style="width: 14%">
-<col style="width: 43%">
+<col style="width: 5%">
+<col style="width: 18%">
+<col style="width: 26%">
+<col style="width: 41%">
 <col style="width: 7%">
-<col style="width: 24%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Item ID</th>
-<th style="text-align: left;">Item Name</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Price</th>
-<th style="text-align: left;">Dietary Preference ID</th>
+<th style="text-align: left;">Item_id</th>
+<th style="text-align: left;">Item_dietary_preference_id</th>
+<th style="text-align: left;">Item_name</th>
+<th style="text-align: left;">Item_description</th>
+<th style="text-align: left;">Item_price</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">Margherita</td>
-<td style="text-align: left;">Tomato, mozzarella, basil</td>
-<td style="text-align: left;">8.00</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;">101</td>
+<td style="text-align: left;">40</td>
+<td style="text-align: left;">Chicken Wings</td>
+<td style="text-align: left;">Mildly spiced, lightly-battered spicy wings served with a choice of ranch or blue cheese.</td>
+<td style="text-align: left;">9.20</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">Pepperoni</td>
-<td style="text-align: left;">Tomato, mozzarella, pepperoni</td>
-<td style="text-align: left;">10.00</td>
-<td style="text-align: left;">5</td>
+<td style="text-align: left;">102</td>
+<td style="text-align: left;">40</td>
+<td style="text-align: left;">Mozzarella Sticks</td>
+<td style="text-align: left;">Deep-fried mozzarella served with marinara sauce.</td>
+<td style="text-align: left;">8.75</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">Tofu Stir-Fry</td>
-<td style="text-align: left;">Tofu, vegetables, soy sauce</td>
-<td style="text-align: left;">12.00</td>
-<td style="text-align: left;">2</td>
+<td style="text-align: left;">103</td>
+<td style="text-align: left;">40</td>
+<td style="text-align: left;">Peperoni Arrosto</td>
+<td style="text-align: left;">Roasted red bell peppers with basil, capers, and anchovies.</td>
+<td style="text-align: left;">9.75</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">Sushi Roll</td>
-<td style="text-align: left;">Fresh fish and rice wrapped in seaweed</td>
-<td style="text-align: left;">15.00</td>
-<td style="text-align: left;">5</td>
+<td style="text-align: left;">203</td>
+<td style="text-align: left;">40</td>
+<td style="text-align: left;">Village Breakfast Special</td>
+<td style="text-align: left;">2 eggs any style, bacon, ham or sausage, a bread choice, and side choice.</td>
+<td style="text-align: left;">6.95</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">Greek Salad</td>
-<td style="text-align: left;">Fresh vegetables and feta cheese</td>
-<td style="text-align: left;">9.00</td>
-<td style="text-align: left;">1</td>
+<td style="text-align: left;">204</td>
+<td style="text-align: left;">40</td>
+<td style="text-align: left;">French Toast</td>
+<td style="text-align: left;">Sliced French bread dipped in homemade batter and dusted with powdered sugar, served with a side choice.</td>
+<td style="text-align: left;">8.95</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">Veggie Burger</td>
-<td style="text-align: left;">Plant-based patty, lettuce, and tomato</td>
-<td style="text-align: left;">10.00</td>
-<td style="text-align: left;">2</td>
+<td style="text-align: left;">205</td>
+<td style="text-align: left;">40</td>
+<td style="text-align: left;">PANCAKES - Three Large Buttermilk Pancakes</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">5.95</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="tbl-fifth" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 33.3%;justify-content: center;">
+<div id="tbl-menu_item" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 33.3%;justify-content: center;">
 <table class="table">
-<caption>(e) Discounts Table</caption>
-<colgroup>
-<col style="width: 15%">
-<col style="width: 17%">
-<col style="width: 34%">
-<col style="width: 32%">
-</colgroup>
+<caption>(e) Menu_Item Table</caption>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Discount ID</th>
-<th style="text-align: left;">Restaurant ID</th>
-<th style="text-align: left;">Description</th>
-<th style="text-align: left;">Conditions</th>
+<th style="text-align: left;">menu_id</th>
+<th style="text-align: left;">item_id</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
+<td style="text-align: left;">101</td>
+</tr>
+<tr class="even">
 <td style="text-align: left;">1</td>
-<td style="text-align: left;">Student Meal Deal</td>
-<td style="text-align: left;">Valid with student ID</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">Happy Hour Discount</td>
-<td style="text-align: left;">4 PM - 6 PM, Mon-Fri</td>
+<td style="text-align: left;">102</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">Family Dinner Special</td>
-<td style="text-align: left;">2 adult meals required</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">103</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">4</td>
 <td style="text-align: left;">2</td>
-<td style="text-align: left;">Taco Tuesday: 2 for 1 Tacos</td>
-<td style="text-align: left;">Tuesdays only</td>
+<td style="text-align: left;">203</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">Lunch Combo Discount</td>
-<td style="text-align: left;">Purchase of an entree</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">204</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">Dessert Special</td>
-<td style="text-align: left;">With purchase of two main courses</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">205</td>
 </tr>
 </tbody>
 </table>
@@ -4242,167 +4227,130 @@ text-align: center;
 <table class="table">
 <caption>(f) Accessibility Table</caption>
 <colgroup>
-<col style="width: 16%">
-<col style="width: 13%">
-<col style="width: 16%">
-<col style="width: 22%">
+<col style="width: 11%">
+<col style="width: 19%">
+<col style="width: 20%">
 <col style="width: 29%">
+<col style="width: 18%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">Accessibility ID</th>
-<th style="text-align: left;">Restaurant ID</th>
-<th style="text-align: left;">Nearby Bus Stops</th>
-<th style="text-align: left;">Sidewalk Availability</th>
-<th style="text-align: left;">Other Accessibility Features</th>
+<th style="text-align: left;">accessibility_id</th>
+<th style="text-align: left;">accessibility_restaurant_id</th>
+<th style="text-align: left;">accessibility_distance_to_VCU</th>
+<th style="text-align: left;">accessibility_nearby_bus_stops</th>
+<th style="text-align: left;">accessibility_notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">1</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">0.2</td>
+<td style="text-align: left;">Several within a quarter of a mile</td>
+<td style="text-align: left;">Basically on campus</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">2</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">0.3</td>
+<td style="text-align: left;">Several within a quarter mile</td>
+<td style="text-align: left;">Basically on campus</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
 <td style="text-align: left;">3</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">0.4</td>
+<td style="text-align: left;">None within a quarter mile</td>
+<td style="text-align: left;">Just into the fan</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
 <td style="text-align: left;">4</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Nearby bus stop</td>
+<td style="text-align: left;">0.3</td>
+<td style="text-align: left;">Two within walking distance down going West on Cary</td>
+<td style="text-align: left;">Basically on campus</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">5</td>
 <td style="text-align: left;">5</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">0.3</td>
+<td style="text-align: left;">Several within a half mile</td>
+<td style="text-align: left;">Basically on campus</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">6</td>
 <td style="text-align: left;">6</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">0.3</td>
+<td style="text-align: left;">Several close</td>
+<td style="text-align: left;">Basically on campus</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div id="tbl-distance" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 33.3%;justify-content: center;">
-<table class="table">
-<caption>(g) Distance Table</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Distance ID</th>
-<th style="text-align: left;">Restaurant ID</th>
-<th style="text-align: left;">Miles</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">1.5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">2.2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">0.8</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">3.5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">4.0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">2.8</td>
-</tr>
-</tbody>
-</table>
-</div>
 <div id="tbl-reviews" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 33.3%;justify-content: center;">
 <table class="table">
-<caption>(h) Reviews Table</caption>
+<caption>(g) Reviews Table</caption>
+<colgroup>
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 92%">
+<col style="width: 2%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Review ID</th>
-<th style="text-align: left;">Restaurant ID</th>
+<th style="text-align: left;">Review_Restaurant ID</th>
 <th style="text-align: left;">Rating</th>
 <th style="text-align: left;">Review Text</th>
+<th style="text-align: left;">Review Date</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">1</td>
-<td style="text-align: left;">4.5</td>
-<td style="text-align: left;">Great place for pizza!</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Closest NY pizza I’ve ever tasted!</td>
+<td style="text-align: left;">02-21-2023</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">5.0</td>
-<td style="text-align: left;">Wonderful Italian food!</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">This is the best pizza place in all of the Richmond.</td>
+<td style="text-align: left;">02-14-2023</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">4.0</td>
-<td style="text-align: left;">Tacos were fantastic!</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Love this place</td>
+<td style="text-align: left;">10-22-2023</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
 <td style="text-align: left;">1</td>
-<td style="text-align: left;">4.8</td>
-<td style="text-align: left;">Excellent pizza!</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Most flavorless, flaccid pie!</td>
+<td style="text-align: left;">11-19-2023</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">5</td>
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">3.5</td>
-<td style="text-align: left;">Decent lasagna.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">4.2</td>
-<td style="text-align: left;">Tasty and quick tacos.</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">They have fresh subs.</td>
+<td style="text-align: left;">11-23-20</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div id="tbl-dietary-preference" class="quarto-layout-cell quarto-layout-cell-subref anchored" data-ref-parent="tbl-panel" style="flex-basis: 33.3%;justify-content: center;">
 <table class="table">
-<caption>(i) Dietary Preference Table</caption>
+<caption>(h) Dietary Preference Table</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Dietary Preference ID</th>
@@ -4484,6 +4432,37 @@ Milestone 7 Final : crit, 2023-12-12, Milestone 7: Final Submission
 </div>
 </div>
 </div>
+</section>
+<section id="api-definition" class="level2">
+<h2 class="anchored" data-anchor-id="api-definition">API Definition</h2>
+<section id="accessing-the-database" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-the-database">Accessing the Database</h3>
+<p>Your database is accessible through a RESTful API. The following endpoints allow access to the database:</p>
+</section>
+<section id="api-demonstration" class="level3">
+<h3 class="anchored" data-anchor-id="api-demonstration">API Demonstration</h3>
+<p>A demonstration of the API’s functionality can be showcased using tools like cURL or Postman. Here’s an example: - Using cURL: <code>curl -X GET http://your-api-endpoint/restaurants</code> - Using Postman: Create a GET request to <code>http://your-api-endpoint/restaurants</code></p>
+</section>
+</section>
+<section id="source-code-links" class="level2">
+<h2 class="anchored" data-anchor-id="source-code-links">Source Code Links</h2>
+<ul>
+<li><a href="https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/restaurantdirectory-ddl.sql">DDL SQL Code</a></li>
+<li><a href="https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/restaurantdirectory-dml.sql">DML SQL Code</a></li>
+<li><a href="https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/project-flask.py">API Source Code</a></li>
+</ul>
+</section>
+<section id="future-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="future-considerations">Future Considerations</h2>
+<ul>
+<li>Implementing user authentication and authorization for API access.</li>
+<li>Optimizing endpoint responses by implementing pagination and filtering.</li>
+<li>Already have locations table to account for restaurants that have multiple locations however case was not present in our current dataset.</li>
+</ul>
+</section>
+<section id="reflections-on-the-project" class="level2">
+<h2 class="anchored" data-anchor-id="reflections-on-the-project">Reflections on the Project</h2>
+<p>The project went well overall. The initial goals were mostly achieved. If given more time to work on this we could have extended our search to a greater radius however we are happy with the amount that we were able to complete.</p>
 </section>
 </section>
 
