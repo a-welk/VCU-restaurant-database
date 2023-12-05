@@ -566,8 +566,57 @@ df_people
 ```
 
 ## Sample Test Queries Using SQL
+Sort the items from Subway that are vegan in ascending order by price
 
 
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT item_name, item_description, item_price
+FROM item
+JOIN menu_items ON item.item_id = menu_items.item_id
+JOIN menu ON menu_items.menu_id = menu.menu_id
+JOIN restaurants ON menu.restaurant_id = restaurants.restaurant_id
+WHERE restaurants.restaurant_name = 'Subway'
+AND item_dietary_preference_id = 20 -- Assuming 'Vegitatrian' has a dietary_preference_id of 20
+ORDER BY item_price ASC;
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+This query retrieves affordable menu items containing "chicken" in their names, displaying their names, descriptions, prices, and the respective restaurant names, sorted by price from least to most expensive.
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT restaurants.restaurant_name, item.item_name, item.item_description, item.item_price
+FROM item
+JOIN menu_items ON item.item_id = menu_items.item_id
+JOIN menu ON menu_items.menu_id = menu.menu_id
+JOIN restaurants ON menu.restaurant_id = restaurants.restaurant_id
+WHERE item.item_name LIKE '%%chicken%%'
+AND item.item_price < 12.00
+ORDER BY item.item_price ASC
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
 
 # Project Management
 
@@ -641,3 +690,4 @@ A demonstration of the API's functionality can be showcased using tools like cUR
 ## Reflections on the Project
 
 The project went well overall. The initial goals were mostly achieved, alt
+
