@@ -566,7 +566,7 @@ df_people
 ```
 
 ## Sample Test Queries Using SQL
-Sort the items from Subway that are vegan in ascending order by price
+Sort the items from Subway that are vegan in ascending order by price.
 
 
 ```{python}
@@ -593,7 +593,7 @@ df
 
 ```
 
-This query retrieves affordable menu items containing "chicken" in their names, displaying their names, descriptions, prices, and the respective restaurant names, sorted by price from least to most expensive.
+This query retrieves affordable menu items (less than $12) containing "chicken" in their names, displaying their names, descriptions, prices, and the respective restaurant names, sorted by price from least to most expensive.
 ```{python}
 #| echo: false
 #| eval: true
@@ -606,6 +606,124 @@ JOIN restaurants ON menu.restaurant_id = restaurants.restaurant_id
 WHERE item.item_name LIKE '%%chicken%%'
 AND item.item_price < 12.00
 ORDER BY item.item_price ASC
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+This query will retrieve all restaurants that are west of the VCU compass.
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+select restaurant_id, restaurant_name, restaurant_location_id from restaurants
+join locations on (restaurant_location_id = location_id) 
+where location_direction_from_VCU = 'West'
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+This query will retrieve all restaurants that are located on West Grace street.
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+select restaurant_id, restaurant_name, location_address from restaurants
+join locations on (restaurant_location_id = location_id) 
+where location_address like '%%W Grace%%'
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+This query will retrieve a list of the restaurants that are literally on the VCU campus.
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+select * from restaurants
+join accessibility on (restaurant_id = accessibility_restaurant_id) 
+where accessibility_notes like '%%Literally on campus%%'
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+This query will retrieve all the restaurants that offer vegan options and display the number of vegan dishes per restaurant.
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT
+    restaurants.restaurant_id,
+    restaurants.restaurant_name,
+    COUNT(menu_items.menu_item_id) AS num_vegan_items
+FROM
+    restaurants
+JOIN
+    menu ON restaurants.restaurant_id = menu.restaurant_id
+JOIN
+    menu_items ON menu.menu_id = menu_items.menu_id
+JOIN
+    item ON menu_items.item_id = item.item_id
+WHERE
+    item.item_dietary_preference_id = 20
+GROUP BY
+    restaurants.restaurant_id, restaurants.restaurant_name;
+
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+This query will retrieve the number of dishes from all the restaurants that are Halal.
+
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT
+    COUNT(item.item_id) AS number_of_halal_dishes
+FROM
+    item
+WHERE
+    item.item_dietary_preference_id = 30;
 """
 try:
     df = pd.read_sql(sql,cnx)
