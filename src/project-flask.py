@@ -95,20 +95,56 @@ def restaurants():
         return jsonify(json.loads(json_string))
     
     if request.method == "POST":
-        restaurant = {
-            'restaurant_id': request.form.get('restaurant_id'),
-            'restaurant_name': request.form.get('restaurant_name'),
-            'restaurant_formality_level': request.form.get('restaurant_formality_level'),
-            'restaurant_avg_total_per_person': request.form.get('restaurant_avg_total_per_person'),
-            'restaurant_location_id': request.form.get('restaurant_location_id'),
-            'restaurant_type': request.form.get('restaurant_type')
-        }
+        restaurant_id = request.form.get('restaurant_id')
+        restaurant_name = request.form.get('restaurant_name')
+        restaurant_formality_level = request.form.get('restaurant_formality_level')
+        restaurant_avg_total_per_person = request.form.get('restaurant_avg_total_per_person')
+        restaurant_location_id = request.form.get('restaurant_location_id')
+        restaurant_type = request.form.get('restaurant_type')
+        
+        # Construct SQL INSERT query
+        s = f"INSERT INTO restaurants (restaurant_id, restaurant_name, restaurant_formality_level, restaurant_avg_total_per_person, restaurant_location_id, restaurant_type) VALUES ('{restaurant_id}', '{restaurant_name}', '{restaurant_formality_level}', '{restaurant_avg_total_per_person}', '{restaurant_location_id}', '{restaurant_type}')"
 
+        try:
+            # Create a connection from the engine
+            with engine.connect() as connection:
+                # Execute the query using the connection
+                connection.execute(s)
+                
+            return f"Restaurant with the id: {restaurant_id} created successfully"
+        
+        except Exception as e:
+            return f"Error creating restaurant: {str(e)}"
+        
+        
 @app.route('/api/restaurants/<ID>')
 def api_show_specific_restaurants(ID):
-    df = my_sql_wrapper('select * from restaurants where restaurant_id = ' + ID)
-    json_data = df.to_json()
-    return jsonify(json_data)
+
+    id_list = ID.split(',')
+    restaurants = []
+
+    for ID in id_list:
+    # Assuming my_sql_wrapper fetches data from the database
+        df = my_sql_wrapper('SELECT * FROM restaurants WHERE restaurant_id = ' + ID)
+    
+    # Check if the DataFrame is empty (no data found for the given ID)
+        if df.empty:
+            return jsonify({"message": "Restaurant not found"}), 404  # Not Found
+    
+    # Convert DataFrame to a list of dictionaries with OrderedDict for consistent ordering
+    
+    for _, row in df.iterrows():
+        restaurant = OrderedDict([
+            ('restaurant_id', row['restaurant_id']),
+            ('restaurant_name', row['restaurant_name']),
+            ('restaurant_formality_level', row['restaurant_formality_level']),
+            ('restaurant_avg_total_per_person', row['restaurant_avg_total_per_person']),
+            ('restaurant_location_id', row['restaurant_location_id']),
+            ('restaurant_type', row['restaurant_type'])
+        ])
+        restaurants.append(restaurant)
+
+    return jsonify(restaurants)
 
 @app.route('/api/reviews/<name>')
 def api_show_reviews(name):
