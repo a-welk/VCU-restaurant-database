@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request, redirect
 import os
 import sys
 import pandas as pd
@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
 from sqlalchemy.exc import OperationalError, ProgrammingError
 from IPython.display import display, Markdown
+from collections import OrderedDict
+import json
 
 # make sure to add PROJECT_DB_NAME to .env file
 config_map = {
@@ -67,7 +69,7 @@ def my_sql_statement( statement ):
 
 app = Flask(__name__)
 
-@app.route('/api/tables')
+@app.route('/api/tables',methods=["GET","POST"])
 def api_show_tables():
     df = my_sql_wrapper("show tables")
     json_data = df.to_json()
@@ -164,6 +166,57 @@ def api_show_accessiblity():
     json_data = df.to_json()
     return jsonify(json_data)
 
+@app.route('/api/menu')
+def api_show_menu():
+    df = my_sql_wrapper("select * from menu")
+    json_data = df.to_json()
+    return jsonify(json_data)
+
+@app.route('/api/item')
+def api_show_item():
+    df = my_sql_wrapper("select * from item")
+    json_data = df.to_json()
+    return jsonify(json_data)
+
+
+@app.route('/api/menu_items')
+def api_show_menu_items():
+    df = my_sql_wrapper("select * from menu_items")
+    json_data = df.to_json()
+    return jsonify(json_data)
+
+@app.route('/api/dietary_preference')
+def api_show_dietary_preference():
+    df = my_sql_wrapper("select * from dietary_preference")
+    json_data = df.to_json()
+    return jsonify(json_data)
+
+@app.route('/api/restaurants_reviews')
+def get_restaurants_reviews():
+    query = """
+    SELECT r.restaurant_name, r.restaurant_type, r.restaurant_avg_total_per_person, rv.review_rating, rv.review_text
+    FROM restaurants r
+    LEFT JOIN review rv ON r.restaurant_id = rv.review_restaurant_id;
+    """
+    df = pd.read_sql(query, conn)
+    json_data = df.to_json(orient='records')
+    return jsonify(json_data)
+
+@app.route('/api/bus_stops_near_vc')
+def get_bus_stops_near_vc():
+    query = """
+    SELECT r.restaurant_name, r.restaurant_location_id, a.accessibility_nearby_bus_stops
+    FROM restaurants r
+    JOIN accessibility a ON r.restaurant_id = a.accessibility_restaurant_id
+    WHERE a.accessibility_miles_to_VCU < 2; -- You can adjust the distance as needed
+    """
+    df = pd.read_sql(query, conn)
+    json_data = df.to_json(orient='records')
+    return jsonify(json_data)
+
+
+
 if __name__ == '__main__':
     print(my_sql_wrapper("show tables"))
     app.run(debug=True)
+
