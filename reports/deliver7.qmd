@@ -566,9 +566,7 @@ df_people
 ```
 
 ## Sample Test Queries Using SQL
-Sort the items from Subway that are vegan in ascending order by price.
-
-
+1.Sort the items from Subway that are vegan in ascending order by price.
 ```{python}
 #| echo: false
 #| eval: true
@@ -593,7 +591,7 @@ df
 
 ```
 
-This query retrieves affordable menu items (less than $12) containing "chicken" in their names, displaying their names, descriptions, prices, and the respective restaurant names, sorted by price from least to most expensive.
+2.This query retrieves affordable menu items (less than $12) containing "chicken" in their names, displaying their names, descriptions, prices, and the respective restaurant names, sorted by price from least to most expensive.
 ```{python}
 #| echo: false
 #| eval: true
@@ -618,7 +616,7 @@ df
 
 ```
 
-This query will retrieve all restaurants that are west of the VCU compass.
+3.This query will retrieve all restaurants that are west of the VCU compass.
 ```{python}
 #| echo: false
 #| eval: true
@@ -638,7 +636,7 @@ df
 
 ```
 
-This query will retrieve all restaurants that are located on West Grace street.
+4.This query will retrieve all restaurants that are located on West Grace street.
 ```{python}
 #| echo: false
 #| eval: true
@@ -658,7 +656,7 @@ df
 
 ```
 
-This query will retrieve a list of the restaurants that are literally on the VCU campus.
+5.This query will retrieve a list of the restaurants that are literally on the VCU campus.
 ```{python}
 #| echo: false
 #| eval: true
@@ -678,7 +676,7 @@ df
 
 ```
 
-This query will retrieve all the restaurants that offer vegan options and display the number of vegan dishes per restaurant.
+6.This query will retrieve all the restaurants that offer vegan options , displays the number of vegan dishes per restaurant, finally groups them in descending order.
 ```{python}
 #| echo: false
 #| eval: true
@@ -698,7 +696,8 @@ JOIN
 WHERE
     item.item_dietary_preference_id = 20
 GROUP BY
-    restaurants.restaurant_id, restaurants.restaurant_name;
+    restaurants.restaurant_id, restaurants.restaurant_name
+ORDER BY num_vegan_items DESC;
 
 """
 try:
@@ -712,8 +711,7 @@ df
 
 ```
 
-This query will retrieve the number of dishes from all the restaurants that are Halal.
-
+7.This query will retrieve the number of dishes from all the restaurants that are Halal.
 ```{python}
 #| echo: false
 #| eval: true
@@ -735,6 +733,341 @@ except Exception as e:
 df
 
 ```
+
+8.Query to return the Top 10 Rated Restaurants
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT restaurant_name, ROUND(AVG(review_rating), 2) AS average_rating
+FROM restaurants
+JOIN review ON restaurants.restaurant_id = review.review_restaurant_id
+GROUP BY restaurant_name
+ORDER BY average_rating DESC
+LIMIT 10;
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+9.Displaying the count of vegan items each restaurant offers while also displaying their names, addresses, and filtering for locations less than 0.5 miles away:
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT 
+    restaurants.restaurant_name,
+    locations.location_address,
+    COUNT(DISTINCT menu_items.item_id) AS num_vegan_items
+FROM restaurants
+JOIN menu ON restaurants.restaurant_id = menu.restaurant_id
+JOIN menu_items ON menu.menu_id = menu_items.menu_id
+JOIN item ON menu_items.item_id = item.item_id
+JOIN accessibility ON restaurants.restaurant_id = accessibility.accessibility_restaurant_id
+JOIN locations ON restaurants.restaurant_location_id = locations.location_id
+WHERE 
+    item.item_dietary_preference_id = 20  -- Assuming 'Vegan' has a dietary_preference_id of 20
+    AND accessibility.accessibility_miles_to_VCU < 0.5
+GROUP BY 
+    restaurants.restaurant_name, locations.location_address
+ORDER BY 
+    num_vegan_items DESC;
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+10.This query will retrieve the number of items under 5 dollars each Restauraunt have on thier menu. 
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT 
+    restaurants.restaurant_name,
+    COUNT(item.item_id) AS num_items_under_5
+FROM restaurants
+JOIN menu ON restaurants.restaurant_id = menu.restaurant_id
+JOIN menu_items ON menu.menu_id = menu_items.menu_id
+JOIN item ON menu_items.item_id = item.item_id
+WHERE 
+    item.item_price < 5.00
+GROUP BY 
+    restaurants.restaurant_name
+ORDER BY 
+    num_items_under_5 DESC;
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+11.This query returns the total count of menu items available 
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT COUNT(item_id) AS total_menu_items FROM item;
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+12.This query retrieves the cheapest item_name and item_cost along with the restaurant it is from.
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT 
+    r.restaurant_name,
+    i.item_name AS cheapest_item,
+    i.item_price AS cheapest_item_price
+FROM 
+    restaurants r
+JOIN 
+    menu m ON r.restaurant_id = m.restaurant_id
+JOIN 
+    menu_items mi ON m.menu_id = mi.menu_id
+JOIN 
+    item i ON mi.item_id = i.item_id
+WHERE 
+    i.item_price = (
+        SELECT 
+            MIN(item_price)
+        FROM 
+            menu_items mi2
+        JOIN 
+            item i2 ON mi2.item_id = i2.item_id
+        WHERE 
+            mi2.menu_id = m.menu_id
+    );
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+13.This query retrieves reviews from 2023 for restaurants 
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT r.restaurant_name, re.*
+FROM review re
+JOIN restaurants r ON re.review_restaurant_id = r.restaurant_id
+WHERE SUBSTRING(re.review_date, -4) = '2023';
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+14.This query retrieves number of restaurants by formality number
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT restaurant_formality_level, COUNT(restaurant_id) AS num_restaurants
+FROM restaurants
+GROUP BY restaurant_formality_level
+ORDER BY num_restaurants DESC;
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+15.This query retrieves the number of restaurants per neighborhood
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT location_neighborhood, COUNT(restaurant_id) AS num_restaurants
+FROM locations
+JOIN restaurants ON locations.location_id = restaurants.restaurant_location_id
+GROUP BY location_neighborhood
+ORDER BY num_restaurants DESC;
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+16.This query retrieves a table showing the count of dietary preferences for Mamusa's African Restaurant
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT dp.dietary_preference_name, COUNT(item.item_id) AS preference_count
+FROM restaurants r
+JOIN menu ON r.restaurant_id = menu.restaurant_id
+JOIN menu_items ON menu.menu_id = menu_items.menu_id
+JOIN item ON menu_items.item_id = item.item_id
+JOIN dietary_preference dp ON item.item_dietary_preference_id = dp.dietary_preference_id
+WHERE r.restaurant_name = 'Mamusa''s African Restaurant'
+GROUP BY dp.dietary_preference_name
+ORDER BY preference_count DESC;
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+17.This query groups the restaurants by their types (restaurant_type) and counts the number of restaurants within each type using COUNT
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT restaurant_type, COUNT(restaurant_id) AS type_count
+FROM restaurants
+GROUP BY restaurant_type
+ORDER BY type_count DESC ;
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+18.This retrieve restaurants that are Mediterranean and offer vegetarian options.
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT *
+FROM restaurants r
+WHERE r.restaurant_type = 'Mediterranean'
+AND EXISTS (
+    SELECT 1
+    FROM menu m
+    JOIN menu_items mi ON m.menu_id = mi.menu_id
+    JOIN item i ON mi.item_id = i.item_id
+    WHERE m.restaurant_id = r.restaurant_id
+    AND i.item_dietary_preference_id = (
+        SELECT dietary_preference_id
+        FROM dietary_preference
+        WHERE dietary_preference_name = 'Vegetarian'
+    )
+);
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+19.This query retrieves restaurants that offer Italian cuisine.
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT *
+FROM restaurants
+WHERE restaurant_type = 'Italian';
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
+20.This query that lists restaurants offering vegetarian options and their respective counts of vegetarian menu items
+```{python}
+#| echo: false
+#| eval: true
+sql = f"""
+SELECT r.restaurant_name, COUNT(i.item_id) AS num_vegetarian_items
+FROM restaurants r
+JOIN menu m ON r.restaurant_id = m.restaurant_id
+JOIN menu_items mi ON m.menu_id = mi.menu_id
+JOIN item i ON mi.item_id = i.item_id
+JOIN dietary_preference dp ON i.item_dietary_preference_id = dp.dietary_preference_id
+WHERE dp.dietary_preference_name = 'Vegetarian'
+GROUP BY r.restaurant_name
+ORDER BY num_vegetarian_items DESC;
+"""
+try:
+    df = pd.read_sql(sql,cnx)
+    df
+except Exception as e:
+    message = str(e)
+    print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
+    df = pd.DataFrame()
+df
+
+```
+
 
 # Project Management
 
@@ -766,8 +1099,8 @@ Populate Database with Sample Data : des11, 2023-10-26, 2023-11-15
 Test Database operations : des12, 2023-11-16, 2023-12-09
 
 section Alex Welk
-Discuss Idea for Dtabase : done,des13, 2023-09-18, 2023-09-20
-Define Create ER Digram/Project Overview/Design : done,des14, 2023-10-01, 2023-10-14
+Discuss Idea for Database : done,des13, 2023-09-18, 2023-09-20
+Define Create ER Diagram/Project Overview/Design : done,des14, 2023-10-01, 2023-10-14
 Define the Data relationships in Database : des15, 2023-10-15, 2023-10-25
 Define Data Constraints : des14, 2023-10-26, 2023-11-15
 Implement Security measures user access contol : des15, 2023-11-15, 2023-12-09
@@ -808,4 +1141,3 @@ A demonstration of the API's functionality can be showcased using tools like cUR
 ## Reflections on the Project
 
 The project went well overall. The initial goals were mostly achieved, alt
-
