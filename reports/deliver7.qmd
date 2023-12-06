@@ -1099,8 +1099,8 @@ Populate Database with Sample Data : des11, 2023-10-26, 2023-11-15
 Test Database operations : des12, 2023-11-16, 2023-12-09
 
 section Alex Welk
-Discuss Idea for Database : done,des13, 2023-09-18, 2023-09-20
-Define Create ER Diagram/Project Overview/Design : done,des14, 2023-10-01, 2023-10-14
+Discuss Idea for Dtabase : done,des13, 2023-09-18, 2023-09-20
+Define Create ER Digram/Project Overview/Design : done,des14, 2023-10-01, 2023-10-14
 Define the Data relationships in Database : des15, 2023-10-15, 2023-10-25
 Define Data Constraints : des14, 2023-10-26, 2023-11-15
 Implement Security measures user access contol : des15, 2023-11-15, 2023-12-09
@@ -1127,6 +1127,59 @@ Your database is accessible through a RESTful API. The following endpoints allow
 A demonstration of the API's functionality can be showcased using tools like cURL or Postman. Here's an example:
 - Using cURL: `curl -X GET http://your-api-endpoint/restaurants`
 - Using Postman: Create a GET request to `http://your-api-endpoint/restaurants`
+1.Print the first 10 restaurants 
+```{python}
+import requests
+
+url = 'http://127.0.0.1:5000/api/restaurants'
+
+# Make a GET request to retrieve restaurant data
+response = requests.get(url)
+
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Get the JSON data
+    restaurants = response.json()
+
+    # Print the first five restaurants
+    for restaurant in restaurants[:10]:
+        print(restaurant['restaurant_name'])
+else:
+    print(f"Request failed with status code: {response.status_code}")
+```
+
+```{python}
+import requests
+
+url = 'http://127.0.0.1:5000/api/restaurants/29'  # Endpoint with ID 25
+
+# Make a GET request to retrieve restaurant data with ID 25
+response = requests.get(url)
+
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Get the JSON data for the restaurant(s) with ID 25
+    restaurants = response.json()
+
+    # If the response is a list of restaurants
+    if isinstance(restaurants, list):
+        # Iterate through the list of restaurants
+        for restaurant in restaurants:
+            print(f"Restaurant Name: {restaurant['restaurant_name']}")
+            print(f"Formality Level: {restaurant['restaurant_formality_level']}")
+            print(f"Avg Total per Person: {restaurant['restaurant_avg_total_per_person']}")
+            # Add other details as needed
+            print("------------------------")
+    else:
+        # Access details for a single restaurant
+        print(f"Restaurant Name: {restaurants['restaurant_name']}")
+        print(f"Formality Level: {restaurants['restaurant_formality_level']}")
+        print(f"Avg Total per Person: {restaurants['restaurant_avg_total_per_person']}")
+        # Add other details as needed
+else:
+    print(f"Request failed with status code: {response.status_code}")
+
+```
 
 ## Source Code Links
 
