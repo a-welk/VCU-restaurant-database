@@ -164,6 +164,12 @@ def api_show_accessiblity():
     json_data = df.to_json()
     return jsonify(json_data)
 
+@app.route('/api/accessibility/<name>')
+def api_show_accessiblity_by_name(name):
+    df = my_sql_wrapper('select * from accessibility join restaurants on (accessibility_restaurant_id = restaurant_id) where restaurant_name = "' + name + '"')
+    json_data = df.to_json()
+    return jsonify(json_data)
+
 if __name__ == '__main__':
     print(my_sql_wrapper("show tables"))
     app.run(debug=True)
