@@ -166,17 +166,22 @@ def api_show_accessiblity():
     json_data = df.to_json()
     return jsonify(json_data)
 
-<<<<<<< HEAD
-@app.route('/api/accessibility/<name>')
+@app.route('/api/accessibility/name/<name>')
 def api_show_accessiblity_by_name(name):
     df = my_sql_wrapper('select * from accessibility join restaurants on (accessibility_restaurant_id = restaurant_id) where restaurant_name = "' + name + '"')
     json_data = df.to_json()
     return jsonify(json_data)
 
-=======
-@app.route('/api/menu')
-def api_show_menu():
-    df = my_sql_wrapper("select * from menu")
+
+@app.route('/api/menu/ID/<ID>')
+def api_show_menu_ID(ID):
+    df = my_sql_wrapper("SELECT item.item_id, item.item_name, item.item_description, item.item_price FROM menu_items JOIN item ON menu_items.item_id = item.item_id WHERE menu_items.menu_id IN (SELECT menu_id FROM menu WHERE restaurant_id =" + ID + ");")
+    json_data = df.to_json()
+    return jsonify(json_data)
+
+@app.route('/api/menu/restaurant/<name>')
+def api_show_menu_name(name):
+    df = my_sql_wrapper('SELECT item.item_id, item.item_name, item.item_description, item.item_price FROM menu_items JOIN item ON menu_items.item_id = item.item_id JOIN menu ON menu_items.menu_id = menu.menu_id JOIN restaurants ON menu.restaurant_id = restaurants.restaurant_id WHERE restaurants.restaurant_name = "' + name + '"')
     json_data = df.to_json()
     return jsonify(json_data)
 
@@ -196,6 +201,12 @@ def api_show_menu_items():
 @app.route('/api/dietary_preference')
 def api_show_dietary_preference():
     df = my_sql_wrapper("select * from dietary_preference")
+    json_data = df.to_json()
+    return jsonify(json_data)
+
+@app.route('/api/dietary_preference/<preference>')
+def api_show_dietary_preference_preference(preference):
+    df = my_sql_wrapper("SELECT item.item_id, item.item_name, item.item_description, item.item_price, restaurants.restaurant_name FROM menu_items JOIN item ON menu_items.item_id = item.item_id JOIN menu ON menu_items.menu_id = menu.menu_id JOIN restaurants ON menu.restaurant_id = restaurants.restaurant_id JOIN dietary_preference ON item.item_dietary_preference_id = dietary_preference.dietary_preference_id WHERE dietary_preference.dietary_preference_name = '" + preference +"'")
     json_data = df.to_json()
     return jsonify(json_data)
 
@@ -224,7 +235,6 @@ def get_bus_stops_near_vc():
 
 
 
->>>>>>> 33ada012e4f2c2151df87fd43f9c1a06a0311c53
 if __name__ == '__main__':
     print(my_sql_wrapper("show tables"))
     app.run(debug=True)
