@@ -35,3 +35,21 @@ This folder contains the deliverable reports required for the first phase of the
    - Gantt chart outlining project milestones and tasks.
 
 To open deliver4.html use "open deliver4.html" in terminal 
+
+## Deliverable 7 Report includes:
+
+5. **Updates to Deliverable 7**
+- [Link to deliver7.html Location in Repo](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/reports/deliver7.html)
+- Addition of SQL queries and updates to project design
+  
+6. **API Implementation**  
+   - Details about implementing a Rest API using endpoints, specifically with Flask.
+   - Demonstration on how to use the API
+   - This covers the setup, endpoints, functionalities
+
+7. **Source Code Links:**
+   - Links to the source code repositories or files containing the Data Definition Language (DDL), Data Manipulation Language (DML), and Flask API code used in the project.
+
+8. **Evaluation**
+   -Future Considerations
+   -Reflection
