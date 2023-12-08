@@ -5,6 +5,8 @@ date: last-modified
 format:
   html:
     theme: cosmo
+    code-fold: true
+    code-summary: "Show the code"
     toc: true
     embed-resources: true
 ---
@@ -163,7 +165,7 @@ The database caters to various user roles, including VCU students, local restaur
 
 ## Security and Privacy
 
-In our database design, we're planning to take robust measures to protect our restaurant's proprietary information, which includes critical data like restaurant locations, pricing, and our unique menu offerings. We understand that this information is not only a valuable asset but also essential to our competitive advantage. To secure it, we intend to establish stringent access controls. Our approach will involve implementing role-based access control, ensuring that only authorized individual can access or modify this vital data. By taking these steps, we aim to maintain the integrity of our business model and data, making sure it remains confidential and protected from unauthorized access.
+In terms of security and privacy measures, we prioritized safeguarding sensitive information like database access credentials. To achieve this, we utilized a .env file, which served as a secure repository for crucial details like usernames, passwords, hosts, and database names. These vital configurations, such as 'user,' 'password,' 'host,' and 'database,' were stored within this file. The .env was stored in a safe environment. 
 
 
 
@@ -378,7 +380,7 @@ Here's a summary of the decomposition and their respective functional dependenci
     - $R_{5}$ mirrors the `reviews` table, indicating dependencies related to restaurant names based on `Restaurant ID`.
 
 
-## Specific Queries
+# Relational Algebra and SQL Queries
 
 Pose 20 distinct questions that the database can help answer, written in precise words using relational algebra. Leverage Quarto to write the formulas.
 
@@ -567,9 +569,8 @@ df_people
 
 ## Sample Test Queries Using SQL
 1.Sort the items from Subway that are vegan in ascending order by price.
+
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT item_name, item_description, item_price
 FROM item
@@ -577,24 +578,23 @@ JOIN menu_items ON item.item_id = menu_items.item_id
 JOIN menu ON menu_items.menu_id = menu.menu_id
 JOIN restaurants ON menu.restaurant_id = restaurants.restaurant_id
 WHERE restaurants.restaurant_name = 'Subway'
-AND item_dietary_preference_id = 20 -- Assuming 'Vegitatrian' has a dietary_preference_id of 20
+AND item_dietary_preference_id = 20 -- Assuming 'Vegetarian' has a dietary_preference_id of 20
 ORDER BY item_price ASC;
 """
 try:
-    df = pd.read_sql(sql,cnx)
+    df = pd.read_sql(sql, cnx)
     df
 except Exception as e:
     message = str(e)
     print(f"An error occurred:\n\n{message}\n\nIgnoring and moving on.")
     df = pd.DataFrame()
+
 df
 
 ```
 
 2.This query retrieves affordable menu items (less than $12) containing "chicken" in their names, displaying their names, descriptions, prices, and the respective restaurant names, sorted by price from least to most expensive.
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT restaurants.restaurant_name, item.item_name, item.item_description, item.item_price
 FROM item
@@ -618,8 +618,6 @@ df
 
 3.This query will retrieve all restaurants that are west of the VCU compass.
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 select restaurant_id, restaurant_name, restaurant_location_id from restaurants
 join locations on (restaurant_location_id = location_id) 
@@ -638,8 +636,6 @@ df
 
 4.This query will retrieve all restaurants that are located on West Grace street.
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 select restaurant_id, restaurant_name, location_address from restaurants
 join locations on (restaurant_location_id = location_id) 
@@ -658,8 +654,7 @@ df
 
 5.This query will retrieve a list of the restaurants that are literally on the VCU campus.
 ```{python}
-#| echo: false
-#| eval: true
+
 sql = f"""
 select * from restaurants
 join accessibility on (restaurant_id = accessibility_restaurant_id) 
@@ -678,8 +673,7 @@ df
 
 6.This query will retrieve all the restaurants that offer vegan options , displays the number of vegan dishes per restaurant, finally groups them in descending order.
 ```{python}
-#| echo: false
-#| eval: true
+
 sql = f"""
 SELECT
     restaurants.restaurant_id,
@@ -713,8 +707,6 @@ df
 
 7.This query will retrieve the number of dishes from all the restaurants that are Halal.
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT
     COUNT(item.item_id) AS number_of_halal_dishes
@@ -736,8 +728,6 @@ df
 
 8.Query to return the Top 10 Rated Restaurants
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT restaurant_name, ROUND(AVG(review_rating), 2) AS average_rating
 FROM restaurants
@@ -759,8 +749,6 @@ df
 
 9.Displaying the count of vegan items each restaurant offers while also displaying their names, addresses, and filtering for locations less than 0.5 miles away:
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT 
     restaurants.restaurant_name,
@@ -793,8 +781,6 @@ df
 
 10.This query will retrieve the number of items under 5 dollars each Restauraunt have on thier menu. 
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT 
     restaurants.restaurant_name,
@@ -823,8 +809,6 @@ df
 
 11.This query returns the total count of menu items available 
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT COUNT(item_id) AS total_menu_items FROM item;
 """
@@ -841,8 +825,6 @@ df
 
 12.This query retrieves the cheapest item_name and item_cost along with the restaurant it is from.
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT 
     r.restaurant_name,
@@ -881,8 +863,6 @@ df
 
 13.This query retrieves reviews from 2023 for restaurants 
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT r.restaurant_name, re.*
 FROM review re
@@ -902,8 +882,6 @@ df
 
 14.This query retrieves number of restaurants by formality number
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT restaurant_formality_level, COUNT(restaurant_id) AS num_restaurants
 FROM restaurants
@@ -923,8 +901,6 @@ df
 
 15.This query retrieves the number of restaurants per neighborhood
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT location_neighborhood, COUNT(restaurant_id) AS num_restaurants
 FROM locations
@@ -945,8 +921,6 @@ df
 
 16.This query retrieves a table showing the count of dietary preferences for Mamusa's African Restaurant
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT dp.dietary_preference_name, COUNT(item.item_id) AS preference_count
 FROM restaurants r
@@ -971,8 +945,6 @@ df
 
 17.This query groups the restaurants by their types (restaurant_type) and counts the number of restaurants within each type using COUNT
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT restaurant_type, COUNT(restaurant_id) AS type_count
 FROM restaurants
@@ -992,8 +964,7 @@ df
 
 18.This retrieve restaurants that are Mediterranean and offer vegetarian options.
 ```{python}
-#| echo: false
-#| eval: true
+
 sql = f"""
 SELECT *
 FROM restaurants r
@@ -1024,8 +995,6 @@ df
 
 19.This query retrieves restaurants that offer Italian cuisine.
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT *
 FROM restaurants
@@ -1044,8 +1013,6 @@ df
 
 20.This query that lists restaurants offering vegetarian options and their respective counts of vegetarian menu items
 ```{python}
-#| echo: false
-#| eval: true
 sql = f"""
 SELECT r.restaurant_name, COUNT(i.item_id) AS num_vegetarian_items
 FROM restaurants r
@@ -1115,19 +1082,46 @@ Milestone 6 Database pt 2: crit, 2023-11-20, Milestone 6: Work on Database 2 Com
 Milestone 7 Final : crit, 2023-12-12, Milestone 7: Final Submission    
 ```
 
+# API Implementation
+
 ## API Definition
 
-### Accessing the Database
+### Accessing the Database using these endpoints
 
-Your database is accessible through a RESTful API. The following endpoints allow access to the database:
+- /api/tables (GET) - Lists tables in the database.
+- /api/restaurants (GET, POST) - Gets all restaurants or creates a new one.
+- /api/restaurants/'ID' (GET) - Fetches restaurant details by ID.
+- /api/reviews/'name' (GET) - Retrieves reviews for a restaurant.
+- /api/locations (GET) - Gets all location details.
+- /api/accessibility (GET) - Fetches accessibility details.
+- /api/locations/accessibility/name/'name' (GET) - Retrieves accessibility details and restaurant location by name.
+- /api/menu/ID/'ID' (GET) - Gets menu items by restaurant ID.
+- /api/menu/restaurant/'name' (GET) - Retrieves menu items by restaurant name.
+- /api/item (GET) - Fetches item details.
+- /api/menu_items (GET) - Retrieves menu items.
+- /api/dietary_preference (GET) - Gets dietary preferences.
+- /api/dietary_preference/<preference> (GET) - Retrieves menu items based on a specific dietary preference.
+- /api/restaurants_reviews (GET) - Retrieves reviews along with associated restaurant details.
+- /api/bus_stops_near_vc (GET) - Fetches restaurants, their locations, and nearby bus stops near VCU.
 
 
 ### API Demonstration
 
-A demonstration of the API's functionality can be showcased using tools like cURL or Postman. Here's an example:
-- Using cURL: `curl -X GET http://your-api-endpoint/restaurants`
-- Using Postman: Create a GET request to `http://your-api-endpoint/restaurants`
-1.Print the first 10 restaurants 
+- ***Environment Setup:**
+  - Install Python from the official website.
+  - Use `pip` to install required packages: `flask`, `pandas`, `pymysql`, `sqlalchemy`, and `python-dotenv`.
+
+- ***Environment Variables:**
+  - Create a `.env` file in your project directory.
+  - Add sensitive information (like database credentials) in the `.env` file.
+
+- ***Running the Flask App:**
+  - Execute the Flask application scriptusing `python project-flask.py`.
+
+- ***Accessing the API:**
+  - Once the app is running, access the API endpoints by visiting `http://127.0.0.1:5000` in your web browser. We had to run it to successfully render this qmd.
+
+1.Print the first 10 restaurants: Sends a GET request to retrieve restaurant data from the */api/restaurants* endpoint and prints the names of the first 10 restaurants received in the response.
 ```{python}
 import requests
 
@@ -1148,6 +1142,7 @@ else:
     print(f"Request failed with status code: {response.status_code}")
 ```
 
+2.Shows specific restaurant info: Sends a GET request to fetch details of a restaurant with a specific ID (in this case, ID 29). Prints the retrieved restaurant's name, formality level, average total per person, and restaurant type.
 ```{python}
 import requests
 
@@ -1168,29 +1163,180 @@ if response.status_code == 200:
             print(f"Restaurant Name: {restaurant['restaurant_name']}")
             print(f"Formality Level: {restaurant['restaurant_formality_level']}")
             print(f"Avg Total per Person: {restaurant['restaurant_avg_total_per_person']}")
+            print(f"Restaurant Type: {restaurant['restaurant_type']}")
             # Add other details as needed
-            print("------------------------")
     else:
         # Access details for a single restaurant
         print(f"Restaurant Name: {restaurants['restaurant_name']}")
         print(f"Formality Level: {restaurants['restaurant_formality_level']}")
         print(f"Avg Total per Person: {restaurants['restaurant_avg_total_per_person']}")
+        print(f"Restaurant Type: {restaurants['restaurant_type']}")
         # Add other details as needed
 else:
     print(f"Request failed with status code: {response.status_code}")
 
 ```
 
-## Source Code Links
+3.Retrieve Spoon's Reviews: Sends a GET request to fetch reviews for a restaurant named "Spoon" from the */api/reviews/Spoon* endpoint. Parses the retrieved data and prints details such as review ID, rating, and text.
+```{python}
+import requests
+import json
+
+url = 'http://127.0.0.1:5000/api/reviews/Spoon'
+
+# Make a GET request to retrieve restaurant data
+response = requests.get(url)
+
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Get the JSON data
+    data = response.json()
+    parsed_data =  json.loads(data)
+    # Assuming 'review_id', 'review_rating', and 'review_text' are nested dictionaries with keys like 'i'
+    i = 0  # Starting index
+    while str(i) in parsed_data['review_id']:
+        review_id = parsed_data['review_id'][str(i)]
+        review_rating = parsed_data['review_rating'][str(i)]
+        review_text = parsed_data['review_text'][str(i)]
+        
+        # Display the extracted details
+        print(f"Review ID: {review_id}")
+        print(f"Review Rating: {review_rating}")
+        print(f"Review Text: {review_text}\n")
+        
+        i += 1  # Increment index
+else:
+    print(f"Request failed with status code: {response.status_code}")
+
+```
+
+4.Retrieves items from every menu that are halal: Sends a GET request to fetch menu items that match the dietary preference "halal" from the */api/dietary_preference/halal* endpoint. Prints details including restaurant name, item ID, item name, description, and price for all retrieved items.
+```{python}
+import requests
+import json
+
+url = 'http://127.0.0.1:5000/api/dietary_preference/halal'
+
+# Make a GET request to retrieve item data
+response = requests.get(url)
+
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Get the JSON data
+    data1 = response.json()
+    data = json.loads(data1)
+
+    # Assuming 'item_id', 'item_name', 'item_description', 'item_price', 'restaurant_name' are present in the data
+    i = 0  # Starting index
+    while str(i) in data['item_id']:
+        item_id = data['item_id'][str(i)]
+        item_name = data['item_name'][str(i)]
+        item_description = data['item_description'][str(i)]
+        item_price = data['item_price'][str(i)]
+        restaurant_name = data['restaurant_name'][str(i)]
+
+        # Display the extracted details
+        print(f"Restaurant Name: {restaurant_name}")
+        print(f"Item ID: {item_id}")
+        print(f"Item Name: {item_name}")
+        print(f"Item Description: {item_description}")
+        print(f"Item Price: {item_price}\n")
+
+        i += 1  # Increment index
+else:
+    print(f"Request failed with status code: {response.status_code}")
+
+```
+
+5.Retrieves the location of a specific restaurant and extra accessibility info: Sends a GET request to fetch location and accessibility details for a restaurant named "Pupatella" from the */api/locations/accessibility/name/Pupatella* endpoint. Prints information including location, accessibility ID, miles to VCU, nearby bus stops, and accessibility notes.
+```{python}
+import requests
+import json
+
+url = 'http://127.0.0.1:5000/api/locations/accessibility/name/Pupatella'
+
+# Make a GET request to retrieve item data
+response = requests.get(url)
+
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Get the JSON data
+    data1 = response.json()
+    data = json.loads(data1)
+
+    # Assuming 'item_id', 'item_name', 'item_description', 'item_price', 'restaurant_name' are present in the data
+    i = 0  # Starting index
+    while str(i) in data['accessibility_id']:
+        location_address = data['location_address'][str(i)]
+        accessibility_id = data['accessibility_id'][str(i)]
+        accessibility_restaurant_id = data['accessibility_restaurant_id'][str(i)]
+        accessibility_miles_to_VCU = data['accessibility_miles_to_VCU'][str(i)]
+        accessibility_nearby_bus_stops = data['accessibility_nearby_bus_stops'][str(i)]
+        accessibility_notes = data['accessibility_notes'][str(i)]
+
+        # Display the extracted details
+        print(f"Location of Restaurant: {location_address}")
+        print(f"Accessibility_id: {accessibility_id}")
+        print(f"Accessibility_restaurant_id: {accessibility_restaurant_id}")
+        print(f"Miles to VCU: {accessibility_miles_to_VCU}")
+        print(f"Nearby Bus Stops: {accessibility_nearby_bus_stops}")
+        print(f"Notes: {accessibility_notes}\n")
+        
+
+        i += 1  # Increment index
+else:
+    print(f"Request failed with status code: {response.status_code}")
+
+```
+
+6.Shows every item from the menu of a restaurant with ID 12: Sends a GET request to retrieve all menu items for a restaurant with ID 12 from the */api/menu/ID/12* endpoint. Prints details such as item ID, item name, description, and price for each item.
+```{python}
+import requests
+import json
+
+url = 'http://127.0.0.1:5000/api/menu/ID/12'
+
+# Make a GET request to retrieve item data
+response = requests.get(url)
+
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Get the JSON data
+    data1 = response.json()
+    data = json.loads(data1)
+
+    # Assuming 'item_id', 'item_name', 'item_description', 'item_price', 'restaurant_name' are present in the data
+    i = 0  # Starting index
+    while str(i) in data['item_id']:
+        item_id = data['item_id'][str(i)]
+        item_name = data['item_name'][str(i)]
+        item_description = data['item_description'][str(i)]
+        item_price = data['item_price'][str(i)]
+
+        # Display the extracted details
+        print(f"Item ID: {item_id}")
+        print(f"Item Name: {item_name}")
+        print(f"Item Description: {item_description}")
+        print(f"Item Price: {item_price}\n")
+
+        i += 1  # Increment index
+else:
+    print(f"Request failed with status code: {response.status_code}")
+
+```
+
+# Source Code Links for DDL, DML ,and Flask API
 
 - [DDL SQL Code](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/restaurantdirectory-ddl.sql)
 - [DML SQL Code](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/restaurantdirectory-dml.sql)
+- [Flask API Code](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/project-flask.py)
+
+# Evaluation
 
 ## Future Considerations
 
-- Implementing user authentication and authorization for API access.
-- Optimizing endpoint responses by implementing pagination and filtering.
+If we had more time, we'd delve deeper into fortifying our system with multiple layers of security to safeguard valuable information. This involves implementing stricter measures like user authentication and authorization, ensuring only authorized individuals access sensitive API endpoints. We'd also aim to expand the API's functionality by incorporating additional HTTP methods like PUT and DELETE. These methods empower users to modify or remove existing data, offering a more comprehensive set of actions within the API. It's a step toward creating a more robust and versatile platform, but it requires careful planning and resources to implement securely.
 
 ## Reflections on the Project
 
-The project went well overall. The initial goals were mostly achieved, alt
+Throughout this project, we delved into setting up a Flask API, integrating it with a MySQL database, and crafting complex SQL queries. We learned the ins and outs of handling various HTTP methods, but encountered challenges implementing certain functionalities like PUT and DELETE in our API, recognizing the need for more practice. Collaboration played a pivotal role in our project's success. As a team, we synchronized our skills, had well time management and tackled challenges together. 
