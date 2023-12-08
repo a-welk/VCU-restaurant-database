@@ -40,6 +40,8 @@ To open deliver4.html use "open deliver4.html" in terminal
 
 5. **Updates to Deliverable 7**
 - [Link to deliver7.html Location in Repo](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/reports/deliver7.html)
+- [Link to Final Presentation Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic)
+
 - Addition of SQL queries and updates to project design
   
 6. **API Implementation**  
@@ -51,7 +53,7 @@ To open deliver4.html use "open deliver4.html" in terminal
    - Links to the source code repositories or files containing the Data Definition Language (DDL), Data Manipulation Language (DML), and Flask API code used in the project.
 
 8. **Evaluation**
-   -Future Considerations
-   -Reflection
+   - Future Considerations
+   - Reflection
    
 To open deliver7.html use "open deliver7.html" in terminal
