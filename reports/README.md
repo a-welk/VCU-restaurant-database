@@ -53,3 +53,4 @@ To open deliver4.html use "open deliver4.html" in terminal
 8. **Evaluation**
    -Future Considerations
    -Reflection
+To open deliver7.html use "open deliver7.html" in terminal
