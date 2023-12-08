@@ -25,6 +25,6 @@ deliverable4 html report includes:
 3. **Database Design Report Section**  
 4. **Project Management Section**
 
-## src 
+## Src 
 The *src* folder will contain python/flask sourcecode for phase 2 of the VCU Computer Science 508 fall semester project. 
 
