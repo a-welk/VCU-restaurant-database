@@ -166,10 +166,24 @@ def api_show_accessiblity():
     json_data = df.to_json()
     return jsonify(json_data)
 
-@app.route('/api/accessibility/name/<name>')
-def api_show_accessiblity_by_name(name):
-    df = my_sql_wrapper('select * from accessibility join restaurants on (accessibility_restaurant_id = restaurant_id) where restaurant_name = "' + name + '"')
+@app.route('/api/locations/accessibility/name/<name>')
+def api_show_accessibility_by_name(name):
+    # Query to retrieve accessibility details and the restaurant's location based on the restaurant name
+    query = """
+    SELECT accessibility.*, locations.location_address
+    FROM accessibility
+    JOIN restaurants ON accessibility.accessibility_restaurant_id = restaurants.restaurant_id
+    JOIN locations ON restaurants.restaurant_location_id = locations.location_id
+    WHERE restaurants.restaurant_name = '{}';
+    """.format(name)
+
+    # Execute the SQL query
+    df = my_sql_wrapper(query)
+    
+    # Convert the fetched data to JSON format
     json_data = df.to_json()
+
+    # Return the JSON response
     return jsonify(json_data)
 
 
@@ -220,20 +234,6 @@ def get_restaurants_reviews():
     df = pd.read_sql(query, conn)
     json_data = df.to_json(orient='records')
     return jsonify(json_data)
-
-@app.route('/api/bus_stops_near_vc')
-def get_bus_stops_near_vc():
-    query = """
-    SELECT r.restaurant_name, r.restaurant_location_id, a.accessibility_nearby_bus_stops
-    FROM restaurants r
-    JOIN accessibility a ON r.restaurant_id = a.accessibility_restaurant_id
-    WHERE a.accessibility_miles_to_VCU < 2; -- You can adjust the distance as needed
-    """
-    df = pd.read_sql(query, conn)
-    json_data = df.to_json(orient='records')
-    return jsonify(json_data)
-
-
 
 if __name__ == '__main__':
     print(my_sql_wrapper("show tables"))
