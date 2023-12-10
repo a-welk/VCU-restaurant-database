@@ -25,12 +25,12 @@ deliverable4 html report includes:
 3. **Database Design Report Section**  
 4. **Project Management Section**
 
-## Deliverable 7 Report includes:
+deliverable7 html report includes:
 
 5. **Updates to Deliverable 7**
 - [Link to deliver7.html Location in Repo](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/reports/deliver7.html)
 - [Link to Final Presentation Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic)
-- Addition of SQL queries and updates to project design
+- Addition of SQL queries and updates to project design/overview 
   
 6. **API Implementation**  
 7. **Source Code Links:**
