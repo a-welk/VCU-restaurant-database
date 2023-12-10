@@ -29,7 +29,7 @@ deliverable7 html report includes:
 
 5. **Updates to Deliverable 7**
 - [Link to deliver7.html Location in Repo](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/reports/deliver7.html)
-- [Link to Final Presentation Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic)
+- [Link to Final Presentation Video](https://vcu.mediaspace.kaltura.com/media/Alex+Welk's+Zoom+Meeting/1_4f8mto6f)
 - Addition of SQL queries and updates to project design/overview 
   
 6. **API Implementation**  
