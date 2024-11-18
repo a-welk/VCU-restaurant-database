@@ -141,7 +141,7 @@ This database project focuses on addressing the dining challenges faced by Virgi
 - **Pitch Video**: [Link to Pitch Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_z86s0xo9/embed/dynamic)
 - **Design Video**: [Link to Design Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic)
 - **GitHub Repository**: [Link to GitHub Repository](https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/tree/main)
-- **Final Video Presentation**: [Link to Design Video](https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic)
+- **Final Video Presentation**: [Link to Design Video](https://vcu.mediaspace.kaltura.com/media/Alex+Welk%27s+Zoom+Meeting/1_4f8mto6f)
 
 # Problem Description
 
@@ -880,7 +880,7 @@ df
 
 ```
 
-14.This query retrieves number of restaurants by formality number
+14.This query retrieves number of restaurants by formality level
 ```{python}
 sql = f"""
 SELECT restaurant_formality_level, COUNT(restaurant_id) AS num_restaurants

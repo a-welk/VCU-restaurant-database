@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Edwin Constancia and Alex Welk">
-<meta name="dcterms.date" content="2023-12-05">
+<meta name="dcterms.date" content="2024-01-11">
 
 <title>Project Deliverable 7 Final Submission</title>
 <style>
@@ -20,6 +20,40 @@ ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
+}
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -3273,8 +3307,10 @@ z-index: 1000;
 </script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-  <script>/* Polyfill service v3.111.0
- * Disable minification (remove `.min` from URL path) for more info */
+  <script>/*
+ * Polyfill service v3.111.0
+ * Disable minification (remove `.min` from URL path) for more info
+*/
 
 (function(self, undefined) {!function(t){"use strict";function e(t){switch(typeof t){case"undefined":return"undefined";case"boolean":return"boolean";case"number":return"number";case"string":return"string";default:return null===t?"null":"object"}}function r(t){return Object.prototype.toString.call(t).replace(/^\[object *|\]$/g,"")}function n(t){return"function"==typeof t}function o(t){if(null===t||t===B)throw TypeError();return Object(t)}function i(t){return t>>0}function f(t){return t>>>0}function u(e){if(!("TYPED_ARRAY_POLYFILL_NO_ARRAY_ACCESSORS"in t)){if(e.length>N)throw RangeError("Array too large for polyfill");var r;for(r=0;r<e.length;r+=1)!function n(t){try{Object.defineProperty(e,t,{get:function(){return e._getter(t)},set:function(r){e._setter(t,r)},enumerable:!0,configurable:!1})}catch(r){}}(r)}}function a(t,e){var r=32-e;return t<<r>>r}function h(t,e){var r=32-e;return t<<r>>>r}function y(t){return[255&t]}function s(t){return a(t[0],8)}function l(t){return[255&t]}function p(t){return h(t[0],8)}function c(t){return t=x(Number(t)),[t<0?0:t>255?255:255&t]}function b(t){return[255&t,t>>8&255]}function g(t){return a(t[1]<<8|t[0],16)}function E(t){return[255&t,t>>8&255]}function v(t){return h(t[1]<<8|t[0],16)}function _(t){return[255&t,t>>8&255,t>>16&255,t>>24&255]}function O(t){return a(t[3]<<24|t[2]<<16|t[1]<<8|t[0],32)}function d(t){return[255&t,t>>8&255,t>>16&255,t>>24&255]}function j(t){return h(t[3]<<24|t[2]<<16|t[1]<<8|t[0],32)}function P(t,e,r){function n(t){var e=m(t),r=t-e;return r<.5?e:r>.5?e+1:e%2?e+1:e}var o,i,f,u=(1<<e-1)-1;if(t!==t)i=(1<<e)-1,f=F(2,r-1),o=0;else if(t===Infinity||t===-Infinity)i=(1<<e)-1,f=0,o=t<0?1:0;else if(0===t)i=0,f=0,o=1/t==-Infinity?1:0;else if(o=t<0,(t=M(t))>=F(2,1-u)){i=Y(m(I(t)/S),1023);var a=t/F(2,i);a<1&&(i-=1,a*=2),a>=2&&(i+=1,a/=2);var h=F(2,r);f=n(a*h)-h,i+=u,f/h>=1&&(i+=1,f=0),i>2*u&&(i=(1<<e)-1,f=0)}else i=0,f=n(t/F(2,1-u-r));var y,s=[];for(y=r;y;y-=1)s.push(f%2?1:0),f=m(f/2);for(y=e;y;y-=1)s.push(i%2?1:0),i=m(i/2);s.push(o?1:0),s.reverse();for(var l=s.join(""),p=[];l.length;)p.unshift(parseInt(l.substring(0,8),2)),l=l.substring(8);return p}function T(t,e,r){var n,o,i,f,u,a,h,y,s=[];for(n=0;n<t.length;++n)for(i=t[n],o=8;o;o-=1)s.push(i%2?1:0),i>>=1;return s.reverse(),f=s.join(""),u=(1<<e-1)-1,a=parseInt(f.substring(0,1),2)?-1:1,h=parseInt(f.substring(1,1+e),2),y=parseInt(f.substring(1+e),2),h===(1<<e)-1?0!==y?NaN:a*Infinity:h>0?a*F(2,h-u)*(1+y/F(2,r)):0!==y?a*F(2,-(u-1))*(y/F(2,r)):a<0?-0:0}function w(t){return T(t,11,52)}function A(t){return P(t,11,52)}function L(t){return T(t,8,23)}function R(t){return P(t,8,23)}var B=void 0,N=1e5,S=Math.LN2,M=Math.abs,m=Math.floor,I=Math.log,U=Math.max,Y=Math.min,F=Math.pow,x=Math.round;!function(){var t=Object.defineProperty,e=!function(){try{return Object.defineProperty({},"x",{})}catch(t){return!1}}();t&&!e||(Object.defineProperty=function(e,r,n){if(t)try{return t(e,r,n)}catch(o){}if(e!==Object(e))throw TypeError("Object.defineProperty called on non-object");return Object.prototype.__defineGetter__&&"get"in n&&Object.prototype.__defineGetter__.call(e,r,n.get),Object.prototype.__defineSetter__&&"set"in n&&Object.prototype.__defineSetter__.call(e,r,n.set),"value"in n&&(e[r]=n.value),e})}(),function(){function a(t){if((t=i(t))<0)throw RangeError("ArrayBuffer size is not a small enough positive integer.");Object.defineProperty(this,"byteLength",{value:t}),Object.defineProperty(this,"_bytes",{value:Array(t)});for(var e=0;e<t;e+=1)this._bytes[e]=0}function h(){if(!arguments.length||"object"!=typeof arguments[0])return function(t){if((t=i(t))<0)throw RangeError("length is not a small enough positive integer.");Object.defineProperty(this,"length",{value:t}),Object.defineProperty(this,"byteLength",{value:t*this.BYTES_PER_ELEMENT}),Object.defineProperty(this,"buffer",{value:new a(this.byteLength)}),Object.defineProperty(this,"byteOffset",{value:0})}.apply(this,arguments);if(arguments.length>=1&&"object"===e(arguments[0])&&arguments[0]instanceof h)return function(t){if(this.constructor!==t.constructor)throw TypeError();var e=t.length*this.BYTES_PER_ELEMENT;Object.defineProperty(this,"buffer",{value:new a(e)}),Object.defineProperty(this,"byteLength",{value:e}),Object.defineProperty(this,"byteOffset",{value:0}),Object.defineProperty(this,"length",{value:t.length});for(var r=0;r<this.length;r+=1)this._setter(r,t._getter(r))}.apply(this,arguments);if(arguments.length>=1&&"object"===e(arguments[0])&&!(arguments[0]instanceof h)&&!(arguments[0]instanceof a||"ArrayBuffer"===r(arguments[0])))return function(t){var e=t.length*this.BYTES_PER_ELEMENT;Object.defineProperty(this,"buffer",{value:new a(e)}),Object.defineProperty(this,"byteLength",{value:e}),Object.defineProperty(this,"byteOffset",{value:0}),Object.defineProperty(this,"length",{value:t.length});for(var r=0;r<this.length;r+=1){var n=t[r];this._setter(r,Number(n))}}.apply(this,arguments);if(arguments.length>=1&&"object"===e(arguments[0])&&(arguments[0]instanceof a||"ArrayBuffer"===r(arguments[0])))return function(t,e,r){if((e=f(e))>t.byteLength)throw RangeError("byteOffset out of range");if(e%this.BYTES_PER_ELEMENT)throw RangeError("buffer length minus the byteOffset is not a multiple of the element size.");if(r===B){var n=t.byteLength-e;if(n%this.BYTES_PER_ELEMENT)throw RangeError("length of buffer minus byteOffset not a multiple of the element size");r=n/this.BYTES_PER_ELEMENT}else r=f(r),n=r*this.BYTES_PER_ELEMENT;if(e+n>t.byteLength)throw RangeError("byteOffset and length reference an area beyond the end of the buffer");Object.defineProperty(this,"buffer",{value:t}),Object.defineProperty(this,"byteLength",{value:n}),Object.defineProperty(this,"byteOffset",{value:e}),Object.defineProperty(this,"length",{value:r})}.apply(this,arguments);throw TypeError()}function P(t,e,r){var n=function(){Object.defineProperty(this,"constructor",{value:n}),h.apply(this,arguments),u(this)};"__proto__"in n?n.__proto__=h:(n.from=h.from,n.of=h.of),n.BYTES_PER_ELEMENT=t;var o=function(){};return o.prototype=T,n.prototype=new o,Object.defineProperty(n.prototype,"BYTES_PER_ELEMENT",{value:t}),Object.defineProperty(n.prototype,"_pack",{value:e}),Object.defineProperty(n.prototype,"_unpack",{value:r}),n}t.ArrayBuffer=t.ArrayBuffer||a,Object.defineProperty(h,"from",{value:function(t){return new this(t)}}),Object.defineProperty(h,"of",{value:function(){return new this(arguments)}});var T={};h.prototype=T,Object.defineProperty(h.prototype,"_getter",{value:function(t){if(arguments.length<1)throw SyntaxError("Not enough arguments");if((t=f(t))>=this.length)return B;var e,r,n=[];for(e=0,r=this.byteOffset+t*this.BYTES_PER_ELEMENT;e<this.BYTES_PER_ELEMENT;e+=1,r+=1)n.push(this.buffer._bytes[r]);return this._unpack(n)}}),Object.defineProperty(h.prototype,"get",{value:h.prototype._getter}),Object.defineProperty(h.prototype,"_setter",{value:function(t,e){if(arguments.length<2)throw SyntaxError("Not enough arguments");if(!((t=f(t))>=this.length)){var r,n,o=this._pack(e);for(r=0,n=this.byteOffset+t*this.BYTES_PER_ELEMENT;r<this.BYTES_PER_ELEMENT;r+=1,n+=1)this.buffer._bytes[n]=o[r]}}}),Object.defineProperty(h.prototype,"constructor",{value:h}),Object.defineProperty(h.prototype,"copyWithin",{value:function(t,e){var r=arguments[2],n=o(this),u=n.length,a=f(u);a=U(a,0);var h,y=i(t);h=y<0?U(a+y,0):Y(y,a);var s,l=i(e);s=l<0?U(a+l,0):Y(l,a);var p;p=r===B?a:i(r);var c;c=p<0?U(a+p,0):Y(p,a);var b,g=Y(c-s,a-h);for(s<h&&h<s+g?(b=-1,s=s+g-1,h=h+g-1):b=1;g>0;)n._setter(h,n._getter(s)),s+=b,h+=b,g-=1;return n}}),Object.defineProperty(h.prototype,"every",{value:function(t){if(this===B||null===this)throw TypeError();var e=Object(this),r=f(e.length);if(!n(t))throw TypeError();for(var o=arguments[1],i=0;i<r;i++)if(!t.call(o,e._getter(i),i,e))return!1;return!0}}),Object.defineProperty(h.prototype,"fill",{value:function(t){var e=arguments[1],r=arguments[2],n=o(this),u=n.length,a=f(u);a=U(a,0);var h,y=i(e);h=y<0?U(a+y,0):Y(y,a);var s;s=r===B?a:i(r);var l;for(l=s<0?U(a+s,0):Y(s,a);h<l;)n._setter(h,t),h+=1;return n}}),Object.defineProperty(h.prototype,"filter",{value:function(t){if(this===B||null===this)throw TypeError();var e=Object(this),r=f(e.length);if(!n(t))throw TypeError();for(var o=[],i=arguments[1],u=0;u<r;u++){var a=e._getter(u);t.call(i,a,u,e)&&o.push(a)}return new this.constructor(o)}}),Object.defineProperty(h.prototype,"find",{value:function(t){var e=o(this),r=e.length,i=f(r);if(!n(t))throw TypeError();for(var u=arguments.length>1?arguments[1]:B,a=0;a<i;){var h=e._getter(a),y=t.call(u,h,a,e);if(Boolean(y))return h;++a}return B}}),Object.defineProperty(h.prototype,"findIndex",{value:function(t){var e=o(this),r=e.length,i=f(r);if(!n(t))throw TypeError();for(var u=arguments.length>1?arguments[1]:B,a=0;a<i;){var h=e._getter(a),y=t.call(u,h,a,e);if(Boolean(y))return a;++a}return-1}}),Object.defineProperty(h.prototype,"forEach",{value:function(t){if(this===B||null===this)throw TypeError();var e=Object(this),r=f(e.length);if(!n(t))throw TypeError();for(var o=arguments[1],i=0;i<r;i++)t.call(o,e._getter(i),i,e)}}),Object.defineProperty(h.prototype,"indexOf",{value:function(t){if(this===B||null===this)throw TypeError();var e=Object(this),r=f(e.length);if(0===r)return-1;var n=0;if(arguments.length>0&&(n=Number(arguments[1]),n!==n?n=0:0!==n&&n!==1/0&&n!==-1/0&&(n=(n>0||-1)*m(M(n)))),n>=r)return-1;for(var o=n>=0?n:U(r-M(n),0);o<r;o++)if(e._getter(o)===t)return o;return-1}}),Object.defineProperty(h.prototype,"join",{value:function(t){if(this===B||null===this)throw TypeError();for(var e=Object(this),r=f(e.length),n=Array(r),o=0;o<r;++o)n[o]=e._getter(o);return n.join(t===B?",":t)}}),Object.defineProperty(h.prototype,"lastIndexOf",{value:function(t){if(this===B||null===this)throw TypeError();var e=Object(this),r=f(e.length);if(0===r)return-1;var n=r;arguments.length>1&&(n=Number(arguments[1]),n!==n?n=0:0!==n&&n!==1/0&&n!==-1/0&&(n=(n>0||-1)*m(M(n))));for(var o=n>=0?Y(n,r-1):r-M(n);o>=0;o--)if(e._getter(o)===t)return o;return-1}}),Object.defineProperty(h.prototype,"map",{value:function(t){if(this===B||null===this)throw TypeError();var e=Object(this),r=f(e.length);if(!n(t))throw TypeError();var o=[];o.length=r;for(var i=arguments[1],u=0;u<r;u++)o[u]=t.call(i,e._getter(u),u,e);return new this.constructor(o)}}),Object.defineProperty(h.prototype,"reduce",{value:function(t){if(this===B||null===this)throw TypeError();var e=Object(this),r=f(e.length);if(!n(t))throw TypeError();if(0===r&&1===arguments.length)throw TypeError();var o,i=0;for(o=arguments.length>=2?arguments[1]:e._getter(i++);i<r;)o=t.call(B,o,e._getter(i),i,e),i++;return o}}),Object.defineProperty(h.prototype,"reduceRight",{value:function(t){if(this===B||null===this)throw TypeError();var e=Object(this),r=f(e.length);if(!n(t))throw TypeError();if(0===r&&1===arguments.length)throw TypeError();var o,i=r-1;for(o=arguments.length>=2?arguments[1]:e._getter(i--);i>=0;)o=t.call(B,o,e._getter(i),i,e),i--;return o}}),Object.defineProperty(h.prototype,"reverse",{value:function(){if(this===B||null===this)throw TypeError();for(var t=Object(this),e=f(t.length),r=m(e/2),n=0,o=e-1;n<r;++n,--o){var i=t._getter(n);t._setter(n,t._getter(o)),t._setter(o,i)}return t}}),Object.defineProperty(h.prototype,"set",{value:function(t,e){if(arguments.length<1)throw SyntaxError("Not enough arguments");var r,n,o,i,u,a,h,y,s,l;if("object"==typeof arguments[0]&&arguments[0].constructor===this.constructor){if(r=arguments[0],(o=f(arguments[1]))+r.length>this.length)throw RangeError("Offset plus length of array is out of range");if(y=this.byteOffset+o*this.BYTES_PER_ELEMENT,s=r.length*this.BYTES_PER_ELEMENT,r.buffer===this.buffer){for(l=[],u=0,a=r.byteOffset;u<s;u+=1,a+=1)l[u]=r.buffer._bytes[a];for(u=0,h=y;u<s;u+=1,h+=1)this.buffer._bytes[h]=l[u]}else for(u=0,a=r.byteOffset,h=y;u<s;u+=1,a+=1,h+=1)this.buffer._bytes[h]=r.buffer._bytes[a]}else{if("object"!=typeof arguments[0]||"undefined"==typeof arguments[0].length)throw TypeError("Unexpected argument type(s)");if(n=arguments[0],i=f(n.length),(o=f(arguments[1]))+i>this.length)throw RangeError("Offset plus length of array is out of range");for(u=0;u<i;u+=1)a=n[u],this._setter(o+u,Number(a))}}}),Object.defineProperty(h.prototype,"slice",{value:function(t,e){for(var r=o(this),n=r.length,u=f(n),a=i(t),h=a<0?U(u+a,0):Y(a,u),y=e===B?u:i(e),s=y<0?U(u+y,0):Y(y,u),l=s-h,p=r.constructor,c=new p(l),b=0;h<s;){var g=r._getter(h);c._setter(b,g),++h,++b}return c}}),Object.defineProperty(h.prototype,"some",{value:function(t){if(this===B||null===this)throw TypeError();var e=Object(this),r=f(e.length);if(!n(t))throw TypeError();for(var o=arguments[1],i=0;i<r;i++)if(t.call(o,e._getter(i),i,e))return!0;return!1}}),Object.defineProperty(h.prototype,"sort",{value:function(t){function e(e,r){return e!==e&&r!==r?0:e!==e?1:r!==r?-1:t!==B?t(e,r):e<r?-1:e>r?1:0}if(this===B||null===this)throw TypeError();for(var r=Object(this),n=f(r.length),o=Array(n),i=0;i<n;++i)o[i]=r._getter(i);for(o.sort(e),i=0;i<n;++i)r._setter(i,o[i]);return r}}),Object.defineProperty(h.prototype,"subarray",{value:function(t,e){function r(t,e,r){return t<e?e:t>r?r:t}t=i(t),e=i(e),arguments.length<1&&(t=0),arguments.length<2&&(e=this.length),t<0&&(t=this.length+t),e<0&&(e=this.length+e),t=r(t,0,this.length),e=r(e,0,this.length);var n=e-t;return n<0&&(n=0),new this.constructor(this.buffer,this.byteOffset+t*this.BYTES_PER_ELEMENT,n)}});var N=P(1,y,s),S=P(1,l,p),I=P(1,c,p),F=P(2,b,g),x=P(2,E,v),k=P(4,_,O),C=P(4,d,j),z=P(4,R,L),D=P(8,A,w);t.Int8Array=t.Int8Array||N,t.Uint8Array=t.Uint8Array||S,t.Uint8ClampedArray=t.Uint8ClampedArray||I,t.Int16Array=t.Int16Array||F,t.Uint16Array=t.Uint16Array||x,t.Int32Array=t.Int32Array||k,t.Uint32Array=t.Uint32Array||C,t.Float32Array=t.Float32Array||z,t.Float64Array=t.Float64Array||D}(),function(){function e(t,e){return n(t.get)?t.get(e):t[e]}function o(t,e,n){if(!(t instanceof ArrayBuffer||"ArrayBuffer"===r(t)))throw TypeError();if((e=f(e))>t.byteLength)throw RangeError("byteOffset out of range");if(n=n===B?t.byteLength-e:f(n),e+n>t.byteLength)throw RangeError("byteOffset and length reference an area beyond the end of the buffer");Object.defineProperty(this,"buffer",{value:t}),Object.defineProperty(this,"byteLength",{value:n}),Object.defineProperty(this,"byteOffset",{value:e})}function i(t){return function r(n,o){if((n=f(n))+t.BYTES_PER_ELEMENT>this.byteLength)throw RangeError("Array index out of range");n+=this.byteOffset;for(var i=new Uint8Array(this.buffer,n,t.BYTES_PER_ELEMENT),u=[],h=0;h<t.BYTES_PER_ELEMENT;h+=1)u.push(e(i,h));return Boolean(o)===Boolean(a)&&u.reverse(),e(new t(new Uint8Array(u).buffer),0)}}function u(t){return function r(n,o,i){if((n=f(n))+t.BYTES_PER_ELEMENT>this.byteLength)throw RangeError("Array index out of range");var u,h,y=new t([o]),s=new Uint8Array(y.buffer),l=[];for(u=0;u<t.BYTES_PER_ELEMENT;u+=1)l.push(e(s,u));Boolean(i)===Boolean(a)&&l.reverse(),h=new Uint8Array(this.buffer,n,t.BYTES_PER_ELEMENT),h.set(l)}}var a=function(){var t=new Uint16Array([4660]);return 18===e(new Uint8Array(t.buffer),0)}();Object.defineProperty(o.prototype,"getUint8",{value:i(Uint8Array)}),Object.defineProperty(o.prototype,"getInt8",{value:i(Int8Array)}),Object.defineProperty(o.prototype,"getUint16",{value:i(Uint16Array)}),Object.defineProperty(o.prototype,"getInt16",{value:i(Int16Array)}),Object.defineProperty(o.prototype,"getUint32",{value:i(Uint32Array)}),Object.defineProperty(o.prototype,"getInt32",{value:i(Int32Array)}),Object.defineProperty(o.prototype,"getFloat32",{value:i(Float32Array)}),Object.defineProperty(o.prototype,"getFloat64",{value:i(Float64Array)}),Object.defineProperty(o.prototype,"setUint8",{value:u(Uint8Array)}),Object.defineProperty(o.prototype,"setInt8",{value:u(Int8Array)}),Object.defineProperty(o.prototype,"setUint16",{value:u(Uint16Array)}),Object.defineProperty(o.prototype,"setInt16",{value:u(Int16Array)}),Object.defineProperty(o.prototype,"setUint32",{value:u(Uint32Array)}),Object.defineProperty(o.prototype,"setInt32",{value:u(Int32Array)}),Object.defineProperty(o.prototype,"setFloat32",{value:u(Float32Array)}),Object.defineProperty(o.prototype,"setFloat64",{value:u(Float64Array)}),t.DataView=t.DataView||o}()}(self);if (!("defineProperty"in Object&&function(){try{var e={}
 return Object.defineProperty(e,"test",{value:42}),!0}catch(t){return!1}}()
@@ -3422,10 +3458,10 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
   <li><a href="#normalization-to-bcnf" id="toc-normalization-to-bcnf" class="nav-link" data-scroll-target="#normalization-to-bcnf">Normalization to BCNF</a></li>
   <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition">Decomposition</a></li>
   </ul></li>
-  <li><a href="#specific-queries" id="toc-specific-queries" class="nav-link" data-scroll-target="#specific-queries">Specific Queries</a>
+  </ul></li>
+  <li><a href="#relational-algebra-and-sql-queries" id="toc-relational-algebra-and-sql-queries" class="nav-link" data-scroll-target="#relational-algebra-and-sql-queries">Relational Algebra and SQL Queries</a>
   <ul class="collapse">
   <li><a href="#queries-relational-algebra" id="toc-queries-relational-algebra" class="nav-link" data-scroll-target="#queries-relational-algebra">Queries (Relational Algebra)</a></li>
-  </ul></li>
   <li><a href="#sample-data-using-sql" id="toc-sample-data-using-sql" class="nav-link" data-scroll-target="#sample-data-using-sql">Sample Data Using SQL</a>
   <ul class="collapse">
   <li><a href="#restaurant-table" id="toc-restaurant-table" class="nav-link" data-scroll-target="#restaurant-table">Restaurant Table</a></li>
@@ -3442,12 +3478,18 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
   <li><a href="#project-management" id="toc-project-management" class="nav-link" data-scroll-target="#project-management">Project Management</a>
   <ul class="collapse">
   <li><a href="#project-schedule" id="toc-project-schedule" class="nav-link" data-scroll-target="#project-schedule">Project Schedule</a></li>
+  </ul></li>
+  <li><a href="#api-implementation" id="toc-api-implementation" class="nav-link" data-scroll-target="#api-implementation">API Implementation</a>
+  <ul class="collapse">
   <li><a href="#api-definition" id="toc-api-definition" class="nav-link" data-scroll-target="#api-definition">API Definition</a>
   <ul class="collapse">
-  <li><a href="#accessing-the-database" id="toc-accessing-the-database" class="nav-link" data-scroll-target="#accessing-the-database">Accessing the Database</a></li>
+  <li><a href="#accessing-the-database-using-these-endpoints" id="toc-accessing-the-database-using-these-endpoints" class="nav-link" data-scroll-target="#accessing-the-database-using-these-endpoints">Accessing the Database using these endpoints</a></li>
   <li><a href="#api-demonstration" id="toc-api-demonstration" class="nav-link" data-scroll-target="#api-demonstration">API Demonstration</a></li>
   </ul></li>
-  <li><a href="#source-code-links" id="toc-source-code-links" class="nav-link" data-scroll-target="#source-code-links">Source Code Links</a></li>
+  </ul></li>
+  <li><a href="#source-code-links-for-ddl-dml-and-flask-api" id="toc-source-code-links-for-ddl-dml-and-flask-api" class="nav-link" data-scroll-target="#source-code-links-for-ddl-dml-and-flask-api">Source Code Links for DDL, DML ,and Flask API</a></li>
+  <li><a href="#evaluation" id="toc-evaluation" class="nav-link" data-scroll-target="#evaluation">Evaluation</a>
+  <ul class="collapse">
   <li><a href="#future-considerations" id="toc-future-considerations" class="nav-link" data-scroll-target="#future-considerations">Future Considerations</a></li>
   <li><a href="#reflections-on-the-project" id="toc-reflections-on-the-project" class="nav-link" data-scroll-target="#reflections-on-the-project">Reflections on the Project</a></li>
   </ul></li>
@@ -3475,7 +3517,7 @@ return!"\t\n\x0B\f\r                　\u2028\u2029
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 5, 2023</p>
+      <p class="date">January 11, 2024</p>
     </div>
   </div>
   
@@ -3529,7 +3571,7 @@ text-align: center;
 <li><strong>Pitch Video</strong>: <a href="https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_z86s0xo9/embed/dynamic">Link to Pitch Video</a></li>
 <li><strong>Design Video</strong>: <a href="https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic">Link to Design Video</a></li>
 <li><strong>GitHub Repository</strong>: <a href="https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/tree/main">Link to GitHub Repository</a></li>
-<li><strong>Final Video Presentation</strong>: <a href="https://cdnapisec.kaltura.com/index.php/extwidget/preview/partner_id/1888231/uiconf_id/28242191/entry_id/1_ft7h6ed9/embed/dynamic">Link to Design Video</a></li>
+<li><strong>Final Video Presentation</strong>: <a href="https://vcu.mediaspace.kaltura.com/media/Alex+Welk%27s+Zoom+Meeting/1_4f8mto6f">Link to Design Video</a></li>
 </ul>
 </section>
 <section id="problem-description" class="level1">
@@ -3552,7 +3594,7 @@ text-align: center;
 </section>
 <section id="security-and-privacy" class="level2">
 <h2 class="anchored" data-anchor-id="security-and-privacy">Security and Privacy</h2>
-<p>In our database design, we’re planning to take robust measures to protect our restaurant’s proprietary information, which includes critical data like restaurant locations, pricing, and our unique menu offerings. We understand that this information is not only a valuable asset but also essential to our competitive advantage. To secure it, we intend to establish stringent access controls. Our approach will involve implementing role-based access control, ensuring that only authorized individual can access or modify this vital data. By taking these steps, we aim to maintain the integrity of our business model and data, making sure it remains confidential and protected from unauthorized access.</p>
+<p>In terms of security and privacy measures, we prioritized safeguarding sensitive information like database access credentials. To achieve this, we utilized a .env file, which served as a secure repository for crucial details like usernames, passwords, hosts, and database names. These vital configurations, such as ‘user,’ ‘password,’ ‘host,’ and ‘database,’ were stored within this file. The .env was stored in a safe environment.</p>
 </section>
 </section>
 <section id="database-design" class="level1">
@@ -3820,8 +3862,9 @@ text-align: center;
 </ul>
 </section>
 </section>
-<section id="specific-queries" class="level2">
-<h2 class="anchored" data-anchor-id="specific-queries">Specific Queries</h2>
+</section>
+<section id="relational-algebra-and-sql-queries" class="level1">
+<h1>Relational Algebra and SQL Queries</h1>
 <p>Pose 20 distinct questions that the database can help answer, written in precise words using relational algebra. Leverage Quarto to write the formulas.</p>
 <section id="queries-relational-algebra" class="level3">
 <h3 class="anchored" data-anchor-id="queries-relational-algebra">Queries (Relational Algebra)</h3>
@@ -3936,7 +3979,6 @@ text-align: center;
 </tr>
 </tbody>
 </table>
-</section>
 </section>
 <section id="sample-data-using-sql" class="level2">
 <h2 class="anchored" data-anchor-id="sample-data-using-sql">Sample Data Using SQL</h2>
@@ -4682,8 +4724,30 @@ text-align: center;
 </section>
 <section id="sample-test-queries-using-sql" class="level2">
 <h2 class="anchored" data-anchor-id="sample-test-queries-using-sql">Sample Test Queries Using SQL</h2>
-<p>Sort the items from Subway that are vegan in ascending order by price</p>
+<p>1.Sort the items from Subway that are vegan in ascending order by price.</p>
 <div class="cell" data-execution_count="13">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT item_name, item_description, item_price</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM item</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN menu_items ON item.item_id = menu_items.item_id</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN menu ON menu_items.menu_id = menu.menu_id</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN restaurants ON menu.restaurant_id = restaurants.restaurant_id</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ss">WHERE restaurants.restaurant_name = &#39;Subway&#39;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ss">AND item_dietary_preference_id = 20 -- Assuming &#39;Vegetarian&#39; has a dietary_preference_id of 20</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">ORDER BY item_price ASC;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql, cnx)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
@@ -4716,8 +4780,29 @@ text-align: center;
 </div>
 </div>
 </div>
-<p>This query retrieves affordable menu items containing “chicken” in their names, displaying their names, descriptions, prices, and the respective restaurant names, sorted by price from least to most expensive.</p>
+<p>2.This query retrieves affordable menu items (less than $12) containing “chicken” in their names, displaying their names, descriptions, prices, and the respective restaurant names, sorted by price from least to most expensive.</p>
 <div class="cell" data-execution_count="14">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT restaurants.restaurant_name, item.item_name, item.item_description, item.item_price</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM item</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN menu_items ON item.item_id = menu_items.item_id</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN menu ON menu_items.menu_id = menu.menu_id</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN restaurants ON menu.restaurant_id = restaurants.restaurant_id</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ss">WHERE item.item_name LIKE &#39;%%chicken%%&#39;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ss">AND item.item_price &lt; 12.00</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ss">ORDER BY item.item_price ASC</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <div>
 
@@ -5033,6 +5118,2148 @@ text-align: center;
 </div>
 </div>
 </div>
+<p>3.This query will retrieve all restaurants that are west of the VCU compass.</p>
+<div class="cell" data-execution_count="15">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ss">select restaurant_id, restaurant_name, restaurant_location_id from restaurants</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ss">join locations on (restaurant_location_id = location_id) </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ss">where location_direction_from_VCU = &#39;West&#39;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_id</th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">restaurant_location_id</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Picolla Italy Pizza &amp; Subs</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>3</td>
+<td>Kuba Kuba</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>24</td>
+<td>Mamusa&#39;s African Restaurant</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>25</td>
+<td>Domoishi</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>26</td>
+<td>Pupatella</td>
+<td>26</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>30</td>
+<td>Hibachi Box</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>4.This query will retrieve all restaurants that are located on West Grace street.</p>
+<div class="cell" data-execution_count="16">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ss">select restaurant_id, restaurant_name, location_address from restaurants</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ss">join locations on (restaurant_location_id = location_id) </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ss">where location_address like &#39;%%W Grace%%&#39;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_id</th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">location_address</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2</td>
+<td>Village Cafe</td>
+<td>1001 W Grace St, Richmond, VA 23220</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>11</td>
+<td>Chipotle Mexican Grill</td>
+<td>810 W Grace St, Richmond, VA 23220</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>12</td>
+<td>CAVA</td>
+<td>810 W Grace St, Richmond, VA 23220</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>13</td>
+<td>Panera Bread</td>
+<td>810 W Grace St, Richmond, VA 23220</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>27</td>
+<td>Spoon</td>
+<td>903 W Grace St, Richmond, VA 23220</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>28</td>
+<td>Good Taste</td>
+<td>913 W Grace St, Richmond, VA 23220</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>29</td>
+<td>Ipanema Café</td>
+<td>917 W Grace St, Richmond, VA 23220</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>5.This query will retrieve a list of the restaurants that are literally on the VCU campus.</p>
+<div class="cell" data-execution_count="17">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ss">select * from restaurants</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">join accessibility on (restaurant_id = accessibility_restaurant_id) </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ss">where accessibility_notes like &#39;%%Literally on campus%%&#39;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_id</th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">restaurant_formality_level</th>
+<th data-quarto-table-cell-role="th">restaurant_avg_total_per_person</th>
+<th data-quarto-table-cell-role="th">restaurant_location_id</th>
+<th data-quarto-table-cell-role="th">restaurant_type</th>
+<th data-quarto-table-cell-role="th">accessibility_id</th>
+<th data-quarto-table-cell-role="th">accessibility_restaurant_id</th>
+<th data-quarto-table-cell-role="th">accessibility_miles_to_VCU</th>
+<th data-quarto-table-cell-role="th">accessibility_nearby_bus_stops</th>
+<th data-quarto-table-cell-role="th">accessibility_notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>10</td>
+<td>Subway</td>
+<td>Sub-Sandwich Fast Food</td>
+<td>$15-20</td>
+<td>10</td>
+<td>Sandwich</td>
+<td>10</td>
+<td>10</td>
+<td>0.1</td>
+<td>Several close on Harrison</td>
+<td>Literally on campus</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>11</td>
+<td>Chipotle Mexican Grill</td>
+<td>Casual</td>
+<td>$15-20</td>
+<td>11</td>
+<td>Mexican</td>
+<td>11</td>
+<td>11</td>
+<td>0.2</td>
+<td>Several Close</td>
+<td>Literally on campus</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>12</td>
+<td>CAVA</td>
+<td>Casual</td>
+<td>$15-20</td>
+<td>12</td>
+<td>Mediterranean</td>
+<td>12</td>
+<td>12</td>
+<td>0.2</td>
+<td>Several Close</td>
+<td>Literally on campus</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>13</td>
+<td>Panera Bread</td>
+<td>Casual</td>
+<td>$15-20</td>
+<td>13</td>
+<td>Cafe</td>
+<td>13</td>
+<td>13</td>
+<td>0.2</td>
+<td>Several Close</td>
+<td>Literally on campus</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>18</td>
+<td>Bento Sushi</td>
+<td>Takeout</td>
+<td>$15-20</td>
+<td>18</td>
+<td>Sushi</td>
+<td>18</td>
+<td>18</td>
+<td>0.1</td>
+<td>Several on Harrison</td>
+<td>Literally on campus</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>19</td>
+<td>Freshii</td>
+<td>Casual</td>
+<td>$25-30</td>
+<td>19</td>
+<td>Health Food</td>
+<td>19</td>
+<td>19</td>
+<td>0.1</td>
+<td>Several on Main and on Harrison</td>
+<td>Literally on campus</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>20</td>
+<td>Chick-fil-A</td>
+<td>Takeout</td>
+<td>$15-20</td>
+<td>20</td>
+<td>Fast Food Chicken</td>
+<td>20</td>
+<td>20</td>
+<td>0.1</td>
+<td>Several on Main and on Harrison</td>
+<td>Literally on campus</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>21</td>
+<td>Steak &#39;n Shake</td>
+<td>Takeout</td>
+<td>$15-20</td>
+<td>21</td>
+<td>American Fast Food</td>
+<td>21</td>
+<td>21</td>
+<td>0.1</td>
+<td>Several on Main and on Harrison</td>
+<td>Literally on campus</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>6.This query will retrieve all the restaurants that offer vegan options , displays the number of vegan dishes per restaurant, finally groups them in descending order.</p>
+<div class="cell" data-execution_count="18">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    restaurants.restaurant_id,</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    restaurants.restaurant_name,</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    COUNT(menu_items.menu_item_id) AS num_vegan_items</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    restaurants</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ss">    menu ON restaurants.restaurant_id = menu.restaurant_id</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    menu_items ON menu.menu_id = menu_items.menu_id</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    item ON menu_items.item_id = item.item_id</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="ss">WHERE</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    item.item_dietary_preference_id = 20</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="ss">GROUP BY</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    restaurants.restaurant_id, restaurants.restaurant_name</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="ss">ORDER BY num_vegan_items DESC;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_id</th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">num_vegan_items</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>16</td>
+<td>Alladin Express</td>
+<td>19</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>29</td>
+<td>Ipanema Café</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>24</td>
+<td>Mamusa&#39;s African Restaurant</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>19</td>
+<td>Freshii</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>821 Cafe</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>3</td>
+<td>Kuba Kuba</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>13</td>
+<td>Panera Bread</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>17</td>
+<td>Domino&#39;s Pizza</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>4</td>
+<td>Dinamo</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>12</td>
+<td>CAVA</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>11</td>
+<td>Chipotle Mexican Grill</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>18</td>
+<td>Bento Sushi</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>25</td>
+<td>Domoishi</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>26</td>
+<td>Pupatella</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>28</td>
+<td>Good Taste</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>6</td>
+<td>Crazy Thai Restaurant</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>8</td>
+<td>Sonic Drive-In</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>22</td>
+<td>Oh Mochi Richmond</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>23</td>
+<td>Jimmy John&#39;s</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>2</td>
+<td>Village Cafe</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>10</td>
+<td>Subway</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>20</td>
+<td>Chick-fil-A</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>27</td>
+<td>Spoon</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>7</td>
+<td>Pardon My Cheesesteak</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>1</td>
+<td>Picolla Italy Pizza &amp; Subs</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>30</td>
+<td>Hibachi Box</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>7.This query will retrieve the number of dishes from all the restaurants that are Halal.</p>
+<div class="cell" data-execution_count="19">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    COUNT(item.item_id) AS number_of_halal_dishes</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    item</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ss">WHERE</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    item.item_dietary_preference_id = 30;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">number_of_halal_dishes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>26</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>8.Query to return the Top 10 Rated Restaurants</p>
+<div class="cell" data-execution_count="20">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT restaurant_name, ROUND(AVG(review_rating), 2) AS average_rating</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM restaurants</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN review ON restaurants.restaurant_id = review.review_restaurant_id</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ss">GROUP BY restaurant_name</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ss">ORDER BY average_rating DESC</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ss">LIMIT 10;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">average_rating</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Mamusa&#39;s African Restaurant</td>
+<td>5.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Bento Sushi</td>
+<td>5.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Village Cafe</td>
+<td>4.80</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Oh Mochi Richmond</td>
+<td>4.75</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Ipanema Café</td>
+<td>4.67</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>821 Cafe</td>
+<td>4.67</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>&amp;pizza</td>
+<td>4.67</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Kuba Kuba</td>
+<td>4.60</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Dinamo</td>
+<td>4.60</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Crazy Thai Restaurant</td>
+<td>4.50</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>9.Displaying the count of vegan items each restaurant offers while also displaying their names, addresses, and filtering for locations less than 0.5 miles away:</p>
+<div class="cell" data-execution_count="21">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    restaurants.restaurant_name,</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    locations.location_address,</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    COUNT(DISTINCT menu_items.item_id) AS num_vegan_items</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM restaurants</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN menu ON restaurants.restaurant_id = menu.restaurant_id</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN menu_items ON menu.menu_id = menu_items.menu_id</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN item ON menu_items.item_id = item.item_id</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN accessibility ON restaurants.restaurant_id = accessibility.accessibility_restaurant_id</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN locations ON restaurants.restaurant_location_id = locations.location_id</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="ss">WHERE </span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    item.item_dietary_preference_id = 20  -- Assuming &#39;Vegan&#39; has a dietary_preference_id of 20</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    AND accessibility.accessibility_miles_to_VCU &lt; 0.5</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="ss">GROUP BY </span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="ss">    restaurants.restaurant_name, locations.location_address</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="ss">ORDER BY </span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="ss">    num_vegan_items DESC;</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">location_address</th>
+<th data-quarto-table-cell-role="th">num_vegan_items</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Alladin Express</td>
+<td>801 W Broad St, Richmond, VA 23220</td>
+<td>19</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Ipanema Café</td>
+<td>917 W Grace St, Richmond, VA 23220</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Mamusa&#39;s African Restaurant</td>
+<td>1102 W Main St, Richmond, VA 23220</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Freshii</td>
+<td>907 Floyd Ave, Richmond, VA 23284</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>821 Cafe</td>
+<td>825 W Cary St, Richmond, VA 23220</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Kuba Kuba</td>
+<td>1601 Park Ave, Richmond, VA 23220</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>CAVA</td>
+<td>810 W Grace St, Richmond, VA 23220</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Dinamo</td>
+<td>821 W Cary St, Richmond, VA 23220</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Domino&#39;s Pizza</td>
+<td>111 N Belvidere St, Richmond, VA 23220</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Panera Bread</td>
+<td>810 W Grace St, Richmond, VA 23220</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Chipotle Mexican Grill</td>
+<td>810 W Grace St, Richmond, VA 23220</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Domoishi</td>
+<td>1106 W Main St, Richmond, VA 23220</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Bento Sushi</td>
+<td>810 Cathedral Pl, Richmond, VA 23284</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Crazy Thai Restaurant</td>
+<td>1100 W Cary St, Richmond, VA 23220</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Good Taste</td>
+<td>913 W Grace St, Richmond, VA 23220</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Pupatella</td>
+<td>1 N Morris St, Richmond, VA 23220</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Jimmy John&#39;s</td>
+<td>520 W Franklin St, Richmond, VA 23220</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Sonic Drive-In</td>
+<td>813 W Cary St, Richmond, VA 23220</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Oh Mochi Richmond</td>
+<td>900 W Franklin St, Richmond, VA 23220</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Subway</td>
+<td>Higgs Bldg, 907 Floyd Ave, Richmond, VA 23284</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Village Cafe</td>
+<td>1001 W Grace St, Richmond, VA 23220</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Pardon My Cheesesteak</td>
+<td>815 W Cary St, Richmond, VA 23220</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>Picolla Italy Pizza &amp; Subs</td>
+<td>1100 W Main St, Richmond, VA 23220</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>Hibachi Box</td>
+<td>411 N Harrison St #1, Richmond, VA 23220</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>Chick-fil-A</td>
+<td>907 Floyd Ave, Richmond, VA 23284</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>Spoon</td>
+<td>903 W Grace St, Richmond, VA 23220</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>10.This query will retrieve the number of items under 5 dollars each Restauraunt have on thier menu.</p>
+<div class="cell" data-execution_count="22">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT </span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    restaurants.restaurant_name,</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    COUNT(item.item_id) AS num_items_under_5</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM restaurants</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN menu ON restaurants.restaurant_id = menu.restaurant_id</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN menu_items ON menu.menu_id = menu_items.menu_id</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN item ON menu_items.item_id = item.item_id</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="ss">WHERE </span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="ss">    item.item_price &lt; 5.00</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="ss">GROUP BY </span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="ss">    restaurants.restaurant_name</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="ss">ORDER BY </span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="ss">    num_items_under_5 DESC;</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">num_items_under_5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Sonic Drive-In</td>
+<td>19</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Steak &#39;n Shake</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Pardon My Cheesesteak</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Jimmy John&#39;s</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Domino&#39;s Pizza</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Domoishi</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Crazy Thai Restaurant</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Ipanema Café</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Hibachi Box</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Paisano&#39;s Pizza</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Subway</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Chick-fil-A</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Mamusa&#39;s African Restaurant</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Spoon</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Picolla Italy Pizza &amp; Subs</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Chipotle Mexican Grill</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>11.This query returns the total count of menu items available</p>
+<div class="cell" data-execution_count="23">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT COUNT(item_id) AS total_menu_items FROM item;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">total_menu_items</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>585</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>12.This query retrieves the cheapest item_name and item_cost along with the restaurant it is from.</p>
+<div class="cell" data-execution_count="24">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT </span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="ss">    r.restaurant_name,</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="ss">    i.item_name AS cheapest_item,</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="ss">    i.item_price AS cheapest_item_price</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM </span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    restaurants r</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN </span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="ss">    menu m ON r.restaurant_id = m.restaurant_id</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN </span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    menu_items mi ON m.menu_id = mi.menu_id</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN </span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="ss">    item i ON mi.item_id = i.item_id</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="ss">WHERE </span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    i.item_price = (</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="ss">        SELECT </span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="ss">            MIN(item_price)</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="ss">        FROM </span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="ss">            menu_items mi2</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="ss">        JOIN </span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="ss">            item i2 ON mi2.item_id = i2.item_id</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="ss">        WHERE </span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="ss">            mi2.menu_id = m.menu_id</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="ss">    );</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">cheapest_item</th>
+<th data-quarto-table-cell-role="th">cheapest_item_price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Picolla Italy Pizza &amp; Subs</td>
+<td>Garlic Knots</td>
+<td>4.95</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Village Cafe</td>
+<td>PANCAKES - Three Large Buttermilk Pancakes</td>
+<td>5.95</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Village Cafe</td>
+<td>Cheese Fries</td>
+<td>5.95</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Kuba Kuba</td>
+<td>Empanadillas</td>
+<td>5.95</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Kuba Kuba</td>
+<td>Black Beans &amp; Yellow Rice</td>
+<td>5.95</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Dinamo</td>
+<td>Mixed Green Salad</td>
+<td>6.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>821 Cafe</td>
+<td>Grilled Cheese</td>
+<td>6.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Crazy Thai Restaurant</td>
+<td>Steamed Noodle</td>
+<td>1.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Crazy Thai Restaurant</td>
+<td>Brown Rice</td>
+<td>1.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Pardon My Cheesesteak</td>
+<td>Pepsi</td>
+<td>2.99</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Pardon My Cheesesteak</td>
+<td>Diet Pepsi</td>
+<td>2.99</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Pardon My Cheesesteak</td>
+<td>Starry</td>
+<td>2.99</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Pardon My Cheesesteak</td>
+<td>Mountain Dew</td>
+<td>2.99</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Pardon My Cheesesteak</td>
+<td>Unsweetened Iced Tea</td>
+<td>2.99</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Pardon My Cheesesteak</td>
+<td>Lemonade</td>
+<td>2.99</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Sonic Drive-In</td>
+<td>Ocean Water Medium</td>
+<td>1.79</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Sonic Drive-In</td>
+<td>Premium Roast Coffee (Large)</td>
+<td>1.79</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Paisano&#39;s Pizza</td>
+<td>Small Side Salad</td>
+<td>2.99</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Subway</td>
+<td>Italian B.M.T.</td>
+<td>4.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Chipotle Mexican Grill</td>
+<td>Chips &amp; Guacamole</td>
+<td>4.25</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>CAVA</td>
+<td>Harvest Squash Soup</td>
+<td>5.99</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Panera Bread</td>
+<td>Summer Fruit Cup</td>
+<td>5.29</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>&amp;pizza</td>
+<td>CHEESE PIE</td>
+<td>9.99</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>&amp;pizza</td>
+<td>WHITE PIE</td>
+<td>9.99</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>Got Dumplings &amp; TSAoCAA Tea</td>
+<td>Vietnamese Iced Coffee</td>
+<td>5.25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>Alladin Express</td>
+<td>Falafel Pita</td>
+<td>7.99</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>Alladin Express</td>
+<td>Fried Eggplant Pita</td>
+<td>7.99</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>Alladin Express</td>
+<td>Baba Ghannouj Pita</td>
+<td>7.99</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>Domino&#39;s Pizza</td>
+<td>Dipping Sauces</td>
+<td>1.99</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>Domino&#39;s Pizza</td>
+<td>Water</td>
+<td>1.99</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>Bento Sushi</td>
+<td>Spicy California Spring Sushi Roll</td>
+<td>6.99</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>Bento Sushi</td>
+<td>Veggie Spring Sushi Roll</td>
+<td>6.99</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>Freshii</td>
+<td>Creamy Roasted Tomato</td>
+<td>10.39</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>Chick-fil-A</td>
+<td>Gluten Free Bun</td>
+<td>2.19</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">34</td>
+<td>Steak &#39;n Shake</td>
+<td>Milkshake - Banana</td>
+<td>3.99</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">35</td>
+<td>Oh Mochi Richmond</td>
+<td>Original Hot Dog</td>
+<td>5.95</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">36</td>
+<td>Jimmy John&#39;s</td>
+<td>Salt &amp; Vinegar Jimmy Chips®</td>
+<td>2.18</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">37</td>
+<td>Jimmy John&#39;s</td>
+<td>BBQ Jimmy Chips®</td>
+<td>2.18</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">38</td>
+<td>Jimmy John&#39;s</td>
+<td>40 Jimmy Chips®</td>
+<td>2.18</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">39</td>
+<td>Mamusa&#39;s African Restaurant</td>
+<td>Parathas (Vegan Fried Veggie Patty)</td>
+<td>3.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">40</td>
+<td>Mamusa&#39;s African Restaurant</td>
+<td>Parathas (Fried Veggie Patty)</td>
+<td>3.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">41</td>
+<td>Domoishi</td>
+<td>Side of Rice</td>
+<td>2.95</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">42</td>
+<td>Pupatella</td>
+<td>Side Salad</td>
+<td>5.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">43</td>
+<td>Spoon</td>
+<td>Jasmine Rice</td>
+<td>2.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">44</td>
+<td>Good Taste</td>
+<td>Fried Wonton</td>
+<td>7.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">45</td>
+<td>Good Taste</td>
+<td>Sweet and Sour Chicken</td>
+<td>7.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">46</td>
+<td>Ipanema Café</td>
+<td>Half Bagel (N)</td>
+<td>3.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">47</td>
+<td>Hibachi Box</td>
+<td>Extra Ginger Dip</td>
+<td>0.75</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">48</td>
+<td>Hibachi Box</td>
+<td>Extra Mustard Dip</td>
+<td>0.75</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>13.This query retrieves reviews from 2023 for restaurants</p>
+<div class="cell" data-execution_count="25">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT r.restaurant_name, re.*</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM review re</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN restaurants r ON re.review_restaurant_id = r.restaurant_id</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="ss">WHERE SUBSTRING(re.review_date, -4) = &#39;2023&#39;;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">review_id</th>
+<th data-quarto-table-cell-role="th">review_restaurant_id</th>
+<th data-quarto-table-cell-role="th">review_rating</th>
+<th data-quarto-table-cell-role="th">review_text</th>
+<th data-quarto-table-cell-role="th">review_date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Picolla Italy Pizza &amp; Subs</td>
+<td>1</td>
+<td>1</td>
+<td>5.0</td>
+<td>This place is amazing! If you have not visited...</td>
+<td>02-21-2023</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Picolla Italy Pizza &amp; Subs</td>
+<td>2</td>
+<td>1</td>
+<td>5.0</td>
+<td>This is the best pizza place in all of the Ric...</td>
+<td>02-14-2023</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Picolla Italy Pizza &amp; Subs</td>
+<td>3</td>
+<td>1</td>
+<td>5.0</td>
+<td>Love this place, order from here at least 3x a...</td>
+<td>10-22-2023</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Picolla Italy Pizza &amp; Subs</td>
+<td>4</td>
+<td>1</td>
+<td>1.0</td>
+<td>I can&#39;t believe people say that this is the be...</td>
+<td>11-19-2023</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Picolla Italy Pizza &amp; Subs</td>
+<td>5</td>
+<td>1</td>
+<td>4.0</td>
+<td>Piccola is another of my Richmond staple place...</td>
+<td>07-07-2023</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">57</td>
+<td>Ipanema Café</td>
+<td>77</td>
+<td>29</td>
+<td>4.0</td>
+<td>Really cute vegan restaurant! I really enjoyed...</td>
+<td>06-09-2023</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">58</td>
+<td>Ipanema Café</td>
+<td>78</td>
+<td>29</td>
+<td>5.0</td>
+<td>This restaurant is an absolute gem. The entire...</td>
+<td>01-29-2023</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">59</td>
+<td>Hibachi Box</td>
+<td>80</td>
+<td>30</td>
+<td>4.0</td>
+<td>Food tasted amazing and the salad and noodles ...</td>
+<td>11-14-2023</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">60</td>
+<td>Hibachi Box</td>
+<td>81</td>
+<td>30</td>
+<td>5.0</td>
+<td>The food was pretty good. Taste was fine. The ...</td>
+<td>04-26-2023</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">61</td>
+<td>Hibachi Box</td>
+<td>82</td>
+<td>30</td>
+<td>4.0</td>
+<td>One of my fav go to spots to grab something qu...</td>
+<td>09-11-2023</td>
+</tr>
+</tbody>
+</table>
+
+<p>62 rows × 6 columns</p>
+</div>
+</div>
+</div>
+<p>14.This query retrieves number of restaurants by formality level</p>
+<div class="cell" data-execution_count="26">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT restaurant_formality_level, COUNT(restaurant_id) AS num_restaurants</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM restaurants</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="ss">GROUP BY restaurant_formality_level</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="ss">ORDER BY num_restaurants DESC;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_formality_level</th>
+<th data-quarto-table-cell-role="th">num_restaurants</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Casual</td>
+<td>20</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Takeout</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Sub-Sandwich Fast Food</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Fast Food</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Casual dine in</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Casual Takeout</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>15.This query retrieves the number of restaurants per neighborhood</p>
+<div class="cell" data-execution_count="27">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT location_neighborhood, COUNT(restaurant_id) AS num_restaurants</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM locations</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN restaurants ON locations.location_id = restaurants.restaurant_location_id</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ss">GROUP BY location_neighborhood</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="ss">ORDER BY num_restaurants DESC;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">location_neighborhood</th>
+<th data-quarto-table-cell-role="th">num_restaurants</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>VCU</td>
+<td>24</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>The Fan</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Monroe Ward</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>16.This query retrieves a table showing the count of dietary preferences for Mamusa’s African Restaurant</p>
+<div class="cell" data-execution_count="28">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT dp.dietary_preference_name, COUNT(item.item_id) AS preference_count</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM restaurants r</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN menu ON r.restaurant_id = menu.restaurant_id</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN menu_items ON menu.menu_id = menu_items.menu_id</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN item ON menu_items.item_id = item.item_id</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN dietary_preference dp ON item.item_dietary_preference_id = dp.dietary_preference_id</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="ss">WHERE r.restaurant_name = &#39;Mamusa&#39;&#39;s African Restaurant&#39;</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="ss">GROUP BY dp.dietary_preference_name</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="ss">ORDER BY preference_count DESC;</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">dietary_preference_name</th>
+<th data-quarto-table-cell-role="th">preference_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Vegan</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Halal</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Vegetarian</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>No Specified Preference</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>17.This query groups the restaurants by their types (restaurant_type) and counts the number of restaurants within each type using COUNT</p>
+<div class="cell" data-execution_count="29">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT restaurant_type, COUNT(restaurant_id) AS type_count</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM restaurants</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="ss">GROUP BY restaurant_type</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ss">ORDER BY type_count DESC ;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_type</th>
+<th data-quarto-table-cell-role="th">type_count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Italian</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Pizza</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>American Fast Food</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Mediterranean</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Asian</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Japanese</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Vegan</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Chinese Takeout</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Asian Fusion</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>African</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Sandwiches</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Donuts</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Fast Food Chicken</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Health Food</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Sushi</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Cafe</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Mexican</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Sandwich</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Cheesesteak</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Thai</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>American Cafe</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Cuban</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>American</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>18.This retrieve restaurants that are Mediterranean and offer vegetarian options.</p>
+<div class="cell" data-execution_count="30">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT *</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM restaurants r</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="ss">WHERE r.restaurant_type = &#39;Mediterranean&#39;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ss">AND EXISTS (</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="ss">    SELECT 1</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ss">    FROM menu m</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ss">    JOIN menu_items mi ON m.menu_id = mi.menu_id</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="ss">    JOIN item i ON mi.item_id = i.item_id</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="ss">    WHERE m.restaurant_id = r.restaurant_id</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="ss">    AND i.item_dietary_preference_id = (</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="ss">        SELECT dietary_preference_id</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="ss">        FROM dietary_preference</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="ss">        WHERE dietary_preference_name = &#39;Vegetarian&#39;</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="ss">    )</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="ss">);</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_id</th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">restaurant_formality_level</th>
+<th data-quarto-table-cell-role="th">restaurant_avg_total_per_person</th>
+<th data-quarto-table-cell-role="th">restaurant_location_id</th>
+<th data-quarto-table-cell-role="th">restaurant_type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>12</td>
+<td>CAVA</td>
+<td>Casual</td>
+<td>$15-20</td>
+<td>12</td>
+<td>Mediterranean</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>19.This query retrieves restaurants that offer Italian cuisine.</p>
+<div class="cell" data-execution_count="31">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT *</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM restaurants</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="ss">WHERE restaurant_type = &#39;Italian&#39;;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_id</th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">restaurant_formality_level</th>
+<th data-quarto-table-cell-role="th">restaurant_avg_total_per_person</th>
+<th data-quarto-table-cell-role="th">restaurant_location_id</th>
+<th data-quarto-table-cell-role="th">restaurant_type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>Picolla Italy Pizza &amp; Subs</td>
+<td>Casual</td>
+<td>$15-20</td>
+<td>1</td>
+<td>Italian</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>4</td>
+<td>Dinamo</td>
+<td>Casual</td>
+<td>$25-30</td>
+<td>4</td>
+<td>Italian</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>9</td>
+<td>Paisano&#39;s Pizza</td>
+<td>Casual</td>
+<td>$15-20</td>
+<td>9</td>
+<td>Italian</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>20.This query that lists restaurants offering vegetarian options and their respective counts of vegetarian menu items</p>
+<div class="cell" data-execution_count="32">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>sql <span class="op">=</span> <span class="ss">f&quot;&quot;&quot;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="ss">SELECT r.restaurant_name, COUNT(i.item_id) AS num_vegetarian_items</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="ss">FROM restaurants r</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN menu m ON r.restaurant_id = m.restaurant_id</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN menu_items mi ON m.menu_id = mi.menu_id</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN item i ON mi.item_id = i.item_id</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ss">JOIN dietary_preference dp ON i.item_dietary_preference_id = dp.dietary_preference_id</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="ss">WHERE dp.dietary_preference_name = &#39;Vegetarian&#39;</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="ss">GROUP BY r.restaurant_name</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="ss">ORDER BY num_vegetarian_items DESC;</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="ss">&quot;&quot;&quot;</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_sql(sql,cnx)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    df</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="bu">str</span>(e)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;An error occurred:</span><span class="ch">\n\n</span><span class="sc">{</span>message<span class="sc">}</span><span class="ch">\n\n</span><span class="ss">Ignoring and moving on.&quot;</span>)</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">restaurant_name</th>
+<th data-quarto-table-cell-role="th">num_vegetarian_items</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Pupatella</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Kuba Kuba</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Dinamo</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>821 Cafe</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Village Cafe</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Sonic Drive-In</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>CAVA</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Crazy Thai Restaurant</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Chipotle Mexican Grill</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Freshii</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Mamusa&#39;s African Restaurant</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Panera Bread</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Chick-fil-A</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Oh Mochi Richmond</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Jimmy John&#39;s</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Bento Sushi</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Domino&#39;s Pizza</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Subway</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Paisano&#39;s Pizza</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Domoishi</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Pardon My Cheesesteak</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Spoon</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="project-management" class="level1">
@@ -5087,34 +7314,585 @@ Milestone 7 Final : crit, 2023-12-12, Milestone 7: Final Submission
 </div>
 </div>
 </section>
+</section>
+<section id="api-implementation" class="level1">
+<h1>API Implementation</h1>
 <section id="api-definition" class="level2">
 <h2 class="anchored" data-anchor-id="api-definition">API Definition</h2>
-<section id="accessing-the-database" class="level3">
-<h3 class="anchored" data-anchor-id="accessing-the-database">Accessing the Database</h3>
-<p>Your database is accessible through a RESTful API. The following endpoints allow access to the database:</p>
+<section id="accessing-the-database-using-these-endpoints" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-the-database-using-these-endpoints">Accessing the Database using these endpoints</h3>
+<ul>
+<li>/api/tables (GET) - Lists tables in the database.</li>
+<li>/api/restaurants (GET, POST) - Gets all restaurants or creates a new one.</li>
+<li>/api/restaurants/‘ID’ (GET) - Fetches restaurant details by ID.</li>
+<li>/api/reviews/‘name’ (GET) - Retrieves reviews for a restaurant.</li>
+<li>/api/locations (GET) - Gets all location details.</li>
+<li>/api/accessibility (GET) - Fetches accessibility details.</li>
+<li>/api/locations/accessibility/name/‘name’ (GET) - Retrieves accessibility details and restaurant location by name.</li>
+<li>/api/menu/ID/‘ID’ (GET) - Gets menu items by restaurant ID.</li>
+<li>/api/menu/restaurant/‘name’ (GET) - Retrieves menu items by restaurant name.</li>
+<li>/api/item (GET) - Fetches item details.</li>
+<li>/api/menu_items (GET) - Retrieves menu items.</li>
+<li>/api/dietary_preference (GET) - Gets dietary preferences.</li>
+<li>/api/dietary_preference/<preference> (GET) - Retrieves menu items based on a specific dietary preference.</preference></li>
+<li>/api/restaurants_reviews (GET) - Retrieves reviews along with associated restaurant details.</li>
+<li>/api/bus_stops_near_vc (GET) - Fetches restaurants, their locations, and nearby bus stops near VCU.</li>
+</ul>
 </section>
 <section id="api-demonstration" class="level3">
 <h3 class="anchored" data-anchor-id="api-demonstration">API Demonstration</h3>
-<p>A demonstration of the API’s functionality can be showcased using tools like cURL or Postman. Here’s an example: - Using cURL: <code>curl -X GET http://your-api-endpoint/restaurants</code> - Using Postman: Create a GET request to <code>http://your-api-endpoint/restaurants</code></p>
+<ul>
+<li>*<strong>Environment Setup:</strong>
+<ul>
+<li>Install Python from the official website.</li>
+<li>Use <code>pip</code> to install required packages: <code>flask</code>, <code>pandas</code>, <code>pymysql</code>, <code>sqlalchemy</code>, and <code>python-dotenv</code>.</li>
+</ul></li>
+<li>*<strong>Environment Variables:</strong>
+<ul>
+<li>Create a <code>.env</code> file in your project directory.</li>
+<li>Add sensitive information (like database credentials) in the <code>.env</code> file.</li>
+</ul></li>
+<li>*<strong>Running the Flask App:</strong>
+<ul>
+<li>Execute the Flask application scriptusing <code>python project-flask.py</code>.</li>
+</ul></li>
+<li>*<strong>Accessing the API:</strong>
+<ul>
+<li>Once the app is running, access the API endpoints by visiting <code>http://127.0.0.1:5000</code> in your web browser. We had to run it to successfully render this qmd.</li>
+</ul></li>
+</ul>
+<p>1.Print the first 10 restaurants: Sends a GET request to retrieve restaurant data from the <em>/api/restaurants</em> endpoint and prints the names of the first 10 restaurants received in the response.</p>
+<div class="cell" data-execution_count="33">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&#39;http://127.0.0.1:5000/api/restaurants&#39;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a GET request to retrieve restaurant data</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the request was successful (status code 200)</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the JSON data</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    restaurants <span class="op">=</span> response.json()</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Print the first five restaurants</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> restaurant <span class="kw">in</span> restaurants[:<span class="dv">10</span>]:</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(restaurant[<span class="st">&#39;restaurant_name&#39;</span>])</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Request failed with status code: </span><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Picolla Italy Pizza &amp; Subs
+Village Cafe
+Kuba Kuba
+Dinamo
+821 Cafe
+Crazy Thai Restaurant
+Pardon My Cheesesteak
+Sonic Drive-In
+Paisano&#39;s Pizza
+Subway</code></pre>
+</div>
+</div>
+<p>2.Shows specific restaurant info: Sends a GET request to fetch details of a restaurant with a specific ID (in this case, ID 29). Prints the retrieved restaurant’s name, formality level, average total per person, and restaurant type.</p>
+<div class="cell" data-execution_count="34">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&#39;http://127.0.0.1:5000/api/restaurants/29&#39;</span>  <span class="co"># Endpoint with ID 25</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a GET request to retrieve restaurant data with ID 25</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the request was successful (status code 200)</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the JSON data for the restaurant(s) with ID 25</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    restaurants <span class="op">=</span> response.json()</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># If the response is a list of restaurants</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(restaurants, <span class="bu">list</span>):</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Iterate through the list of restaurants</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> restaurant <span class="kw">in</span> restaurants:</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f&quot;Restaurant Name: </span><span class="sc">{</span>restaurant[<span class="st">&#39;restaurant_name&#39;</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f&quot;Formality Level: </span><span class="sc">{</span>restaurant[<span class="st">&#39;restaurant_formality_level&#39;</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f&quot;Avg Total per Person: </span><span class="sc">{</span>restaurant[<span class="st">&#39;restaurant_avg_total_per_person&#39;</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f&quot;Restaurant Type: </span><span class="sc">{</span>restaurant[<span class="st">&#39;restaurant_type&#39;</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Add other details as needed</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Access details for a single restaurant</span></span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Restaurant Name: </span><span class="sc">{</span>restaurants[<span class="st">&#39;restaurant_name&#39;</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Formality Level: </span><span class="sc">{</span>restaurants[<span class="st">&#39;restaurant_formality_level&#39;</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Avg Total per Person: </span><span class="sc">{</span>restaurants[<span class="st">&#39;restaurant_avg_total_per_person&#39;</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Restaurant Type: </span><span class="sc">{</span>restaurants[<span class="st">&#39;restaurant_type&#39;</span>]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Add other details as needed</span></span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Request failed with status code: </span><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Restaurant Name: Ipanema Café
+Formality Level: Casual
+Avg Total per Person: $25-30
+Restaurant Type: Vegan</code></pre>
+</div>
+</div>
+<p>3.Retrieve Spoon’s Reviews: Sends a GET request to fetch reviews for a restaurant named “Spoon” from the <em>/api/reviews/Spoon</em> endpoint. Parses the retrieved data and prints details such as review ID, rating, and text.</p>
+<div class="cell" data-execution_count="35">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&#39;http://127.0.0.1:5000/api/reviews/Spoon&#39;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a GET request to retrieve restaurant data</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the request was successful (status code 200)</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the JSON data</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> response.json()</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    parsed_data <span class="op">=</span>  json.loads(data)</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Assuming &#39;review_id&#39;, &#39;review_rating&#39;, and &#39;review_text&#39; are nested dictionaries with keys like &#39;i&#39;</span></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Starting index</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="bu">str</span>(i) <span class="kw">in</span> parsed_data[<span class="st">&#39;review_id&#39;</span>]:</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>        review_id <span class="op">=</span> parsed_data[<span class="st">&#39;review_id&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>        review_rating <span class="op">=</span> parsed_data[<span class="st">&#39;review_rating&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>        review_text <span class="op">=</span> parsed_data[<span class="st">&#39;review_text&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Display the extracted details</span></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Review ID: </span><span class="sc">{</span>review_id<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Review Rating: </span><span class="sc">{</span>review_rating<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Review Text: </span><span class="sc">{</span>review_text<span class="sc">}</span><span class="ch">\n</span><span class="ss">&quot;</span>)</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Increment index</span></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Request failed with status code: </span><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Review ID: 71
+Review Rating: 5.0
+Review Text: Very excited I&#39;ve found this place.  Cute little patio with some nice flower boxes.  Food was amazing!  Curry Puffs were very tasty..wish they were a little warmer, would still get them again. Nice and crispy in the curry concoction it was stuffed with this delicious. I also got the Unagi Don. The eel was absolutely tender with enough warmth to melt in your mouth. Everything was seasoned just enough that it didn&#39;t need any very tasty. Highly recommend!
+
+Review ID: 72
+Review Rating: 4.0
+Review Text: I enjoyed the meal. I had the shrimp tempura ramen. Noodles were a bit thin for my tastes but didn&#39;t take from my experience. My only issue is I requested no beansprouts but they were still added. If I&#39;m in the area though I&#39;d try them again.
+
+Review ID: 73
+Review Rating: 1.0
+Review Text: Pricey for mediocre quality. $28 for a rice bowl with really mushy rice, some chicken and egg; and an order of fried tofu. Would not recommend and likely will not be a repeat patron here.
+</code></pre>
+</div>
+</div>
+<p>4.Retrieves items from every menu that are halal: Sends a GET request to fetch menu items that match the dietary preference “halal” from the <em>/api/dietary_preference/halal</em> endpoint. Prints details including restaurant name, item ID, item name, description, and price for all retrieved items.</p>
+<div class="cell" data-execution_count="36">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&#39;http://127.0.0.1:5000/api/dietary_preference/halal&#39;</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a GET request to retrieve item data</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the request was successful (status code 200)</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the JSON data</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    data1 <span class="op">=</span> response.json()</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> json.loads(data1)</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Assuming &#39;item_id&#39;, &#39;item_name&#39;, &#39;item_description&#39;, &#39;item_price&#39;, &#39;restaurant_name&#39; are present in the data</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Starting index</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="bu">str</span>(i) <span class="kw">in</span> data[<span class="st">&#39;item_id&#39;</span>]:</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>        item_id <span class="op">=</span> data[<span class="st">&#39;item_id&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>        item_name <span class="op">=</span> data[<span class="st">&#39;item_name&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>        item_description <span class="op">=</span> data[<span class="st">&#39;item_description&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>        item_price <span class="op">=</span> data[<span class="st">&#39;item_price&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>        restaurant_name <span class="op">=</span> data[<span class="st">&#39;restaurant_name&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Display the extracted details</span></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Restaurant Name: </span><span class="sc">{</span>restaurant_name<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Item ID: </span><span class="sc">{</span>item_id<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Item Name: </span><span class="sc">{</span>item_name<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Item Description: </span><span class="sc">{</span>item_description<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Item Price: </span><span class="sc">{</span>item_price<span class="sc">}</span><span class="ch">\n</span><span class="ss">&quot;</span>)</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Increment index</span></span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Request failed with status code: </span><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Restaurant Name: Dinamo
+Item ID: 403
+Item Name: Eggplant &amp; Lentil Flatbread
+Item Description: Flatbread topped with roasted eggplant, lentils, and a blend of Mediterranean spices.
+Item Price: 16.0
+
+Restaurant Name: Dinamo
+Item ID: 409
+Item Name: Squid Ink Fettuccine W/ Calamari Napoletana
+Item Description: Black squid ink fettuccine served with a classic Neapolitan-style calamari sauce.
+Item Price: 24.0
+
+Restaurant Name: Dinamo
+Item ID: 415
+Item Name: Mixed Green Salad
+Item Description: A refreshing mix of assorted greens, tomatoes, cucumbers, and your choice of dressing.
+Item Price: 6.0
+
+Restaurant Name: 821 Cafe
+Item ID: 503
+Item Name: Fried Zucchini
+Item Description: Zucchini slices fried to perfection, served with jalapeño veganaise.
+Item Price: 9.0
+
+Restaurant Name: 821 Cafe
+Item ID: 509
+Item Name: Hummus Plate
+Item Description: House-made hummus with fresh veggies, feta, olives, pickled onion, and flatbread.
+Item Price: 10.0
+
+Restaurant Name: 821 Cafe
+Item ID: 515
+Item Name: Nachos
+Item Description: Choice of chili or black beans. Served with jalapeños, salsa &amp; sour cream.
+Item Price: 11.0
+
+Restaurant Name: Crazy Thai Restaurant
+Item ID: 604
+Item Name: Brown Rice
+Item Description: Brown rice.
+Item Price: 1.5
+
+Restaurant Name: Crazy Thai Restaurant
+Item ID: 613
+Item Name: Coconut Ice Cream
+Item Description: Rich and creamy coconut flavored ice cream.
+Item Price: 4.95
+
+Restaurant Name: Chipotle Mexican Grill
+Item ID: 1103
+Item Name: Halal Chicken Salad
+Item Description: Fresh salad with halal-certified grilled chicken, mixed greens, fajita veggies, and vinaigrette dressing.
+Item Price: 9.29
+
+Restaurant Name: Chipotle Mexican Grill
+Item ID: 1107
+Item Name: Halal Steak Burrito
+Item Description: Halal-certified seasoned steak, cilantro-lime rice, pinto beans, sour cream, and salsa in a tortilla.
+Item Price: 9.99
+
+Restaurant Name: CAVA
+Item ID: 1203
+Item Name: Lamb Meatball Salad
+Item Description: Spiced lamb meatballs, mixed greens, quinoa, roasted vegetables, and harissa dressing.
+Item Price: 11.29
+
+Restaurant Name: CAVA
+Item ID: 1207
+Item Name: Chicken Shawarma Plate
+Item Description: Marinated chicken, brown rice, lentils, tomato-cucumber salad, and tahini dressing.
+Item Price: 12.49
+
+Restaurant Name: CAVA
+Item ID: 1213
+Item Name: Spicy Beef Kebab Plate
+Item Description: Spicy beef kebabs, herbed rice, grilled vegetables, and garlic yogurt sauce.
+Item Price: 11.99
+
+Restaurant Name: CAVA
+Item ID: 1217
+Item Name: Lamb Gyro Bowl
+Item Description: Tender lamb gyro meat, rice pilaf, Greek salad, and tzatziki sauce.
+Item Price: 12.79
+
+Restaurant Name: Panera Bread
+Item ID: 1303
+Item Name: Halal Chicken &amp; Rice Bowl
+Item Description: Marinated halal chicken served over seasoned rice with grilled vegetables.
+Item Price: 13.29
+
+Restaurant Name: Panera Bread
+Item ID: 1313
+Item Name: Halal Steak &amp; Greens Salad
+Item Description: Sliced halal steak, mixed greens, grape tomatoes, red onions, and vinaigrette dressing.
+Item Price: 14.99
+
+Restaurant Name: Panera Bread
+Item ID: 1318
+Item Name: Halal Beef Stew Bread Bowl
+Item Description: Hearty beef stew served in a sourdough bread bowl.
+Item Price: 12.99
+
+Restaurant Name: Alladin Express
+Item ID: 1620
+Item Name: Chicken Kabob Plate
+Item Description: Grilled seasoned chicken over your choice of our seasoned rice or Aladdin salad.
+Item Price: 16.99
+
+Restaurant Name: Oh Mochi Richmond
+Item ID: 2206
+Item Name: Potato Hot Dog
+Item Description: 100 percent beef sausage.
+Item Price: 6.95
+
+Restaurant Name: Oh Mochi Richmond
+Item ID: 2209
+Item Name: Ramen Hot Dog
+Item Description: 100 percent beef sausage with a twist of ramen.
+Item Price: 6.95
+
+Restaurant Name: Mamusa&#39;s African Restaurant
+Item ID: 2411
+Item Name: Nigerian Egusi Spinach Stew (Chicken)
+Item Description: Egusi melon seeds, palm oil, spinach, and chicken.
+Item Price: 12.99
+
+Restaurant Name: Mamusa&#39;s African Restaurant
+Item ID: 2412
+Item Name: Liberian Cassava Leaf Sauce (Beef)
+Item Description: Shredded cassava leaves cooked with beef.
+Item Price: 12.99
+
+Restaurant Name: Mamusa&#39;s African Restaurant
+Item ID: 2413
+Item Name: Peanut Sauce (Chicken)
+Item Description: Peanut butter based sauce cooked with chicken.
+Item Price: 12.99
+
+Restaurant Name: Mamusa&#39;s African Restaurant
+Item ID: 2414
+Item Name: Oxtails in Cabbage Stew
+Item Description: Oxtails cooked in a delicious cabbage stew.
+Item Price: 24.99
+
+Restaurant Name: Mamusa&#39;s African Restaurant
+Item ID: 2415
+Item Name: Okra Sauce (Beef)
+Item Description: Okra based sauce cooked with beef.
+Item Price: 12.99
+
+Restaurant Name: Mamusa&#39;s African Restaurant
+Item ID: 2420
+Item Name: Chefs Fresh Steamed Spinach
+Item Description: Our way.
+Item Price: 11.99
+</code></pre>
+</div>
+</div>
+<p>5.Retrieves the location of a specific restaurant and extra accessibility info: Sends a GET request to fetch location and accessibility details for a restaurant named “Pupatella” from the <em>/api/locations/accessibility/name/Pupatella</em> endpoint. Prints information including location, accessibility ID, miles to VCU, nearby bus stops, and accessibility notes.</p>
+<div class="cell" data-execution_count="37">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&#39;http://127.0.0.1:5000/api/locations/accessibility/name/Pupatella&#39;</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a GET request to retrieve item data</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the request was successful (status code 200)</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the JSON data</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>    data1 <span class="op">=</span> response.json()</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> json.loads(data1)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Assuming &#39;item_id&#39;, &#39;item_name&#39;, &#39;item_description&#39;, &#39;item_price&#39;, &#39;restaurant_name&#39; are present in the data</span></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Starting index</span></span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="bu">str</span>(i) <span class="kw">in</span> data[<span class="st">&#39;accessibility_id&#39;</span>]:</span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>        location_address <span class="op">=</span> data[<span class="st">&#39;location_address&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a>        accessibility_id <span class="op">=</span> data[<span class="st">&#39;accessibility_id&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>        accessibility_restaurant_id <span class="op">=</span> data[<span class="st">&#39;accessibility_restaurant_id&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a>        accessibility_miles_to_VCU <span class="op">=</span> data[<span class="st">&#39;accessibility_miles_to_VCU&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>        accessibility_nearby_bus_stops <span class="op">=</span> data[<span class="st">&#39;accessibility_nearby_bus_stops&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>        accessibility_notes <span class="op">=</span> data[<span class="st">&#39;accessibility_notes&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Display the extracted details</span></span>
+<span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Location of Restaurant: </span><span class="sc">{</span>location_address<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Accessibility_id: </span><span class="sc">{</span>accessibility_id<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Accessibility_restaurant_id: </span><span class="sc">{</span>accessibility_restaurant_id<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Miles to VCU: </span><span class="sc">{</span>accessibility_miles_to_VCU<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb29-30"><a href="#cb29-30" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Nearby Bus Stops: </span><span class="sc">{</span>accessibility_nearby_bus_stops<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb29-31"><a href="#cb29-31" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Notes: </span><span class="sc">{</span>accessibility_notes<span class="sc">}</span><span class="ch">\n</span><span class="ss">&quot;</span>)</span>
+<span id="cb29-32"><a href="#cb29-32" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-33"><a href="#cb29-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Increment index</span></span>
+<span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Request failed with status code: </span><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Location of Restaurant: 1 N Morris St, Richmond, VA 23220
+Accessibility_id: 26
+Accessibility_restaurant_id: 26
+Miles to VCU: 0.2
+Nearby Bus Stops: One right on Main and Harrison
+Notes: Very close to campus
+</code></pre>
+</div>
+</div>
+<p>6.Shows every item from the menu of a restaurant with ID 12: Sends a GET request to retrieve all menu items for a restaurant with ID 12 from the <em>/api/menu/ID/12</em> endpoint. Prints details such as item ID, item name, description, and price for each item.</p>
+<div class="cell" data-execution_count="38">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">&#39;http://127.0.0.1:5000/api/menu/ID/12&#39;</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a GET request to retrieve item data</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> requests.get(url)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the request was successful (status code 200)</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> response.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get the JSON data</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    data1 <span class="op">=</span> response.json()</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> json.loads(data1)</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Assuming &#39;item_id&#39;, &#39;item_name&#39;, &#39;item_description&#39;, &#39;item_price&#39;, &#39;restaurant_name&#39; are present in the data</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Starting index</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="bu">str</span>(i) <span class="kw">in</span> data[<span class="st">&#39;item_id&#39;</span>]:</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>        item_id <span class="op">=</span> data[<span class="st">&#39;item_id&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>        item_name <span class="op">=</span> data[<span class="st">&#39;item_name&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>        item_description <span class="op">=</span> data[<span class="st">&#39;item_description&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>        item_price <span class="op">=</span> data[<span class="st">&#39;item_price&#39;</span>][<span class="bu">str</span>(i)]</span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Display the extracted details</span></span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Item ID: </span><span class="sc">{</span>item_id<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Item Name: </span><span class="sc">{</span>item_name<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Item Description: </span><span class="sc">{</span>item_description<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Item Price: </span><span class="sc">{</span>item_price<span class="sc">}</span><span class="ch">\n</span><span class="ss">&quot;</span>)</span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-29"><a href="#cb31-29" aria-hidden="true" tabindex="-1"></a>        i <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># Increment index</span></span>
+<span id="cb31-30"><a href="#cb31-30" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb31-31"><a href="#cb31-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Request failed with status code: </span><span class="sc">{</span>response<span class="sc">.</span>status_code<span class="sc">}</span><span class="ss">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Item ID: 1201
+Item Name: Grilled Chicken Grain Bowl
+Item Description: Grilled chicken, brown rice, black beans, tomato, cucumber, and feta cheese.
+Item Price: 9.99
+
+Item ID: 1202
+Item Name: Vegan Falafel Pita
+Item Description: Crispy falafel, hummus, tomato, cucumber, red onion, and tzatziki in a warm pita.
+Item Price: 8.49
+
+Item ID: 1203
+Item Name: Lamb Meatball Salad
+Item Description: Spiced lamb meatballs, mixed greens, quinoa, roasted vegetables, and harissa dressing.
+Item Price: 11.29
+
+Item ID: 1204
+Item Name: Mediterranean Veggie Wrap
+Item Description: Marinated vegetables, hummus, quinoa tabbouleh, and greens wrapped in a spinach tortilla.
+Item Price: 10.99
+
+Item ID: 1205
+Item Name: Roasted Veggie Grain Bowl
+Item Description: Roasted vegetables, super grains, pickled onions, feta, and green harissa dressing.
+Item Price: 9.79
+
+Item ID: 1206
+Item Name: Vegan Eggplant &amp; Red Pepper Dip
+Item Description: Roasted eggplant, red pepper, garlic, and lemon served with pita chips.
+Item Price: 6.99
+
+Item ID: 1207
+Item Name: Chicken Shawarma Plate
+Item Description: Marinated chicken, brown rice, lentils, tomato-cucumber salad, and tahini dressing.
+Item Price: 12.49
+
+Item ID: 1208
+Item Name: Harvest Squash Soup
+Item Description: Butternut squash, sweet potatoes, carrots, and warming spices in a creamy soup.
+Item Price: 5.99
+
+Item ID: 1209
+Item Name: Mediterranean Power Greens Salad
+Item Description: Kale, arugula, tomatoes, olives, cucumbers, and feta with Greek vinaigrette.
+Item Price: 8.99
+
+Item ID: 1210
+Item Name: Vegan Lentil Soup
+Item Description: Hearty lentil soup made with vegetables, herbs, and spices.
+Item Price: 6.49
+
+Item ID: 1211
+Item Name: Chicken Souvlaki Pita
+Item Description: Grilled chicken, tomato, red onion, and tzatziki sauce in a warm pita bread.
+Item Price: 9.49
+
+Item ID: 1212
+Item Name: Vegan Chickpea Salad
+Item Description: Chickpeas, mixed greens, tomatoes, red peppers, cucumbers, and lemon-tahini dressing.
+Item Price: 8.79
+
+Item ID: 1213
+Item Name: Spicy Beef Kebab Plate
+Item Description: Spicy beef kebabs, herbed rice, grilled vegetables, and garlic yogurt sauce.
+Item Price: 11.99
+
+Item ID: 1214
+Item Name: Avocado Toast
+Item Description: Smashed avocado, cherry tomatoes, feta cheese, and olive oil on toasted multigrain bread.
+Item Price: 7.99
+
+Item ID: 1215
+Item Name: Mediterranean Chicken Wrap
+Item Description: Grilled chicken, hummus, mixed greens, tomatoes, and cucumber in a whole wheat wrap.
+Item Price: 9.29
+
+Item ID: 1216
+Item Name: Vegan Quinoa Salad
+Item Description: Quinoa, mixed greens, roasted veggies, almonds, and balsamic vinaigrette.
+Item Price: 8.49
+
+Item ID: 1217
+Item Name: Lamb Gyro Bowl
+Item Description: Tender lamb gyro meat, rice pilaf, Greek salad, and tzatziki sauce.
+Item Price: 12.79
+
+Item ID: 1218
+Item Name: Mushroom &amp; Spinach Flatbread
+Item Description: Sautéed mushrooms, spinach, mozzarella cheese, and garlic herb spread on flatbread.
+Item Price: 10.49
+
+Item ID: 1219
+Item Name: Mediterranean Tuna Salad
+Item Description: Tuna salad, mixed greens, olives, red onions, and lemon-dill vinaigrette.
+Item Price: 9.99
+
+Item ID: 1220
+Item Name: Vegan Buddha Bowl
+Item Description: Roasted sweet potatoes, quinoa, kale, chickpeas, and tahini-lemon dressing.
+Item Price: 8.99
+</code></pre>
+</div>
+</div>
 </section>
 </section>
-<section id="source-code-links" class="level2">
-<h2 class="anchored" data-anchor-id="source-code-links">Source Code Links</h2>
+</section>
+<section id="source-code-links-for-ddl-dml-and-flask-api" class="level1">
+<h1>Source Code Links for DDL, DML ,and Flask API</h1>
 <ul>
 <li><a href="https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/restaurantdirectory-ddl.sql">DDL SQL Code</a></li>
 <li><a href="https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/restaurantdirectory-dml.sql">DML SQL Code</a></li>
+<li><a href="https://github.com/cmsc-vcu/cmsc508-fa2023-prj-restaurantdirectory-group21/blob/main/src/project-flask.py">Flask API Code</a></li>
 </ul>
 </section>
+<section id="evaluation" class="level1">
+<h1>Evaluation</h1>
 <section id="future-considerations" class="level2">
 <h2 class="anchored" data-anchor-id="future-considerations">Future Considerations</h2>
-<ul>
-<li>Implementing user authentication and authorization for API access.</li>
-<li>Optimizing endpoint responses by implementing pagination and filtering.</li>
-</ul>
+<p>If we had more time, we’d delve deeper into fortifying our system with multiple layers of security to safeguard valuable information. This involves implementing stricter measures like user authentication and authorization, ensuring only authorized individuals access sensitive API endpoints. We’d also aim to expand the API’s functionality by incorporating additional HTTP methods like PUT and DELETE. These methods empower users to modify or remove existing data, offering a more comprehensive set of actions within the API. It’s a step toward creating a more robust and versatile platform, but it requires careful planning and resources to implement securely.</p>
 </section>
 <section id="reflections-on-the-project" class="level2">
 <h2 class="anchored" data-anchor-id="reflections-on-the-project">Reflections on the Project</h2>
-<p>The project went well overall. The initial goals were mostly achieved, alt</p>
+<p>Throughout this project, we delved into setting up a Flask API, integrating it with a MySQL database, and crafting complex SQL queries. We learned the ins and outs of handling various HTTP methods, but encountered challenges implementing certain functionalities like PUT and DELETE in our API, recognizing the need for more practice. Collaboration played a pivotal role in our project’s success. As a team, we synchronized our skills, had well time management and tackled challenges together.</p>
 </section>
 </section>
 
